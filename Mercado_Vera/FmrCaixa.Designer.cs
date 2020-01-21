@@ -1,7 +1,7 @@
 ﻿namespace Mercado_Vera
 {
     partial class FmrCaixa
-    {
+    {                  ///TESTE UP DADOS
         /// <summary>
         /// Required designer variable.
         /// </summary>
