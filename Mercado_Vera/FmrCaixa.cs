@@ -21,5 +21,10 @@ namespace Mercado_Vera
         {
 
         }
+
+        private void FmrCaixa_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
