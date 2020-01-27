@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mercado_Vera.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,27 @@ namespace Mercado_Vera.Entity
 
         public Produto(string cod, string nome, string preco, string precoVenda, string qtd, string qtdMin, string marca, string subCate)
         {
+            if(nome == "")
+            {
+                throw  new DomainExceptions("O nome do produto deve ser preenchido!");
+            }
+            if (preco == "")
+            {
+                throw new DomainExceptions("O preço de custo do produto deve ser preenchido!");
+            }
+            if (precoVenda == "")
+            {
+                throw new DomainExceptions("O preço de venda do produto deve ser preenchido!");
+            }
+            if (qtd == "")
+            {
+                throw new DomainExceptions("A quantidade do produto deve ser preenchida!");
+            }
+            if (subCate == "")
+            {
+                throw new DomainExceptions("A categoria do produto deve ser preenchida!");
+            }
+
             Cod = cod;
             Nome = nome;
             Preco = decimal.Parse(preco);

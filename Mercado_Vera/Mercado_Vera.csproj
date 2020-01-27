@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Dao\DaoProduto.cs" />
     <Compile Include="Entity\Produto.cs" />
+    <Compile Include="Exceptions\DomainExceptions.cs" />
     <Compile Include="FmrCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
