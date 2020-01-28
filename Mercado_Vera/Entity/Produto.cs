@@ -18,12 +18,13 @@ namespace Mercado_Vera.Entity
         public int QtdMin { get; set; }
         public string Marca { get; set; }
         public int SubCate { get; set; }
+        public int FornId { get; set; }
 
         public Produto()
         {
         }
 
-        public Produto(string cod, string nome, string preco, string precoVenda, string qtd, string qtdMin, string marca, string subCate)
+        public Produto(string cod, string nome, string preco, string precoVenda, string qtd, string qtdMin, string marca, string subCate, string fornId)
         {
             if(nome == "")
             {
@@ -45,6 +46,14 @@ namespace Mercado_Vera.Entity
             {
                 throw new DomainExceptions("A categoria do produto deve ser preenchida!");
             }
+            if (qtdMin == "")
+            {
+                qtdMin = "0";
+            }
+            if (fornId == "")
+            {
+                fornId = "0";
+            }
 
             Cod = cod;
             Nome = nome;
@@ -54,6 +63,7 @@ namespace Mercado_Vera.Entity
             QtdMin = int.Parse(qtdMin);
             Marca = marca;
             SubCate = int.Parse(subCate);
+            FornId = int.Parse(fornId);
         }
     }
 }

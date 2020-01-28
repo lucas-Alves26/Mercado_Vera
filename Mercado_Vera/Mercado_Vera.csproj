@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\DaoFornecedor.cs" />
     <Compile Include="Dao\DaoProduto.cs" />
     <Compile Include="Entity\Produto.cs" />
     <Compile Include="Exceptions\DomainExceptions.cs" />

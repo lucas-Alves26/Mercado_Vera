@@ -22,8 +22,8 @@ namespace Mercado_Vera.Dao
         {
             //VERIFICA SE NÃO EXISTE NEM PRODUTO COM ESSE COD OU NOME CADASTRADO.
             string query = "SELECT COUNT(*) AS NUMERO FROM TBL_PRODUTO WHERE PROD_COD = '"+produto.Cod+ "' OR PROD_NOME = '"+produto.Nome+"'";
-            SqlDataReader dt = conexao.CarregarVariosDados(query);
-            string numero = dt["NUMERO"].ToString();
+            SqlDataReader dr = conexao.CarregarVariosDados(query);
+            string numero = dr["NUMERO"].ToString();
 
             //SE O NUMERO FOR IGUAL A "1" É QUE JÁ EXISTE UM PRODUTO CADASTRADO COM ESSE NOME OU CÓDIGO
             if (int.Parse(numero) >= 1)
@@ -42,9 +42,19 @@ namespace Mercado_Vera.Dao
 
                 cmd1.Parameters.Add(new SqlParameter("@CODBARRA", produto.Cod));
                 cmd1.Parameters.Add(new SqlParameter("@NOME", produto.Nome));
-                cmd1.Parameters.Add(new SqlParameter("@MARCA", produto.Marca));
+
+                if(produto.Marca == "")
+                    cmd1.Parameters.Add(new SqlParameter("@MARCA", DBNull.Value));                
+                else               
+                    cmd1.Parameters.Add(new SqlParameter("@MARCA", produto.Marca));
+                
                 cmd1.Parameters.Add(new SqlParameter("@QTD", produto.Qtd));
-                cmd1.Parameters.Add(new SqlParameter("@QTDMIN", produto.QtdMin));
+
+                if(produto.QtdMin == 0)
+                    cmd1.Parameters.Add(new SqlParameter("@QTDMIN", DBNull.Value));
+                else
+                    cmd1.Parameters.Add(new SqlParameter("@QTDMIN", produto.QtdMin));
+
                 cmd1.Parameters.Add(new SqlParameter("@PRECO", produto.Preco));
                 cmd1.Parameters.Add(new SqlParameter("@PRECOVENDA", produto.PrecoVenda));
                 cmd1.Parameters.Add(new SqlParameter("@CAT_ID", produto.SubCate));
@@ -56,9 +66,11 @@ namespace Mercado_Vera.Dao
                 {
                     cmd1.Transaction = tran;
                     cmd1.ExecuteNonQuery();
-                    //cmd2.Transaction = tran;
-                    //cmd2.ExecuteNonQuery();
+                    //metodo que insere idprod e idforn na tabela Prod_Forn                    
                     tran.Commit();
+
+                    RelaciIdProdForn();
+
                 }
                 catch (Exception)
                 {
@@ -68,6 +80,8 @@ namespace Mercado_Vera.Dao
                 {
                     con.Close();
                 }
+
+                
             }
         }
         //METODO PARA PREENCHER O COMBOX CATEGORIA
@@ -81,7 +95,20 @@ namespace Mercado_Vera.Dao
             string query = "SELECT DISTINCT PROD_MARCA FROM TBL_PRODUTO";
             return conexao.CarregarDados(query);
         }
-        //
+
+        public void RelaciIdProdForn()
+        {
+            //Traz o ultimo ID do produto para fazer o relacionamento
+            string SQLquery = "SELECT MAX(PROD_ID) AS ID FROM TBL_PRODUTO";
+            //Armazena o ID
+            string prodId = conexao.SelecioneId(SQLquery);
+            if(produto.FornId ==0)
+                SQLquery = "INSERT INTO TBL_PROD_FORN(PROD_ID, FOR_ID)VALUES('"+prodId+"','"+ DBNull.Value+ "')";
+            else
+                SQLquery = "INSERT INTO TBL_PROD_FORN(PROD_ID, FOR_ID)VALUES('" + prodId + "','" + produto.FornId + "')";
+
+            conexao.ExecutaInstrucaoNaBase(SQLquery);
+        }
 
     }
 }

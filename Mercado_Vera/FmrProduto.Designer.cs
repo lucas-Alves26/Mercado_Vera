@@ -182,6 +182,7 @@
             this.cbxFornecedor.Name = "cbxFornecedor";
             this.cbxFornecedor.Size = new System.Drawing.Size(241, 26);
             this.cbxFornecedor.TabIndex = 28;
+            this.cbxFornecedor.Click += new System.EventHandler(this.cbxFornecedor_Click);
             // 
             // cbxCategoria
             // 

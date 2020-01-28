@@ -17,6 +17,14 @@ namespace dllDao
             con.ConnectionString = @"Data Source=DESKTOP-LUCAS\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
         }
 
+        public SqlConnection Connection()
+        {
+            SqlConnection connection = new SqlConnection(StrConexao());
+            return connection;
+        }
+
+
+
         //se a conexao estiver fechada vai abrir a conexao
         public SqlConnection conectar()
         {          
@@ -121,6 +129,24 @@ namespace dllDao
             string query = "SELECT EMP_INT_ID, EMP_STR_NOME FROM TBL_EMPRESA";
             DataTable dt = CarregarDados(query);
             return dt;
+        }
+
+        //Retorna apenas o ID
+        public string SelecioneId(string query)
+        {
+            string id;
+            Conexao conexao = new Conexao();
+            string Sqlquery = query;
+
+            SqlConnection con = new SqlConnection(conexao.StrConexao());
+            SqlCommand sqlCommand = new SqlCommand(Sqlquery, con);
+
+            con.Open();
+
+            id = sqlCommand.ExecuteScalar().ToString();
+
+            con.Close();
+            return id;
         }
     }
 }
