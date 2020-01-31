@@ -87,14 +87,79 @@ namespace Mercado_Vera.Dao
         //METODO PARA PREENCHER O COMBOX CATEGORIA
         public DataTable SelectCategoria()
         {
-            string query = "SELECT SUB_CAT_ID, SUB_CAT_TIPO FROM TBL_SUB_CATEGORIA ";
+            string query = "SELECT SUB_CAT_ID, SUB_CAT_TIPO FROM TBL_SUB_CATEGORIA ORDER BY SUB_CAT_TIPO ASC";
             return conexao.CarregarDados(query);
         }
+        //METODO PARA EXCLUIR PRODUTO
+        public void DeleteProd()
+        {
+         
+            SqlConnection con = new SqlConnection(conexao.StrConexao());
+
+            SqlCommand cmd1 = con.CreateCommand();
+            SqlCommand cmd2 = con.CreateCommand();
+  
+            cmd1.CommandText = "DELETE TBL_PROD_FORN WHERE PROD_ID =" + produto.Id.ToString();
+            cmd2.CommandText = "DELETE TBL_PRODUTO WHERE PROD_ID = " + produto.Id.ToString();
+
+           
+            con.Open();
+
+            SqlTransaction tran = con.BeginTransaction();
+
+            try
+            {
+                cmd1.Transaction = tran;
+                cmd1.ExecuteNonQuery();
+                cmd2.Transaction = tran;
+                cmd2.ExecuteNonQuery();
+
+                tran.Commit();
+            }
+            catch (Exception)
+            {
+                tran.Rollback();
+
+                throw new DomainExceptions("Erro, ao excluir o produto");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public DataTable SelectMarca()
         {
-            string query = "SELECT DISTINCT PROD_MARCA FROM TBL_PRODUTO";
+            string query = "SELECT DISTINCT PROD_MARCA FROM TBL_PRODUTO WHERE PROD_MARCA IS NOT NULL ORDER BY PROD_MARCA ASC";
             return conexao.CarregarDados(query);
         }
+        public DataTable SelectProdDel(string busca)
+        {
+            string query="";
+
+            if (busca == "")
+            {
+                query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA FROM  TBL_PRODUTO AS P "
+                     + "ORDER BY PROD_NOME ASC";
+            }
+
+            else if (busca != "")
+            {
+                query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_VALOR_VENDA, P.PROD_QTD, P.PROD_QTD_MIN, P.PROD_MARCA FROM  TBL_PRODUTO AS P " +
+                "WHERE P.PROD_MARCA = '" + busca + "' ORDER BY PROD_NOME ASC";
+            }
+            return conexao.CarregarDados(query);
+        }
+
+        //public DataTable SelecaoProd()
+        //{
+        //    string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA FROM  TBL_PRODUTO AS P "
+        //         + "ORDER BY PROD_NOME ASC";
+        //    return conexao.CarregarDados(query);
+        //}
+
+
+
 
         public void RelaciIdProdForn()
         {
@@ -103,11 +168,18 @@ namespace Mercado_Vera.Dao
             //Armazena o ID
             string prodId = conexao.SelecioneId(SQLquery);
             if(produto.FornId ==0)
-                SQLquery = "INSERT INTO TBL_PROD_FORN(PROD_ID, FOR_ID)VALUES('"+prodId+"','"+ DBNull.Value+ "')";
+                SQLquery = "INSERT INTO TBL_PROD_FORN(PROD_ID, FOR_ID)VALUES('"+prodId+"', NULL)";
             else
                 SQLquery = "INSERT INTO TBL_PROD_FORN(PROD_ID, FOR_ID)VALUES('" + prodId + "','" + produto.FornId + "')";
 
             conexao.ExecutaInstrucaoNaBase(SQLquery);
+        }
+        public SqlDataReader TrazTodosId()
+        {
+            string query = "";
+
+            SqlDataReader dr = conexao.CarregarVariosDados(query);
+            return dr;
         }
 
     }

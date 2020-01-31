@@ -103,7 +103,7 @@
             // 
             // BtnPesq
             // 
-            this.BtnPesq.Location = new System.Drawing.Point(209, 25);
+            this.BtnPesq.Location = new System.Drawing.Point(201, 25);
             this.BtnPesq.Name = "BtnPesq";
             this.BtnPesq.Size = new System.Drawing.Size(75, 23);
             this.BtnPesq.TabIndex = 1;

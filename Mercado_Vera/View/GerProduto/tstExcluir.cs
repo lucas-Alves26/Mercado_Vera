@@ -1,0 +1,102 @@
+﻿using Mercado_Vera.Dao;
+using Mercado_Vera.Entity;
+using Mercado_Vera.Exceptions;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Mercado_Vera.View.GerProduto
+{
+    public partial class tstExcluir : Form
+    {
+        string id;
+        string busca = "";
+
+        DaoProduto daoProd = new DaoProduto();
+        public tstExcluir()
+        {
+           
+            InitializeComponent();
+
+            DgExcluir.DataSource = daoProd.SelectProdDel(busca);
+        }
+
+        private void tstExcluir_Load(object sender, EventArgs e)
+        {     
+        }
+
+        private void DgExcluir_DoubleClick(object sender, EventArgs e)
+        {           
+                this.txtCodigoEx.Text = Convert.ToString(this.DgExcluir.CurrentRow.Cells["PROD_COD"].Value);
+                this.txtNomeEx.Text = Convert.ToString(this.DgExcluir.CurrentRow.Cells["PROD_NOME"].Value);
+                id = Convert.ToString(this.DgExcluir.CurrentRow.Cells["PROD_ID"].Value);
+        }
+
+        private void BtnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                daoProd.produto = new Produto(id);
+                DialogResult confirm = MessageBox.Show("Deseja Continuar?", "Excluir Arquivo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+
+                if (confirm.ToString().ToUpper() == "YES")
+                {
+                    daoProd.DeleteProd();
+                    DgExcluir.DataSource = daoProd.SelectProdDel(busca);
+                    MessageBox.Show("Produto Excluido com sucesso!");
+                }
+            }
+            catch (DomainExceptions ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void comboBox1_Click(object sender, EventArgs e)
+        {
+            cbxMarca.ValueMember = "PROD_MARCA";
+            cbxMarca.DisplayMember = "PROD_MARCA";
+            cbxMarca.DataSource = daoProd.SelectMarca();// carrega a coluna EST_STR_MARCA dentro cbx
+            busca = cbxMarca.SelectedValue.ToString();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            busca = cbxMarca.SelectedValue.ToString();
+            DgExcluir.DataSource = daoProd.SelectProdDel(busca);
+        }
+
+        private void DgExcluir_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtNomeEx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxMarca_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void cbxMarca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (cbxMarca.Text == null)
+                busca = "";
+            DgExcluir.DataSource = daoProd.SelectProdDel(busca);
+        }
+
+        private void cbxMarca_KeyDown(object sender, KeyEventArgs e)
+        {
+   
+        }
+    }
+}

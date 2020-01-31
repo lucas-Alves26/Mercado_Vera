@@ -24,6 +24,11 @@ namespace Mercado_Vera.Entity
         {
         }
 
+        public Produto(string id = "0")
+        {
+            Id = int.Parse(id);
+        }
+
         public Produto(string cod, string nome, string preco, string precoVenda, string qtd, string qtdMin, string marca, string subCate, string fornId)
         {
             if(nome == "")
