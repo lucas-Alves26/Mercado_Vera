@@ -145,18 +145,18 @@ namespace Mercado_Vera.Dao
 
             else if (busca != "")
             {
-                query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_VALOR_VENDA, P.PROD_QTD, P.PROD_QTD_MIN, P.PROD_MARCA FROM  TBL_PRODUTO AS P " +
+                query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME, P.PROD_VALOR_VENDA, P.PROD_QTD, P.PROD_MARCA FROM  TBL_PRODUTO AS P " +
                 "WHERE P.PROD_MARCA = '" + busca + "' ORDER BY PROD_NOME ASC";
             }
             return conexao.CarregarDados(query);
         }
 
-        //public DataTable SelecaoProd()
-        //{
-        //    string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA FROM  TBL_PRODUTO AS P "
-        //         + "ORDER BY PROD_NOME ASC";
-        //    return conexao.CarregarDados(query);
-        //}
+        public DataTable SelectProdNome(string nome)
+        {
+            string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA FROM  TBL_PRODUTO AS P " +
+                "WHERE P.PROD_NOME LIKE '"+nome+"%' ORDER BY PROD_NOME ASC";
+            return conexao.CarregarDados(query);
+        }
 
 
 

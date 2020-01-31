@@ -98,5 +98,23 @@ namespace Mercado_Vera.View.GerProduto
         {
    
         }
+
+        private void txtNomeEx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            busca = txtNomeEx.Text;
+            DgExcluir.DataSource = daoProd.SelectProdNome(busca);
+        }
+
+        private void txtNomeEx_KeyUp(object sender, KeyEventArgs e)
+        {
+            busca = txtNomeEx.Text;
+            DgExcluir.DataSource = daoProd.SelectProdNome(busca);
+        }
+
+        private void txtNomeEx_KeyDown(object sender, KeyEventArgs e)
+        {
+            busca = txtNomeEx.Text;
+            DgExcluir.DataSource = daoProd.SelectProdNome(busca);
+        }
     }
 }

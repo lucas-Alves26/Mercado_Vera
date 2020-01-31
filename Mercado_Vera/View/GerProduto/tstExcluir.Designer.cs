@@ -165,6 +165,9 @@
             this.txtNomeEx.Size = new System.Drawing.Size(259, 24);
             this.txtNomeEx.TabIndex = 16;
             this.txtNomeEx.TextChanged += new System.EventHandler(this.txtNomeEx_TextChanged);
+            this.txtNomeEx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNomeEx_KeyDown);
+            this.txtNomeEx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeEx_KeyPress);
+            this.txtNomeEx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNomeEx_KeyUp);
             // 
             // txtCodigoEx
             // 
