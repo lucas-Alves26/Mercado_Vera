@@ -75,6 +75,7 @@
             // 
             // cbxMarca
             // 
+            this.cbxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMarca.FormattingEnabled = true;
             this.cbxMarca.Items.AddRange(new object[] {
             "\"\""});
@@ -90,7 +91,7 @@
             // 
             // BtnExcluir
             // 
-            this.BtnExcluir.Location = new System.Drawing.Point(415, 372);
+            this.BtnExcluir.Location = new System.Drawing.Point(503, 372);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(75, 23);
             this.BtnExcluir.TabIndex = 18;
@@ -178,6 +179,9 @@
             this.txtCodigoEx.Size = new System.Drawing.Size(134, 24);
             this.txtCodigoEx.TabIndex = 15;
             this.txtCodigoEx.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCodigoEx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoEx_KeyDown);
+            this.txtCodigoEx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoEx_KeyPress);
+            this.txtCodigoEx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCodigoEx_KeyUp);
             // 
             // label2
             // 

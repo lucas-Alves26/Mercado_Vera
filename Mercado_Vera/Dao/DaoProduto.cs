@@ -157,6 +157,12 @@ namespace Mercado_Vera.Dao
                 "WHERE P.PROD_NOME LIKE '"+nome+"%' ORDER BY PROD_NOME ASC";
             return conexao.CarregarDados(query);
         }
+        public DataTable SelectProdCod(string codigo)
+        {
+            string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA FROM  TBL_PRODUTO AS P " +
+                "WHERE P.PROD_COD LIKE '" + codigo + "%' ORDER BY PROD_NOME ASC";
+            return conexao.CarregarDados(query);
+        }
 
 
 
