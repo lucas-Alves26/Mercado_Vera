@@ -20,12 +20,7 @@ namespace Mercado_Vera
             Application.Run(new tstExcluir());
             //FmrProduto
             //FmrCaixa
-<<<<<<< HEAD
-            //tstExcluir
-=======
-            //Teste de nova brench VS CODE 2017..
 
->>>>>>> 055899db342e3453b1f99807c3664063afdbcc5d
         }
     }
 }
