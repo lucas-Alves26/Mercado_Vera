@@ -17,9 +17,11 @@ namespace Mercado_Vera
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new tstExcluir());
+            Application.Run(new FmrPesquisa());
             //FmrProduto
             //FmrCaixa
+            //FmrPesquisa
+            //tstExcluir
 
         }
     }

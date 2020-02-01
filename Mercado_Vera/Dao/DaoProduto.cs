@@ -65,8 +65,7 @@ namespace Mercado_Vera.Dao
                 try
                 {
                     cmd1.Transaction = tran;
-                    cmd1.ExecuteNonQuery();
-                    //metodo que insere idprod e idforn na tabela Prod_Forn                    
+                    cmd1.ExecuteNonQuery();                   
                     tran.Commit();
 
                     RelaciIdProdForn();
@@ -127,12 +126,13 @@ namespace Mercado_Vera.Dao
                 con.Close();
             }
         }
-
+        //METODO QUE SÓ TRAS A MARCA
         public DataTable SelectMarca()
         {
             string query = "SELECT DISTINCT PROD_MARCA FROM TBL_PRODUTO WHERE PROD_MARCA IS NOT NULL ORDER BY PROD_MARCA ASC";
             return conexao.CarregarDados(query);
         }
+        //METODO DE PESQUISA SIMPLES DE PRODUTO 
         public DataTable SelectProdDel(string busca)
         {
             string query="";
@@ -150,22 +150,55 @@ namespace Mercado_Vera.Dao
             }
             return conexao.CarregarDados(query);
         }
-
+        //METODO SIMPLES  QUE BUSCA O PRODUTO PELO NOME
         public DataTable SelectProdNome(string nome)
         {
             string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA FROM  TBL_PRODUTO AS P " +
                 "WHERE P.PROD_NOME LIKE '"+nome+"%' ORDER BY PROD_NOME ASC";
             return conexao.CarregarDados(query);
         }
+        //METODO SIMPLES  QUE BUSCA PRODUTO PELO CÓDIGO 
         public DataTable SelectProdCod(string codigo)
         {
             string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA FROM  TBL_PRODUTO AS P " +
                 "WHERE P.PROD_COD LIKE '" + codigo + "%' ORDER BY PROD_NOME ASC";
             return conexao.CarregarDados(query);
         }
+        public DataTable SelectProdCompleto(string busca)
+        {
+            string query = "";
+            if (busca =="")
+            {
+                query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_VALOR_VENDA, P.PROD_QTD, P.PROD_QTD_MIN, P.PROD_MARCA,F.FOR_NOME_FANT FROM  TBL_PRODUTO AS P"
+                + " INNER JOIN TBL_PROD_FORN AS PF ON PF.PROD_ID = P.PROD_ID"
+                + " INNER JOIN TBL_FORNECEDOR AS F ON F.FOR_ID = PF.FOR_ID"
+                + " ORDER BY PROD_NOME ASC";
+            }
+            else
+            {
+                query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_VALOR_VENDA, P.PROD_QTD, P.PROD_QTD_MIN, P.PROD_MARCA,F.FOR_NOME_FANT FROM  TBL_PRODUTO AS P"
+                + " INNER JOIN TBL_PROD_FORN AS PF ON PF.PROD_ID = P.PROD_ID"
+                + " INNER JOIN TBL_FORNECEDOR AS F ON F.FOR_ID = PF.FOR_ID WHERE P.PROD_MARCA = '"+ busca +"' "
+                + " ORDER BY PROD_NOME ASC";
+            }
 
-
-
+            return conexao.CarregarDados(query);
+        }
+        public DataTable SelectProdNomeCompl(string nome)
+        {
+            string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_VALOR_VENDA, P.PROD_QTD, P.PROD_QTD_MIN, P.PROD_MARCA,F.FOR_NOME_FANT FROM  TBL_PRODUTO AS P"
+               + " INNER JOIN TBL_PROD_FORN AS PF ON PF.PROD_ID = P.PROD_ID"
+               + " INNER JOIN TBL_FORNECEDOR AS F ON F.FOR_ID = PF.FOR_ID WHERE P.PROD_NOME LIKE '" + nome + "%' ORDER BY PROD_NOME ASC";
+            return conexao.CarregarDados(query);
+        }
+        //METODO SIMPLES  QUE BUSCA PRODUTO PELO CÓDIGO 
+        public DataTable SelectProdCodCompl(string codigo)
+        {
+            string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_VALOR_VENDA, P.PROD_QTD, P.PROD_QTD_MIN, P.PROD_MARCA,F.FOR_NOME_FANT FROM  TBL_PRODUTO AS P"
+               + " INNER JOIN TBL_PROD_FORN AS PF ON PF.PROD_ID = P.PROD_ID"
+               + " INNER JOIN TBL_FORNECEDOR AS F ON F.FOR_ID = PF.FOR_ID WHERE P.PROD_COD LIKE '" + codigo + "%' ORDER BY PROD_NOME ASC";
+            return conexao.CarregarDados(query);
+        }
 
         public void RelaciIdProdForn()
         {
@@ -173,19 +206,10 @@ namespace Mercado_Vera.Dao
             string SQLquery = "SELECT MAX(PROD_ID) AS ID FROM TBL_PRODUTO";
             //Armazena o ID
             string prodId = conexao.SelecioneId(SQLquery);
-            if(produto.FornId ==0)
-                SQLquery = "INSERT INTO TBL_PROD_FORN(PROD_ID, FOR_ID)VALUES('"+prodId+"', NULL)";
-            else
+           
                 SQLquery = "INSERT INTO TBL_PROD_FORN(PROD_ID, FOR_ID)VALUES('" + prodId + "','" + produto.FornId + "')";
 
             conexao.ExecutaInstrucaoNaBase(SQLquery);
-        }
-        public SqlDataReader TrazTodosId()
-        {
-            string query = "";
-
-            SqlDataReader dr = conexao.CarregarVariosDados(query);
-            return dr;
         }
 
     }

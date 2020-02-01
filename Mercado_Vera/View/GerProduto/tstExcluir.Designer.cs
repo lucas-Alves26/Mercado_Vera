@@ -210,7 +210,7 @@
             this.ClientSize = new System.Drawing.Size(590, 504);
             this.Controls.Add(this.panel1);
             this.Name = "tstExcluir";
-            this.Text = "tstExcluir";
+            this.Text = "   ";
             this.Load += new System.EventHandler(this.tstExcluir_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

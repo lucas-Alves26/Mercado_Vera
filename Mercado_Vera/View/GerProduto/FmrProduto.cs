@@ -245,5 +245,10 @@ namespace Mercado_Vera
             cbxFornecedor.DisplayMember = "FOR_NOME_FANT";
             cbxFornecedor.DataSource = DaoForn.SelectForne();
         }
+
+        private void cbxFornecedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+       
+        }
     }
 }

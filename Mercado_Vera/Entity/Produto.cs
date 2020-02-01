@@ -57,7 +57,7 @@ namespace Mercado_Vera.Entity
             }
             if (fornId == "")
             {
-                fornId = "0";
+                fornId = "1";
             }
 
             Cod = cod;

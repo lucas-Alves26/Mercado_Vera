@@ -14,7 +14,7 @@ namespace Mercado_Vera.Dao
 
         public DataTable SelectForne()
         {
-            string query = "SELECT DISTINCT FOR_ID, FOR_NOME_FANT FROM TBL_FORNECEDOR";
+            string query = "SELECT DISTINCT FOR_ID, FOR_NOME_FANT FROM TBL_FORNECEDOR ORDER BY FOR_NOME_FANT ASC ";
             return conexao.CarregarDados(query);
         }
     }

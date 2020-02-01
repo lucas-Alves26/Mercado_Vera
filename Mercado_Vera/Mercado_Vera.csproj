@@ -56,6 +56,12 @@
     <Compile Include="FmrCaixa.Designer.cs">
       <DependentUpon>FmrCaixa.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GerProduto\FmrPesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerProduto\FmrPesquisa.Designer.cs">
+      <DependentUpon>FmrPesquisa.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GerProduto\FmrProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <EmbeddedResource Include="FmrCaixa.resx">
       <DependentUpon>FmrCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GerProduto\FmrPesquisa.resx">
+      <DependentUpon>FmrPesquisa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GerProduto\FmrProduto.resx">
       <DependentUpon>FmrProduto.cs</DependentUpon>
