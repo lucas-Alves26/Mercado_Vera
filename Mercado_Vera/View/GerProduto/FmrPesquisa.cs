@@ -120,5 +120,15 @@ namespace Mercado_Vera.View.GerProduto
             this.txtNomePes.Text = Convert.ToString(this.DgPesquisa.CurrentRow.Cells["PROD_NOME"].Value);
             id = Convert.ToString(this.DgPesquisa.CurrentRow.Cells["PROD_ID"].Value);
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (id != null)
+            {
+                FmrEditar editar = new FmrEditar();
+                editar.GetId(id);
+                editar.Show();
+            }
+        }
     }
 }

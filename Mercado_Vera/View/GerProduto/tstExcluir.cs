@@ -36,7 +36,7 @@ namespace Mercado_Vera.View.GerProduto
             //ao clicar duas vezes passa codigo, nome e id para os txtbox
                 this.txtCodigoEx.Text = Convert.ToString(this.DgExcluir.CurrentRow.Cells["PROD_COD"].Value);
                 this.txtNomeEx.Text = Convert.ToString(this.DgExcluir.CurrentRow.Cells["PROD_NOME"].Value);
-                id = Convert.ToString(this.DgExcluir.CurrentRow.Cells["PROD_ID"].Value);
+                id = Convert.ToString(this.DgExcluir.CurrentRow.Cells["PROD_ID"].Value); 
         }
 
         private void BtnExcluir_Click(object sender, EventArgs e)

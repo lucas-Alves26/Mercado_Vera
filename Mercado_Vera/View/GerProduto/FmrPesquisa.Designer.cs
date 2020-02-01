@@ -45,9 +45,14 @@
             this.PROD_MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FOR_NOME_FANT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BtnEditar = new System.Windows.Forms.Button();
+            this.BtnNovo = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgPesquisa)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -131,9 +136,9 @@
             this.PROD_QTD_MIN,
             this.PROD_MARCA,
             this.FOR_NOME_FANT});
-            this.DgPesquisa.Location = new System.Drawing.Point(15, 87);
+            this.DgPesquisa.Location = new System.Drawing.Point(13, 25);
             this.DgPesquisa.Name = "DgPesquisa";
-            this.DgPesquisa.Size = new System.Drawing.Size(797, 308);
+            this.DgPesquisa.Size = new System.Drawing.Size(799, 319);
             this.DgPesquisa.TabIndex = 27;
             this.DgPesquisa.DoubleClick += new System.EventHandler(this.DgPesquisa_DoubleClick);
             // 
@@ -196,6 +201,7 @@
             this.FOR_NOME_FANT.DataPropertyName = "FOR_NOME_FANT";
             this.FOR_NOME_FANT.HeaderText = "Fornecedor";
             this.FOR_NOME_FANT.Name = "FOR_NOME_FANT";
+            this.FOR_NOME_FANT.Width = 104;
             // 
             // groupBox1
             // 
@@ -205,29 +211,60 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbxMarcaPes);
             this.groupBox1.Controls.Add(this.txtCodigoPes);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(13, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(676, 69);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             // 
-            // BtnEditar
+            // BtnNovo
             // 
-            this.BtnEditar.Location = new System.Drawing.Point(736, 415);
-            this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(75, 23);
-            this.BtnEditar.TabIndex = 29;
-            this.BtnEditar.Text = "Editar";
-            this.BtnEditar.UseVisualStyleBackColor = true;
+            this.BtnNovo.Location = new System.Drawing.Point(28, 377);
+            this.BtnNovo.Name = "BtnNovo";
+            this.BtnNovo.Size = new System.Drawing.Size(75, 23);
+            this.BtnNovo.TabIndex = 29;
+            this.BtnNovo.Text = "Novo";
+            this.BtnNovo.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(823, 90);
+            this.panel1.TabIndex = 33;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel2.Controls.Add(this.btnEditar);
+            this.panel2.Controls.Add(this.DgPesquisa);
+            this.panel2.Controls.Add(this.BtnNovo);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 90);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(823, 438);
+            this.panel2.TabIndex = 34;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(134, 376);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 30;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // FmrPesquisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 450);
-            this.Controls.Add(this.BtnEditar);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.DgPesquisa);
+            this.ClientSize = new System.Drawing.Size(823, 528);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "FmrPesquisa";
             this.Text = " ";
             this.Load += new System.EventHandler(this.FmrPesquisa_Load);
@@ -235,6 +272,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgPesquisa)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -249,7 +288,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DgPesquisa;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button BtnEditar;
+        private System.Windows.Forms.Button BtnNovo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn PROD_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PROD_COD;
         private System.Windows.Forms.DataGridViewTextBoxColumn PROD_NOME;
@@ -259,5 +300,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PROD_QTD_MIN;
         private System.Windows.Forms.DataGridViewTextBoxColumn PROD_MARCA;
         private System.Windows.Forms.DataGridViewTextBoxColumn FOR_NOME_FANT;
+        private System.Windows.Forms.Button btnEditar;
     }
 }

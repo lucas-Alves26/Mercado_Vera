@@ -17,7 +17,7 @@ namespace Mercado_Vera.Dao
 
         public Conexao conexao = new Conexao();
 
-        //metodo para cadastrar o produto
+        //metodo para cadastrar o produt o
         public void CadastroProd()
         {
             //VERIFICA SE NÃO EXISTE NEM PRODUTO COM ESSE COD OU NOME CADASTRADO.
@@ -198,6 +198,15 @@ namespace Mercado_Vera.Dao
                + " INNER JOIN TBL_PROD_FORN AS PF ON PF.PROD_ID = P.PROD_ID"
                + " INNER JOIN TBL_FORNECEDOR AS F ON F.FOR_ID = PF.FOR_ID WHERE P.PROD_COD LIKE '" + codigo + "%' ORDER BY PROD_NOME ASC";
             return conexao.CarregarDados(query);
+        }
+        public SqlDataReader SelectProdCompletoId(string id)
+        {
+           string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_VALOR_VENDA, P.PROD_QTD, P.PROD_QTD_MIN, P.PROD_MARCA,F.FOR_NOME_FANT, S.SUB_CAT_TIPO FROM  TBL_PRODUTO AS P "
+           +" INNER JOIN TBL_PROD_FORN AS PF ON PF.PROD_ID = P.PROD_ID"
+           +" INNER JOIN TBL_SUB_CATEGORIA AS S ON S.SUB_CAT_ID = P.SUB_CAT_ID"
+           +" INNER JOIN TBL_FORNECEDOR AS F ON F.FOR_ID = PF.FOR_ID WHERE P.PROD_ID =" + id;
+
+            return conexao.CarregarVariosDados(query);
         }
 
         public void RelaciIdProdForn()
