@@ -58,6 +58,7 @@ namespace Mercado_Vera.Dao
                 cmd1.Parameters.Add(new SqlParameter("@PRECO", produto.Preco));
                 cmd1.Parameters.Add(new SqlParameter("@PRECOVENDA", produto.PrecoVenda));
                 cmd1.Parameters.Add(new SqlParameter("@CAT_ID", produto.SubCate));
+        
 
                 con.Open();
                 SqlTransaction tran = con.BeginTransaction();
@@ -127,6 +128,74 @@ namespace Mercado_Vera.Dao
             }
         }
         //METODO QUE SÓ TRAS A MARCA
+        public void EditarProd(string id)
+        {
+            //string prodId, cateId, fonrId;
+
+            //// variavel tipo DataReader recebendo todos os ID
+            //SqlDataReader dr = TrazTodosId();
+
+            ////Passando os ID para as Variaveis
+            //prodId = dr["PROD_ID"].ToString();
+            ////cateId = dr["SUB_CAT_ID"].ToString();
+            ////fonrId = dr["FOR_ID"].ToString();
+
+            SqlConnection con = new SqlConnection(conexao.StrConexao());
+
+            SqlCommand cmd1 = con.CreateCommand();
+            SqlCommand cmd2 = con.CreateCommand();
+
+
+            cmd1.CommandText = "UPDATE TBL_PRODUTO SET PROD_COD= @CODBARRA, PROD_NOME = @NOME,PROD_VALOR = @PRECO, PROD_VALOR_VENDA = @PRECOVENDA, PROD_QTD = @QTD,PROD_QTD_MIN= @QTDMIN, PROD_MARCA = @MARCA, SUB_CAT_ID = @CAT_ID WHERE PROD_ID = @ID";
+            cmd2.CommandText = "UPDATE TBL_PROD_FORN SET FOR_ID = @FORNID WHERE  PROD_ID = @ID";
+
+            cmd1.Parameters.Add(new SqlParameter("@ID", produto.Id));
+            cmd1.Parameters.Add(new SqlParameter("@CODBARRA", produto.Cod));
+            cmd1.Parameters.Add(new SqlParameter("@NOME", produto.Nome));
+
+            if (produto.Marca == "")
+                cmd1.Parameters.Add(new SqlParameter("@MARCA", DBNull.Value));
+            else
+                cmd1.Parameters.Add(new SqlParameter("@MARCA", produto.Marca));
+
+            cmd1.Parameters.Add(new SqlParameter("@QTD", produto.Qtd));
+
+            if (produto.QtdMin == 0)
+                cmd1.Parameters.Add(new SqlParameter("@QTDMIN", DBNull.Value));
+            else
+                cmd1.Parameters.Add(new SqlParameter("@QTDMIN", produto.QtdMin));
+
+            cmd1.Parameters.Add(new SqlParameter("@PRECO", produto.Preco));
+            cmd1.Parameters.Add(new SqlParameter("@PRECOVENDA", produto.PrecoVenda));
+            cmd1.Parameters.Add(new SqlParameter("@CAT_ID", produto.SubCate));
+            //--------------
+            cmd2.Parameters.Add(new SqlParameter("@FORNID", produto.FornId));
+            cmd2.Parameters.Add(new SqlParameter("@ID", produto.Id));
+
+
+            try
+            {
+                con.Open();
+
+                SqlTransaction tran = con.BeginTransaction();
+
+                cmd1.Transaction = tran;
+                cmd1.ExecuteNonQuery();
+                cmd2.Transaction = tran;
+                cmd2.ExecuteNonQuery();
+
+                tran.Commit();
+
+            }
+            catch (DomainExceptions)
+            {
+                throw new DomainExceptions("Erro ao atualizar dados do produto!");
+            }
+            finally
+            {
+                con.Close();
+            }      
+    }
         public DataTable SelectMarca()
         {
             string query = "SELECT DISTINCT PROD_MARCA FROM TBL_PRODUTO WHERE PROD_MARCA IS NOT NULL ORDER BY PROD_MARCA ASC";
@@ -201,14 +270,26 @@ namespace Mercado_Vera.Dao
         }
         public SqlDataReader SelectProdCompletoId(string id)
         {
-           string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_VALOR_VENDA, P.PROD_QTD, P.PROD_QTD_MIN, P.PROD_MARCA,F.FOR_NOME_FANT, S.SUB_CAT_TIPO FROM  TBL_PRODUTO AS P "
-           +" INNER JOIN TBL_PROD_FORN AS PF ON PF.PROD_ID = P.PROD_ID"
+           string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_VALOR_VENDA, P.PROD_QTD, P.PROD_QTD_MIN, P.PROD_MARCA,F.FOR_NOME_FANT, S.SUB_CAT_TIPO, S.SUB_CAT_ID, F.FOR_ID FROM  TBL_PRODUTO AS P "
+           + " INNER JOIN TBL_PROD_FORN AS PF ON PF.PROD_ID = P.PROD_ID"
            +" INNER JOIN TBL_SUB_CATEGORIA AS S ON S.SUB_CAT_ID = P.SUB_CAT_ID"
            +" INNER JOIN TBL_FORNECEDOR AS F ON F.FOR_ID = PF.FOR_ID WHERE P.PROD_ID =" + id;
 
             return conexao.CarregarVariosDados(query);
         }
+        //METODO QUE TRAZ TODOS OS ID
+        public SqlDataReader TrazTodosId()
+        {
+            string query = "SELECT P.PROD_ID, S.SUB_CAT_ID, F.FOR_ID FROM  TBL_PRODUTO AS P"
+            +" INNER JOIN TBL_PROD_FORN AS PF ON PF.PROD_ID = P.PROD_ID"
+            +" INNER JOIN TBL_SUB_CATEGORIA AS S ON S.SUB_CAT_ID = P.SUB_CAT_ID"
+            +" INNER JOIN TBL_FORNECEDOR AS F ON F.FOR_ID = PF.FOR_ID"
+            +" WHERE P.PROD_ID =" + produto.Id;
 
+            SqlDataReader dr = conexao.CarregarVariosDados(query);
+
+            return dr;
+        }
         public void RelaciIdProdForn()
         {
             //Traz o ultimo ID do produto para fazer o relacionamento

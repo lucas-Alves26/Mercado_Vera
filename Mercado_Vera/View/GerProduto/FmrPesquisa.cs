@@ -1,5 +1,6 @@
 ﻿using Mercado_Vera.Dao;
 using Mercado_Vera.Entity;
+using Mercado_Vera.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,8 @@ namespace Mercado_Vera.View.GerProduto
         public FmrPesquisa()
         {
             InitializeComponent();
+
+           
         }
 
         private void FmrPesquisa_Load(object sender, EventArgs e)
@@ -125,9 +128,48 @@ namespace Mercado_Vera.View.GerProduto
         {
             if (id != null)
             {
+                this.Visible = false;
+
                 FmrEditar editar = new FmrEditar();
                 editar.GetId(id);
-                editar.Show();
+                editar.ShowDialog();
+
+                this.Visible = true;
+            }
+        }
+
+        private void BtnNovo_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+
+            FmrProduto produto = new FmrProduto();
+            produto.ShowDialog();
+
+            this.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DgPesquisa.DataSource = daoProd.SelectProdCompleto(busca = "");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                daoProd.produto = new Produto(id);
+                DialogResult confirm = MessageBox.Show("Deseja Continuar?", "Excluir Arquivo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+
+                if (confirm.ToString().ToUpper() == "YES")
+                {
+                    daoProd.DeleteProd();
+                    DgPesquisa.DataSource = daoProd.SelectProdNomeCompl(busca);
+                    MessageBox.Show("Produto Excluido com sucesso!");
+                }
+            }
+            catch (DomainExceptions ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

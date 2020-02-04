@@ -56,12 +56,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -84,12 +86,13 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(478, 376);
+            this.btnSalvar.Location = new System.Drawing.Point(478, 374);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 51;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // groupBox4
             // 
@@ -212,7 +215,7 @@
             // txtQtdMin
             // 
             this.txtQtdMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQtdMin.Location = new System.Drawing.Point(131, 34);
+            this.txtQtdMin.Location = new System.Drawing.Point(150, 34);
             this.txtQtdMin.MaxLength = 10;
             this.txtQtdMin.Name = "txtQtdMin";
             this.txtQtdMin.Size = new System.Drawing.Size(96, 24);
@@ -223,7 +226,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(128, 13);
+            this.label4.Location = new System.Drawing.Point(147, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 18);
             this.label4.TabIndex = 21;
@@ -235,9 +238,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(13, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 18);
+            this.label3.Size = new System.Drawing.Size(107, 18);
             this.label3.TabIndex = 20;
-            this.label3.Text = "Quantidade:";
+            this.label3.Text = "Qtd. Estoque";
             // 
             // textBox3
             // 
@@ -254,7 +257,7 @@
             this.txtQtd.Location = new System.Drawing.Point(16, 34);
             this.txtQtd.MaxLength = 10;
             this.txtQtd.Name = "txtQtd";
-            this.txtQtd.Size = new System.Drawing.Size(95, 24);
+            this.txtQtd.Size = new System.Drawing.Size(104, 24);
             this.txtQtd.TabIndex = 14;
             this.txtQtd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -352,11 +355,23 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel2.Controls.Add(this.label10);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(590, 54);
             this.panel2.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Transparent;
+            this.label10.Location = new System.Drawing.Point(178, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(212, 25);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "EDITAR PRODUTO";
             // 
             // FmrEditar
             // 
@@ -367,6 +382,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FmrEditar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar produto";
             this.Load += new System.EventHandler(this.FmrEditar_Load);
             this.panel1.ResumeLayout(false);
@@ -379,6 +395,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -413,5 +431,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label10;
     }
 }

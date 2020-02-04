@@ -56,6 +56,8 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.PnlProd.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -67,10 +69,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(590, 85);
+            this.panel1.Size = new System.Drawing.Size(590, 59);
             this.panel1.TabIndex = 8;
             // 
             // PnlProd
@@ -85,9 +88,9 @@
             this.PnlProd.Controls.Add(this.txtCodigo);
             this.PnlProd.Controls.Add(this.label2);
             this.PnlProd.Controls.Add(this.label1);
-            this.PnlProd.Location = new System.Drawing.Point(0, 85);
+            this.PnlProd.Location = new System.Drawing.Point(0, 57);
             this.PnlProd.Name = "PnlProd";
-            this.PnlProd.Size = new System.Drawing.Size(590, 419);
+            this.PnlProd.Size = new System.Drawing.Size(590, 447);
             this.PnlProd.TabIndex = 9;
             this.PnlProd.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -370,6 +373,17 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Cód. Barra:";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Transparent;
+            this.label10.Location = new System.Drawing.Point(137, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(292, 25);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "CADASTRO DE PRODUTO";
+            // 
             // FmrProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,8 +392,11 @@
             this.Controls.Add(this.PnlProd);
             this.Controls.Add(this.panel1);
             this.Name = "FmrProduto";
-            this.Text = "Produto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastro produto";
             this.Load += new System.EventHandler(this.FmrProduto_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.PnlProd.ResumeLayout(false);
             this.PnlProd.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -424,5 +441,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label10;
     }
 }
