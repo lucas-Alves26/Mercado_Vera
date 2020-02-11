@@ -43,6 +43,7 @@ namespace Mercado_Vera.View.GerProduto
             
             PopularCategoria();
             PopularFornecedor();
+            PopularMarca();
             SqlDataReader dt;
 
             dt = daoProd.SelectProdCompletoId(id);
@@ -62,7 +63,6 @@ namespace Mercado_Vera.View.GerProduto
         private void cbxMarca_Click(object sender, EventArgs e)
         {
             PopularMarca();
-            cbxMarca.DataSource = daoProd.SelectMarca();// carrega a coluna EST_STR_NOME dentro cbx
         }
 
         private void cbxCategoria_Click(object sender, EventArgs e)
@@ -114,6 +114,12 @@ namespace Mercado_Vera.View.GerProduto
         {
             cbxMarca.ValueMember = "PROD_MARCA";
             cbxMarca.DisplayMember = "PROD_MARCA";
+            cbxMarca.DataSource = daoProd.SelectMarca();
+        }
+
+        private void cbxMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

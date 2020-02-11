@@ -130,15 +130,6 @@ namespace Mercado_Vera.Dao
         //METODO QUE SÓ TRAS A MARCA
         public void EditarProd(string id)
         {
-            //string prodId, cateId, fonrId;
-
-            //// variavel tipo DataReader recebendo todos os ID
-            //SqlDataReader dr = TrazTodosId();
-
-            ////Passando os ID para as Variaveis
-            //prodId = dr["PROD_ID"].ToString();
-            ////cateId = dr["SUB_CAT_ID"].ToString();
-            ////fonrId = dr["FOR_ID"].ToString();
 
             SqlConnection con = new SqlConnection(conexao.StrConexao());
 

@@ -1,4 +1,5 @@
-﻿using Mercado_Vera.View.GerProduto;
+﻿using Mercado_Vera.View.GerFornecedor;
+using Mercado_Vera.View.GerProduto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,12 @@ namespace Mercado_Vera
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FmrPesquisa());
+            Application.Run(new FmrPesquisaFor());
             //FmrProduto
             //FmrCaixa
             //FmrPesquisa
             //tstExcluir
+            //FmrPesquisaFor
 
         }
     }

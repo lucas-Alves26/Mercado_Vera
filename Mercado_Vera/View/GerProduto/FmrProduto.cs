@@ -120,13 +120,6 @@ namespace Mercado_Vera
                 e.Handled = true;
                 MessageBox.Show("Este campo não aceita caracteres especiais!");
             }
-
-            //se for diferente de letras e espaço aparece a menssagem
-            if (char.IsNumber(e.KeyChar))
-            {
-                e.Handled = true;
-                MessageBox.Show("Este campo aceita letras e espaços!");
-            }
         }
 
         private void cbxMarca_KeyPress(object sender, KeyPressEventArgs e)
@@ -252,6 +245,11 @@ namespace Mercado_Vera
         private void cbxFornecedor_SelectedIndexChanged(object sender, EventArgs e)
         {
        
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
