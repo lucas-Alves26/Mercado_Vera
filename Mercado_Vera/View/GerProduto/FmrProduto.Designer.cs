@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnAlt = new System.Windows.Forms.Button();
-            this.BtnExcluir = new System.Windows.Forms.Button();
-            this.BtnPesq = new System.Windows.Forms.Button();
-            this.BtnNovo = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.PnlProd = new System.Windows.Forms.Panel();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -72,53 +69,24 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel1.Controls.Add(this.BtnAlt);
-            this.panel1.Controls.Add(this.BtnExcluir);
-            this.panel1.Controls.Add(this.BtnPesq);
-            this.panel1.Controls.Add(this.BtnNovo);
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(590, 85);
+            this.panel1.Size = new System.Drawing.Size(590, 59);
             this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // BtnAlt
+            // label10
             // 
-            this.BtnAlt.Location = new System.Drawing.Point(296, 25);
-            this.BtnAlt.Name = "BtnAlt";
-            this.BtnAlt.Size = new System.Drawing.Size(75, 23);
-            this.BtnAlt.TabIndex = 3;
-            this.BtnAlt.Text = "Alterar";
-            this.BtnAlt.UseVisualStyleBackColor = true;
-            // 
-            // BtnExcluir
-            // 
-            this.BtnExcluir.Location = new System.Drawing.Point(111, 25);
-            this.BtnExcluir.Name = "BtnExcluir";
-            this.BtnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.BtnExcluir.TabIndex = 2;
-            this.BtnExcluir.Text = "Excluir";
-            this.BtnExcluir.UseVisualStyleBackColor = true;
-            this.BtnExcluir.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // BtnPesq
-            // 
-            this.BtnPesq.Location = new System.Drawing.Point(209, 25);
-            this.BtnPesq.Name = "BtnPesq";
-            this.BtnPesq.Size = new System.Drawing.Size(75, 23);
-            this.BtnPesq.TabIndex = 1;
-            this.BtnPesq.Text = "Pesquisar";
-            this.BtnPesq.UseVisualStyleBackColor = true;
-            // 
-            // BtnNovo
-            // 
-            this.BtnNovo.Location = new System.Drawing.Point(21, 25);
-            this.BtnNovo.Name = "BtnNovo";
-            this.BtnNovo.Size = new System.Drawing.Size(75, 23);
-            this.BtnNovo.TabIndex = 0;
-            this.BtnNovo.Text = "Novo";
-            this.BtnNovo.UseVisualStyleBackColor = true;
-            this.BtnNovo.Click += new System.EventHandler(this.button2_Click);
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Transparent;
+            this.label10.Location = new System.Drawing.Point(137, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(292, 25);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "CADASTRO DE PRODUTO";
             // 
             // PnlProd
             // 
@@ -132,9 +100,9 @@
             this.PnlProd.Controls.Add(this.txtCodigo);
             this.PnlProd.Controls.Add(this.label2);
             this.PnlProd.Controls.Add(this.label1);
-            this.PnlProd.Location = new System.Drawing.Point(0, 85);
+            this.PnlProd.Location = new System.Drawing.Point(0, 57);
             this.PnlProd.Name = "PnlProd";
-            this.PnlProd.Size = new System.Drawing.Size(590, 419);
+            this.PnlProd.Size = new System.Drawing.Size(590, 447);
             this.PnlProd.TabIndex = 9;
             this.PnlProd.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -182,6 +150,8 @@
             this.cbxFornecedor.Name = "cbxFornecedor";
             this.cbxFornecedor.Size = new System.Drawing.Size(241, 26);
             this.cbxFornecedor.TabIndex = 28;
+            this.cbxFornecedor.SelectedIndexChanged += new System.EventHandler(this.cbxFornecedor_SelectedIndexChanged);
+            this.cbxFornecedor.Click += new System.EventHandler(this.cbxFornecedor_Click);
             // 
             // cbxCategoria
             // 
@@ -423,9 +393,11 @@
             this.Controls.Add(this.PnlProd);
             this.Controls.Add(this.panel1);
             this.Name = "FmrProduto";
-            this.Text = "Produto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastro produto";
             this.Load += new System.EventHandler(this.FmrProduto_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.PnlProd.ResumeLayout(false);
             this.PnlProd.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -468,11 +440,8 @@
         private System.Windows.Forms.ComboBox cbxFornecedor;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button BtnNovo;
-        private System.Windows.Forms.Button BtnAlt;
-        private System.Windows.Forms.Button BtnExcluir;
-        private System.Windows.Forms.Button BtnPesq;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -46,8 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\DaoFornecedor.cs" />
     <Compile Include="Dao\DaoProduto.cs" />
+    <Compile Include="Entity\Endereco.cs" />
+    <Compile Include="Entity\Fornecedor.cs" />
     <Compile Include="Entity\Produto.cs" />
+    <Compile Include="Entity\Telefone.cs" />
     <Compile Include="Exceptions\DomainExceptions.cs" />
     <Compile Include="FmrCaixa.cs">
       <SubType>Form</SubType>
@@ -55,10 +59,34 @@
     <Compile Include="FmrCaixa.Designer.cs">
       <DependentUpon>FmrCaixa.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmrProduto.cs">
+    <Compile Include="View\GerFornecedor\FmrFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmrProduto.Designer.cs">
+    <Compile Include="View\GerFornecedor\FmrFornecedor.Designer.cs">
+      <DependentUpon>FmrFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GerFornecedor\FmrPesquisaFor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerFornecedor\FmrPesquisaFor.Designer.cs">
+      <DependentUpon>FmrPesquisaFor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GerProduto\FmrEditar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerProduto\FmrEditar.Designer.cs">
+      <DependentUpon>FmrEditar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GerProduto\FmrPesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerProduto\FmrPesquisa.Designer.cs">
+      <DependentUpon>FmrPesquisa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GerProduto\FmrProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerProduto\FmrProduto.Designer.cs">
       <DependentUpon>FmrProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -69,10 +97,31 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\GerProduto\tstExcluir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerProduto\tstExcluir.Designer.cs">
+      <DependentUpon>tstExcluir.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FmrCaixa.resx">
       <DependentUpon>FmrCaixa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmrProduto.resx">
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GerFornecedor\FmrFornecedor.resx">
+      <DependentUpon>FmrFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GerFornecedor\FmrPesquisaFor.resx">
+      <DependentUpon>FmrPesquisaFor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GerProduto\FmrEditar.resx">
+      <DependentUpon>FmrEditar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GerProduto\FmrPesquisa.resx">
+      <DependentUpon>FmrPesquisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GerProduto\FmrProduto.resx">
       <DependentUpon>FmrProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -84,6 +133,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\GerProduto\tstExcluir.resx">
+      <DependentUpon>tstExcluir.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

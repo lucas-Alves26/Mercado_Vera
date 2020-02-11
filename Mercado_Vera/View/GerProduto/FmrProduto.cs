@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,14 +18,17 @@ namespace Mercado_Vera
     {
         //instancioando classe DaoProduto para ter acesso aos metodos
         DaoProduto DaoProd = new DaoProduto();
+        DaoFornecedor DaoForn = new DaoFornecedor();
+        
 
         public FmrProduto()
         {
             InitializeComponent();
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
-        {
+         {
 
         }
 
@@ -41,20 +45,28 @@ namespace Mercado_Vera
             }
 
 
-        }
+        }  
+
+        
 
         private void FmrProduto_Load(object sender, EventArgs e)
         {
-            
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            string fornId = "";
+
             try
             {
                 string categId = cbxCategoria.SelectedValue.ToString();
-                string marca = cbxMarca.SelectedValue.ToString();
-                DaoProd.produto = new Produto(txtCodigo.Text, txtNome.Text, txtPreco.Text, txtVenda.Text, txtQtd.Text, txtQtdMin.Text, marca, categId);
+
+                if (cbxFornecedor.Text != "")
+                {
+                    fornId = cbxFornecedor.SelectedValue.ToString();
+                }
+
+                DaoProd.produto = new Produto(txtCodigo.Text, txtNome.Text, txtPreco.Text, txtVenda.Text, txtQtd.Text, txtQtdMin.Text, cbxMarca.Text, categId,fornId);
                 DaoProd.CadastroProd();
                 MessageBox.Show("Produto cadastrado com sucesso!");
                 Limpar();
@@ -78,16 +90,8 @@ namespace Mercado_Vera
             cbxFornecedor.Text = "";           
         }
 
-        public void popularCategoria()
-        {
-            cbxCategoria.ValueMember = "SUB_CAT_ID";
-            cbxCategoria.DisplayMember = "SUB_CAT_TIPO";
-            cbxCategoria.DataSource = DaoProd.SelectCategoria();// carrega a coluna EST_STR_NOME dentro cbx
-        }
-
         private void cbxCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            popularCategoria();
         }
 
         private void cbxCategoria_SelectionChangeCommitted(object sender, EventArgs e)
@@ -97,7 +101,9 @@ namespace Mercado_Vera
 
         private void cbxCategoria_Click(object sender, EventArgs e)
         {
-            popularCategoria();
+            cbxCategoria.ValueMember = "SUB_CAT_ID";
+            cbxCategoria.DisplayMember = "SUB_CAT_TIPO";
+            cbxCategoria.DataSource = DaoProd.SelectCategoria();// carrega a coluna EST_STR_NOME dentro cbx
         }
 
         private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
@@ -113,13 +119,6 @@ namespace Mercado_Vera
             {
                 e.Handled = true;
                 MessageBox.Show("Este campo não aceita caracteres especiais!");
-            }
-
-            //se for diferente de letras e espaço aparece a menssagem
-            if (char.IsNumber(e.KeyChar))
-            {
-                e.Handled = true;
-                MessageBox.Show("Este campo aceita letras e espaços!");
             }
         }
 
@@ -233,6 +232,23 @@ namespace Mercado_Vera
             cbxMarca.ValueMember = "PROD_MARCA";
             cbxMarca.DisplayMember = "PROD_MARCA";
             cbxMarca.DataSource = DaoProd.SelectMarca();// carrega a coluna EST_STR_NOME dentro cbx
+
+        }
+
+        private void cbxFornecedor_Click(object sender, EventArgs e)
+        {
+            cbxFornecedor.ValueMember = "FOR_ID";
+            cbxFornecedor.DisplayMember = "FOR_NOME_FANT";
+            cbxFornecedor.DataSource = DaoForn.SelectForne();
+        }
+
+        private void cbxFornecedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

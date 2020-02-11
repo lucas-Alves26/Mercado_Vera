@@ -18,12 +18,18 @@ namespace Mercado_Vera.Entity
         public int QtdMin { get; set; }
         public string Marca { get; set; }
         public int SubCate { get; set; }
+        public int FornId { get; set; }
 
         public Produto()
         {
         }
 
-        public Produto(string cod, string nome, string preco, string precoVenda, string qtd, string qtdMin, string marca, string subCate)
+        public Produto(string id = "0")
+        {
+            Id = int.Parse(id);
+        }
+
+        public Produto(string cod, string nome, string preco, string precoVenda, string qtd, string qtdMin, string marca, string subCate, string fornId)
         {
             if(nome == "")
             {
@@ -45,6 +51,19 @@ namespace Mercado_Vera.Entity
             {
                 throw new DomainExceptions("A categoria do produto deve ser preenchida!");
             }
+            if(cod != "" && cod.Length < 12)
+            {
+                throw new DomainExceptions("O código do produto deve ter 12 caracteres!");
+            }
+
+            if (qtdMin == "")
+            {
+                qtdMin = "0";
+            }
+            if (fornId == "")
+            {
+                fornId = "1";
+            }
 
             Cod = cod;
             Nome = nome;
@@ -54,6 +73,43 @@ namespace Mercado_Vera.Entity
             QtdMin = int.Parse(qtdMin);
             Marca = marca;
             SubCate = int.Parse(subCate);
+            FornId = int.Parse(fornId);
+        }
+
+        public Produto(string id,string cod, string nome, string preco, string precoVenda, string qtd, string qtdMin, string marca, string subCate, string fornId)
+            : this(cod, nome, preco, precoVenda, qtd, qtdMin, marca, subCate, fornId)
+        {
+            if (nome == "")
+            {
+                throw new DomainExceptions("O nome do produto deve ser preenchido!");
+            }
+            if (preco == "")
+            {
+                throw new DomainExceptions("O preço de custo do produto deve ser preenchido!");
+            }
+            if (precoVenda == "")
+            {
+                throw new DomainExceptions("O preço de venda do produto deve ser preenchido!");
+            }
+            if (qtd == "")
+            {
+                throw new DomainExceptions("A quantidade do produto deve ser preenchida!");
+            }
+            if (subCate == "")
+            {
+                throw new DomainExceptions("A categoria do produto deve ser preenchida!");
+            }
+            if (qtdMin == "")
+            {
+                qtdMin = "0";
+            }
+            if (fornId == "")
+            {
+                fornId = "1";
+            }
+
+
+            Id = int.Parse(id);
         }
     }
 }

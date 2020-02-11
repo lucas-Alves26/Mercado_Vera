@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mercado_Vera.View.GerFornecedor;
+using Mercado_Vera.View.GerProduto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,10 +18,12 @@ namespace Mercado_Vera
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FmrProduto());
+            Application.Run(new FmrPesquisaFor());
             //FmrProduto
             //FmrCaixa
-            //Teste de nova brench VS CODE 2017..
+            //FmrPesquisa
+            //tstExcluir
+            //FmrPesquisaFor
 
         }
     }
