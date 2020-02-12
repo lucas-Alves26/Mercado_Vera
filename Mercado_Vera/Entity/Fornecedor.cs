@@ -30,7 +30,8 @@ namespace Mercado_Vera.Entity
             {
                 throw new DomainExceptions("O nome do fornecedor deve ser preenchido!");
             }
-            if (cnpj.Length < 14)
+
+            if (cnpj !="" && cnpj.Length < 14)
             {
                 throw new DomainExceptions("O CNPJ está faltando caracteres!");
             }

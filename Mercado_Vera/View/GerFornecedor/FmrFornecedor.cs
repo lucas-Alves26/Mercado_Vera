@@ -16,18 +16,21 @@ namespace Mercado_Vera.View.GerFornecedor
     public partial class FmrFornecedor : Form
     {
         DaoFornecedor forn = new DaoFornecedor();
-        //Fornecedor fornecedor = new Fornecedor();
-
         public FmrFornecedor()
         {
             InitializeComponent();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void FmrFornecedor_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                Telefone telefone = new Telefone(txtDdd.Text, cbxOpe.Text, txtFixo.Text, txtCelular.Text);
+                Telefone telefone = new Telefone(txtDdd.Text, cbxOpe.Text, txtFixo.Text, txtCel.Text);
                 Endereco endereco = new Endereco(txtBairro.Text, txtRua.Text, txtNum.Text, txtCep.Text, txtComp.Text);
                 Fornecedor fornecedor = new Fornecedor(txtForn.Text, txtCnpj.Text, telefone, endereco);
                 forn.CadastroForn(fornecedor);
@@ -39,7 +42,6 @@ namespace Mercado_Vera.View.GerFornecedor
             {
                 MessageBox.Show(ex.Message);
             }
-            
         }
 
         private void txtForn_KeyPress(object sender, KeyPressEventArgs e)
@@ -87,7 +89,7 @@ namespace Mercado_Vera.View.GerFornecedor
             }
         }
 
-        private void txtCelular_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtCel_KeyPress(object sender, KeyPressEventArgs e)
         {
             //esse if é para aceitar, setas e apagar
             if (e.KeyChar == 8)
@@ -136,24 +138,6 @@ namespace Mercado_Vera.View.GerFornecedor
             }
         }
 
-        private void txtRua_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //esse if é para aceitar, setas e apagar
-            if (e.KeyChar == 8)
-                return;
-            //se for diferente de numeros aparece a menssagem
-            if (!char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-                MessageBox.Show("Este campo aceita somente numero!");
-            }
-        }
-
         private void txtRua_KeyPress(object sender, KeyPressEventArgs e)
         {
             //esse if é para aceitar, setas e apagar
@@ -174,6 +158,19 @@ namespace Mercado_Vera.View.GerFornecedor
             {
                 e.Handled = true;
                 MessageBox.Show("Este campo aceita letras e espaços!");
+            }
+        }
+
+        private void txtNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //esse if é para aceitar, setas e apagar
+            if (e.KeyChar == 8)
+                return;
+            //se for diferente de numeros aparece a menssagem
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo aceita somente numero!");
             }
         }
 

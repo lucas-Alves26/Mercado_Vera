@@ -153,18 +153,19 @@ namespace Mercado_Vera.Dao
 
             if (nome == "")
             {
-                query = "SELECT F.FOR_NOME_FANT,F.FOR_CNPJ, T.TEL_CELULAR, T.TEL_FIXO, E.END_RUA,E.END_NUMERO FROM TBL_FORNECEDOR AS F"
+                query = "SELECT F.FOR_ID, F.FOR_NOME_FANT,F.FOR_CNPJ, T.TEL_CELULAR, T.TEL_FIXO,E.END_BAIRRO, E.END_RUA,E.END_NUMERO FROM TBL_FORNECEDOR AS F"
                 + " INNER JOIN TBL_TELEFONE  AS T ON T.TEL_ID = F.TEL_ID"
                 + " INNER JOIN TBL_FOR_END AS FE ON FE.FOR_ID = F.FOR_ID"
-                + " INNER JOIN TBL_ENDERECO AS E ON E.END_ID = FE.END_ID";
+                + " INNER JOIN TBL_ENDERECO AS E ON E.END_ID = FE.END_ID" 
+                + " ORDER BY F.FOR_NOME_FANT";
             }
             else
             {
-                query = "SELECT F.FOR_NOME_FANT,F.FOR_CNPJ, T.TEL_CELULAR, T.TEL_FIXO, E.END_RUA,E.END_NUMERO FROM TBL_FORNECEDOR AS F"
+                query = "SELECT F.FOR_ID, F.FOR_NOME_FANT,F.FOR_CNPJ, T.TEL_CELULAR, T.TEL_FIXO,E.END_BAIRRO, E.END_RUA,E.END_NUMERO FROM TBL_FORNECEDOR AS F"
                 + " INNER JOIN TBL_TELEFONE  AS T ON T.TEL_ID = F.TEL_ID"
                 + " INNER JOIN TBL_FOR_END AS FE ON FE.FOR_ID = F.FOR_ID"
                 + " INNER JOIN TBL_ENDERECO AS E ON E.END_ID = FE.END_ID"
-                + " WHERE F.FOR_NOME_FANT LIKE '" + nome + "%' ORDER BY F.FOR_NOME_FANT ASC";
+                + " WHERE F.FOR_NOME_FANT LIKE '" + nome + "%' ORDER BY F.FOR_NOME_FANT";
             }
             return conexao.CarregarDados(query);
         }

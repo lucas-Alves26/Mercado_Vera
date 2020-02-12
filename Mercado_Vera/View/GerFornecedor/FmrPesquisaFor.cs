@@ -14,6 +14,8 @@ namespace Mercado_Vera.View.GerFornecedor
     public partial class FmrPesquisaFor : Form
     {
         string nome = "";
+        string id;
+
         DaoFornecedor fornecedor = new DaoFornecedor();
 
         public FmrPesquisaFor()
@@ -54,6 +56,23 @@ namespace Mercado_Vera.View.GerFornecedor
             fornecedor.ShowDialog();
 
             this.Visible = true;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void DgPesqForn_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DgPesqForn_DoubleClick(object sender, EventArgs e)
+        {
+            //ao clicar duas vezes passa nome e id para os txtbox
+            this.txtNomePes.Text = Convert.ToString(this.DgPesqForn.CurrentRow.Cells["FOR_NOME_FANT"].Value);
+            id = Convert.ToString(this.DgPesqForn.CurrentRow.Cells["FOR_ID"].Value);
         }
     }
 }
