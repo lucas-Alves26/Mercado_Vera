@@ -58,6 +58,16 @@ namespace Mercado_Vera.View.GerProduto
             cbxFornecedor.Text= dt["FOR_NOME_FANT"].ToString();
             catId = dt["SUB_CAT_ID"].ToString();
             fornId = dt["FOR_ID"].ToString();
+
+            txtCodigo.Enabled = false;
+            txtNome.Enabled = false;
+            txtPreco.Enabled = false;
+            txtVenda.Enabled = false;
+            txtQtd.Enabled = false;
+            txtQtdMin.Enabled = false;
+            cbxCategoria.Enabled = false;
+            cbxMarca.Enabled = false;
+            cbxFornecedor.Enabled = false;
         }
 
         private void cbxMarca_Click(object sender, EventArgs e)
@@ -77,10 +87,8 @@ namespace Mercado_Vera.View.GerProduto
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {           
-
             try
             {
-
                 catId = cbxCategoria.SelectedValue.ToString();
 
                 if (cbxFornecedor.Text != "")
@@ -91,13 +99,26 @@ namespace Mercado_Vera.View.GerProduto
                 daoProd.produto = new Produto(id,txtCodigo.Text, txtNome.Text, txtPreco.Text, txtVenda.Text, txtQtd.Text, txtQtdMin.Text, cbxMarca.Text, catId, fornId);
                 daoProd.EditarProd(id);
                 MessageBox.Show("Produto atualizado com sucesso!");
-
             }
             catch (DomainExceptions ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void HabilitarEdit()
+        {
+            txtCodigo.Enabled = true;
+            txtNome.Enabled = true;
+            txtPreco.Enabled = true;
+            txtVenda.Enabled = true;
+            txtQtd.Enabled = true;
+            txtQtdMin.Enabled = true;
+            cbxCategoria.Enabled = true;
+            cbxMarca.Enabled = true;
+            cbxFornecedor.Enabled = true;
+        }
+
         public void PopularCategoria()
         {
             cbxCategoria.ValueMember = "SUB_CAT_ID";
@@ -120,6 +141,11 @@ namespace Mercado_Vera.View.GerProduto
         private void cbxMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void btnCadiado_Click(object sender, EventArgs e)
+        {
+            HabilitarEdit();
         }
     }
 }

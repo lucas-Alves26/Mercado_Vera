@@ -57,6 +57,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnCadiado = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -69,6 +70,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnCadiado);
             this.panel1.Controls.Add(this.btnSalvar);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.groupBox3);
@@ -374,6 +376,16 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "EDITAR PRODUTO";
             // 
+            // btnCadiado
+            // 
+            this.btnCadiado.Location = new System.Drawing.Point(379, 374);
+            this.btnCadiado.Name = "btnCadiado";
+            this.btnCadiado.Size = new System.Drawing.Size(75, 23);
+            this.btnCadiado.TabIndex = 52;
+            this.btnCadiado.Text = "Cadiado";
+            this.btnCadiado.UseVisualStyleBackColor = true;
+            this.btnCadiado.Click += new System.EventHandler(this.btnCadiado_Click);
+            // 
             // FmrEditar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,5 +445,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnCadiado;
     }
 }

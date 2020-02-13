@@ -24,6 +24,7 @@ namespace Mercado_Vera
             //FmrPesquisa
             //tstExcluir
             //FmrPesquisaFor
+            //FmrEditar
 
         }
     }

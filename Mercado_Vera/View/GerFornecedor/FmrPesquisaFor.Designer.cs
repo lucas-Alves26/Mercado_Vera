@@ -45,6 +45,7 @@
             this.END_BAIRRO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.END_RUA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.END_NUMERO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -109,6 +110,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.btnNovo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 444);
@@ -211,6 +213,16 @@
             this.END_NUMERO.Name = "END_NUMERO";
             this.END_NUMERO.Width = 50;
             // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(115, 22);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 1;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
             // FmrPesquisaFor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,5 +264,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn END_BAIRRO;
         private System.Windows.Forms.DataGridViewTextBoxColumn END_RUA;
         private System.Windows.Forms.DataGridViewTextBoxColumn END_NUMERO;
+        private System.Windows.Forms.Button btnEditar;
     }
 }

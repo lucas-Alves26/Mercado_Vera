@@ -65,6 +65,12 @@
     <Compile Include="View\GerFornecedor\FmrFornecedor.Designer.cs">
       <DependentUpon>FmrFornecedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GerFornecedor\FmrFornecedorEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerFornecedor\FmrFornecedorEdit.Designer.cs">
+      <DependentUpon>FmrFornecedorEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GerFornecedor\FmrPesquisaFor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\GerFornecedor\FmrFornecedor.resx">
       <DependentUpon>FmrFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GerFornecedor\FmrFornecedorEdit.resx">
+      <DependentUpon>FmrFornecedorEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GerFornecedor\FmrPesquisaFor.resx">
       <DependentUpon>FmrPesquisaFor.cs</DependentUpon>

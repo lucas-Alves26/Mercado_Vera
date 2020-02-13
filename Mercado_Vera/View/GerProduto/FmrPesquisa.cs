@@ -80,11 +80,11 @@ namespace Mercado_Vera.View.GerProduto
 
         private void txtNomePes_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //esse if é para aceitar, setas e apagar
+            //esse if aceita setas e apagar
             if (e.KeyChar == 8)
                 return;
 
-            //esse if não aceitar, os seguintes caracteres especiais
+            //esse if não aceita os seguintes caracteres especiais
             string caracteresPermitidos = "!@#$¨&*()_-+ºª[]{}?/|\"'¬§<>.,:;°";
 
             if ((caracteresPermitidos.Contains(e.KeyChar.ToString().ToUpper())))
@@ -118,7 +118,7 @@ namespace Mercado_Vera.View.GerProduto
 
         private void DgPesquisa_DoubleClick(object sender, EventArgs e)
         {
-            //ao clicar duas vezes passa codigo, nome e id para os txtbox
+            //ao clicar duas vezes passa o nome eo id para os txtbox
             this.txtCodigoPes.Text = Convert.ToString(this.DgPesquisa.CurrentRow.Cells["PROD_COD"].Value);
             this.txtNomePes.Text = Convert.ToString(this.DgPesquisa.CurrentRow.Cells["PROD_NOME"].Value);
             id = Convert.ToString(this.DgPesquisa.CurrentRow.Cells["PROD_ID"].Value);
@@ -126,8 +126,12 @@ namespace Mercado_Vera.View.GerProduto
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (id != null)
+            if (id == null)
             {
+                MessageBox.Show("Selecione um produto primeiro!");
+            }
+            else
+            {            
                 this.Visible = false;
 
                 FmrEditar editar = new FmrEditar();

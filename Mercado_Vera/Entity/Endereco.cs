@@ -36,5 +36,20 @@ namespace Mercado_Vera.Entity
             Cep = int.Parse(cep);
             Comp = comp;
         }
+
+        public Endereco(string id , string bairro, string rua, string num, string cep, string comp)
+            : this(bairro,rua,num,cep,comp)
+        {
+            if (num == "")
+            {
+                num = "-1";
+            }
+            if (cep == "")
+            {
+                cep = "0";
+            }
+
+            Id = int.Parse(id);
+        }
     }
 }
