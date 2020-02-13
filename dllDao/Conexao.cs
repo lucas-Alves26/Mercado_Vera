@@ -14,7 +14,7 @@ namespace dllDao
 
         public Conexao()
         {
-            con.ConnectionString = @"Data Source=DESKTOP-LUCAS\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
+            con.ConnectionString = @"Data Source=JEN\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
         }
 
         public SqlConnection Connection()
@@ -45,7 +45,7 @@ namespace dllDao
         //retorna a string de conexao para ser utilizada.
         public string StrConexao()
         {
-            return @"Data Source=DESKTOP-LUCAS\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
+            return @"Data Source=JEN\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
         }
             
         //Executa query simples.
@@ -109,7 +109,7 @@ namespace dllDao
             
             return dr;
         }
-        //Busca os EStados no banco de dados
+        //Busca os Estados no banco de dados
         public DataTable RetornaEstado()
         {
             string query = "SELECT EST_INT_CODUF, EST_STR_NOME FROM TBL_ESTADO";
