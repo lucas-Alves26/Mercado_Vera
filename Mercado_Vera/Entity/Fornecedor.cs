@@ -41,5 +41,20 @@ namespace Mercado_Vera.Entity
             Telefone = telefone;
             Endereco = endereco;
         }
+        public Fornecedor(string id, string nomeFant, string cnpj, Telefone telefone, Endereco endereco)
+            :this(nomeFant, cnpj, telefone, endereco)
+        {
+            if (nomeFant == "")
+            {
+                throw new DomainExceptions("O nome do fornecedor deve ser preenchido!");
+            }
+
+            if (cnpj != "" && cnpj.Length < 14)
+            {
+                throw new DomainExceptions("O CNPJ está faltando caracteres!");
+            }
+
+            Id = int.Parse(id);
+        }
     }
 }

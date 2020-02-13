@@ -56,6 +56,13 @@ namespace Mercado_Vera.Entity
             Fixo = int.Parse(fixo);
             Cel = int.Parse(cel);
         }
-        
+
+        public Telefone(string id, string ddd, string ope, string fixo, string cel)
+            : this(ddd, ope, fixo, cel)
+        {
+            Id = int.Parse(id);
+        }
+
+
     }
 }

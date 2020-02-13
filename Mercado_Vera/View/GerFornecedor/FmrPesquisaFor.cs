@@ -74,5 +74,21 @@ namespace Mercado_Vera.View.GerFornecedor
             this.txtNomePes.Text = Convert.ToString(this.DgPesqForn.CurrentRow.Cells["FOR_NOME_FANT"].Value);
             id = Convert.ToString(this.DgPesqForn.CurrentRow.Cells["FOR_ID"].Value);
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if(id == null)
+            {
+                MessageBox.Show("Selecione um fornecedor primeiro!");
+            }
+            else
+            {
+                this.Visible = false;
+                FmrFornecedorEdit edit = new FmrFornecedorEdit();
+                edit.GetId(id);
+                edit.ShowDialog();
+                this.Visible = true;
+            }
+        }
     }
 }

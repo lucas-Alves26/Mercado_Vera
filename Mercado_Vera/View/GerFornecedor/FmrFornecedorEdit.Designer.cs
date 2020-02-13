@@ -1,6 +1,6 @@
 ﻿namespace Mercado_Vera.View.GerFornecedor
 {
-    partial class FmrFornecedor
+    partial class FmrFornecedorEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -55,8 +55,8 @@
             this.txtForn = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnSair = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnCadeado = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -99,7 +99,7 @@
             this.groupBox2.Location = new System.Drawing.Point(22, 154);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(546, 132);
-            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
             // txtComp
@@ -109,7 +109,6 @@
             this.txtComp.Name = "txtComp";
             this.txtComp.Size = new System.Drawing.Size(292, 24);
             this.txtComp.TabIndex = 20;
-            this.txtComp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtComp_KeyPress);
             // 
             // label11
             // 
@@ -128,7 +127,6 @@
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(100, 24);
             this.txtCep.TabIndex = 18;
-            this.txtCep.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCep_KeyPress);
             // 
             // label10
             // 
@@ -148,7 +146,6 @@
             this.txtNum.Size = new System.Drawing.Size(43, 24);
             this.txtNum.TabIndex = 16;
             this.txtNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum_KeyPress);
             // 
             // label9
             // 
@@ -167,7 +164,6 @@
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(292, 24);
             this.txtRua.TabIndex = 14;
-            this.txtRua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRua_KeyPress);
             // 
             // label8
             // 
@@ -186,7 +182,6 @@
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(160, 24);
             this.txtBairro.TabIndex = 12;
-            this.txtBairro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBairro_KeyPress);
             // 
             // label7
             // 
@@ -216,7 +211,7 @@
             this.groupBox1.Location = new System.Drawing.Point(22, 17);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(546, 131);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
             // txtFixo
@@ -227,8 +222,6 @@
             this.txtFixo.Size = new System.Drawing.Size(110, 24);
             this.txtFixo.TabIndex = 4;
             this.txtFixo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFixo.TextChanged += new System.EventHandler(this.txtFixo_TextChanged);
-            this.txtFixo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFixo_KeyPress);
             // 
             // label3
             // 
@@ -248,7 +241,6 @@
             this.txtCel.Size = new System.Drawing.Size(110, 24);
             this.txtCel.TabIndex = 6;
             this.txtCel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCel_KeyPress);
             // 
             // label4
             // 
@@ -268,7 +260,6 @@
             this.txtCnpj.Size = new System.Drawing.Size(136, 24);
             this.txtCnpj.TabIndex = 3;
             this.txtCnpj.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCnpj.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCnpj_KeyPress);
             // 
             // label2
             // 
@@ -323,7 +314,6 @@
             this.txtDdd.Size = new System.Drawing.Size(50, 24);
             this.txtDdd.TabIndex = 8;
             this.txtDdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtDdd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDdd_KeyPress);
             // 
             // txtForn
             // 
@@ -332,8 +322,6 @@
             this.txtForn.Name = "txtForn";
             this.txtForn.Size = new System.Drawing.Size(321, 24);
             this.txtForn.TabIndex = 1;
-            this.txtForn.TextChanged += new System.EventHandler(this.txtForn_TextChanged);
-            this.txtForn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtForn_KeyPress);
             // 
             // label1
             // 
@@ -348,34 +336,34 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel3.Controls.Add(this.btnSair);
             this.panel3.Controls.Add(this.btnSalvar);
+            this.panel3.Controls.Add(this.btnCadeado);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 383);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(592, 83);
             this.panel3.TabIndex = 2;
             // 
-            // btnSair
-            // 
-            this.btnSair.Location = new System.Drawing.Point(407, 33);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 23);
-            this.btnSair.TabIndex = 1;
-            this.btnSair.Text = "Fechar";
-            this.btnSair.UseVisualStyleBackColor = true;
-            // 
             // btnSalvar
             // 
             this.btnSalvar.Location = new System.Drawing.Point(493, 33);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 0;
+            this.btnSalvar.TabIndex = 1;
             this.btnSalvar.Text = "Gravar";
             this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalvar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // FmrFornecedor
+            // btnCadeado
+            // 
+            this.btnCadeado.Location = new System.Drawing.Point(407, 33);
+            this.btnCadeado.Name = "btnCadeado";
+            this.btnCadeado.Size = new System.Drawing.Size(75, 23);
+            this.btnCadeado.TabIndex = 0;
+            this.btnCadeado.Text = "Cadeado";
+            this.btnCadeado.UseVisualStyleBackColor = true;
+            // 
+            // FmrFornecedorEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -383,10 +371,9 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "FmrFornecedor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "cadastro Fornecedor";
-            this.Load += new System.EventHandler(this.FmrFornecedor_Load);
+            this.Name = "FmrFornecedorEdit";
+            this.Text = "Editar Fornecedor";
+            this.Load += new System.EventHandler(this.FmrFornecedorEdit_Load);
             this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -401,32 +388,32 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txtCnpj;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtForn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtDdd;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtCel;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtFixo;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbxOpe;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtComp;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtCep;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNum;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtRua;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtComp;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtCep;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtFixo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtCnpj;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbxOpe;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtDdd;
+        private System.Windows.Forms.TextBox txtForn;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnCadeado;
     }
 }

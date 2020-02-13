@@ -50,7 +50,7 @@ namespace Mercado_Vera.View.GerFornecedor
             if (e.KeyChar == 8)
                 return;
 
-            //esse if não aceitar, os seguintes caracteres especiais
+            //esse if não aceita, os seguintes caracteres especiais
             string caracteresPermitidos = "!@#$¨&*()_-+ºª[]{}?/|\"'¬§<>.,:;°";
 
             if ((caracteresPermitidos.Contains(e.KeyChar.ToString().ToUpper())))
@@ -201,6 +201,16 @@ namespace Mercado_Vera.View.GerFornecedor
                 e.Handled = true;
                 MessageBox.Show("Este campo não aceita caracteres especiais!");
             }
+        }
+
+        private void txtForn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFixo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

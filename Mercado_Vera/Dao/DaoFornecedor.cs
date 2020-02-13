@@ -121,6 +121,102 @@ namespace Mercado_Vera.Dao
 
             }
         }
+        public void EditarForn(Fornecedor fornecedor)
+        {
+
+            SqlConnection con = new SqlConnection(conexao.StrConexao());
+
+            SqlCommand cmd1 = con.CreateCommand();
+            SqlCommand cmd2 = con.CreateCommand();
+            SqlCommand cmd3 = con.CreateCommand();
+
+
+            cmd1.CommandText = "UPDATE TBL_FORNECEDOR SET FOR_NOME_FANT = @NOME_FANT, FOR_CNPJ = @CNPJ WHERE FOR_ID = @ID";
+            cmd2.CommandText = "UPDATE TBL_TELEFONE SET TEL_FIXO = @FIXO, TEL_CELULAR = @CEL, TEL_DDD = @DDD, TEL_OPERADORA = @OPE  WHERE TEL_ID = @ID";
+            cmd3.CommandText = "UPDATE TBL_ENDERECO SET END_BAIRRO = @BAIRRO, END_RUA = @RUA, END_NUMERO = @NUM, END_CEP = @CEP, END_COMP = @COMP WHERE END_ID = @ID";
+
+            cmd1.Parameters.Add(new SqlParameter("@ID", fornecedor.Id));
+            cmd1.Parameters.Add(new SqlParameter("@NOME_FANT", fornecedor.NomeFant));
+
+            if(fornecedor.Cnpj != "")
+                cmd1.Parameters.Add(new SqlParameter("@CNPJ", fornecedor.Cnpj));
+            else
+                cmd1.Parameters.Add(new SqlParameter("@CNPJ", DBNull.Value));
+
+            cmd2.Parameters.Add(new SqlParameter("@ID", fornecedor.Telefone.Id));
+
+            if (fornecedor.Telefone.Fixo != 0)
+                cmd2.Parameters.Add(new SqlParameter("@FIXO", fornecedor.Telefone.Fixo));
+            else
+                cmd2.Parameters.Add(new SqlParameter("@FIXO", DBNull.Value));
+
+            if (fornecedor.Telefone.Cel != 0)
+                cmd2.Parameters.Add(new SqlParameter("@CEL", fornecedor.Telefone.Cel));
+            else
+                cmd2.Parameters.Add(new SqlParameter("@CEL", DBNull.Value));
+
+            if (fornecedor.Telefone.Ddd != 0)
+                cmd2.Parameters.Add(new SqlParameter("@DDD", fornecedor.Telefone.Ddd));
+            else
+                cmd2.Parameters.Add(new SqlParameter("@DDD", DBNull.Value));
+
+            if (fornecedor.Telefone.Ope != "")
+                cmd2.Parameters.Add(new SqlParameter("@OPE", fornecedor.Telefone.Ope));
+            else
+                cmd2.Parameters.Add(new SqlParameter("@OPE", DBNull.Value));
+
+            cmd3.Parameters.Add(new SqlParameter("@ID", fornecedor.Endereco.Id));
+
+            if (fornecedor.Endereco.Bairro != "")
+                cmd3.Parameters.Add(new SqlParameter("@BAIRRO", fornecedor.Endereco.Bairro));
+            else
+                cmd3.Parameters.Add(new SqlParameter("@BAIRRO", DBNull.Value));
+
+            if (fornecedor.Endereco.Rua != "")
+                cmd3.Parameters.Add(new SqlParameter("@RUA", fornecedor.Endereco.Rua));
+            else
+                cmd3.Parameters.Add(new SqlParameter("@RUA", DBNull.Value));
+
+            if (fornecedor.Endereco.Num != -1)
+                cmd3.Parameters.Add(new SqlParameter("@NUM", fornecedor.Endereco.Num));
+            else
+                cmd3.Parameters.Add(new SqlParameter("@NUM", DBNull.Value));
+
+            if (fornecedor.Endereco.Cep != 0)
+                cmd3.Parameters.Add(new SqlParameter("@CEP", fornecedor.Endereco.Cep));
+            else
+                cmd3.Parameters.Add(new SqlParameter("@CEP", DBNull.Value));
+
+            if (fornecedor.Endereco.Comp != "")
+                cmd3.Parameters.Add(new SqlParameter("@COMP", fornecedor.Endereco.Comp));
+            else
+                cmd3.Parameters.Add(new SqlParameter("@COMP", DBNull.Value));
+
+            try
+            {
+                con.Open();
+
+                SqlTransaction tran = con.BeginTransaction();
+
+                cmd1.Transaction = tran;
+                cmd1.ExecuteNonQuery();
+                cmd2.Transaction = tran;
+                cmd2.ExecuteNonQuery();
+                cmd3.Transaction = tran;
+                cmd3.ExecuteNonQuery();
+
+                tran.Commit();
+
+            }
+            catch (DomainExceptions)
+            {
+                throw new DomainExceptions("Erro ao atualizar dados do fornecedor!");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         public void RelaciId()
         {
             //Traz o ultimo ID do Telefone para fazer o relacionamento
@@ -168,6 +264,16 @@ namespace Mercado_Vera.Dao
                 + " WHERE F.FOR_NOME_FANT LIKE '" + nome + "%' ORDER BY F.FOR_NOME_FANT";
             }
             return conexao.CarregarDados(query);
+        }
+        public SqlDataReader SelectFornId(string id)
+        {
+            string query = "SELECT F.FOR_ID, F.FOR_NOME_FANT,F.FOR_CNPJ,T.TEL_ID, T.TEL_CELULAR, T.TEL_FIXO,T.TEL_DDD,T.TEL_OPERADORA,E.END_ID, E.END_BAIRRO, E.END_RUA,E.END_NUMERO, E.END_CEP, "
+            +" E.END_COMP FROM TBL_FORNECEDOR AS F"
+            +" INNER JOIN TBL_TELEFONE  AS T ON T.TEL_ID = F.TEL_ID"
+            +" INNER JOIN TBL_FOR_END AS FE ON FE.FOR_ID = F.FOR_ID"
+            +" INNER JOIN TBL_ENDERECO AS E ON E.END_ID = FE.END_ID WHERE F.FOR_ID = " + id;
+
+            return conexao.CarregarVariosDados(query);
         }
     }
 }

@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\DaoCliente.cs" />
     <Compile Include="Dao\DaoFornecedor.cs" />
     <Compile Include="Dao\DaoProduto.cs" />
+    <Compile Include="Entity\Cliente.cs" />
     <Compile Include="Entity\Endereco.cs" />
     <Compile Include="Entity\Fornecedor.cs" />
     <Compile Include="Entity\Produto.cs" />
@@ -59,11 +61,23 @@
     <Compile Include="FmrCaixa.Designer.cs">
       <DependentUpon>FmrCaixa.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GerCliente\FmrCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerCliente\FmrCliente.Designer.cs">
+      <DependentUpon>FmrCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GerFornecedor\FmrFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\GerFornecedor\FmrFornecedor.Designer.cs">
       <DependentUpon>FmrFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\GerFornecedor\FmrFornecedorEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerFornecedor\FmrFornecedorEdit.Designer.cs">
+      <DependentUpon>FmrFornecedorEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="View\GerFornecedor\FmrPesquisaFor.cs">
       <SubType>Form</SubType>
@@ -109,8 +123,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\GerCliente\FmrCliente.resx">
+      <DependentUpon>FmrCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\GerFornecedor\FmrFornecedor.resx">
       <DependentUpon>FmrFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GerFornecedor\FmrFornecedorEdit.resx">
+      <DependentUpon>FmrFornecedorEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GerFornecedor\FmrPesquisaFor.resx">
       <DependentUpon>FmrPesquisaFor.cs</DependentUpon>
