@@ -33,16 +33,6 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Label1 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtFixo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtCel = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbxOpe = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDdd = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtComp = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -54,6 +44,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtBairro = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtFixo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCel = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbxOpe = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtDdd = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.Label1 = new System.Windows.Forms.Label();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +75,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnSalvar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 397);
             this.panel2.Name = "panel2";
@@ -97,105 +100,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(800, 297);
             this.panel3.TabIndex = 2;
-            // 
-            // Label1
-            // 
-            this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(69, 36);
-            this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(35, 13);
-            this.Label1.TabIndex = 0;
-            this.Label1.Text = "Nome";
-            // 
-            // txtNome
-            // 
-            this.txtNome.Location = new System.Drawing.Point(110, 36);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(100, 20);
-            this.txtNome.TabIndex = 1;
-            // 
-            // txtFixo
-            // 
-            this.txtFixo.Location = new System.Drawing.Point(110, 111);
-            this.txtFixo.MaxLength = 8;
-            this.txtFixo.Name = "txtFixo";
-            this.txtFixo.Size = new System.Drawing.Size(110, 20);
-            this.txtFixo.TabIndex = 12;
-            this.txtFixo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFixo.TextChanged += new System.EventHandler(this.txtFixo_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(107, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 18);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Tel.Fixo:";
-            // 
-            // txtCel
-            // 
-            this.txtCel.Location = new System.Drawing.Point(247, 111);
-            this.txtCel.MaxLength = 9;
-            this.txtCel.Name = "txtCel";
-            this.txtCel.Size = new System.Drawing.Size(110, 20);
-            this.txtCel.TabIndex = 14;
-            this.txtCel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(248, 90);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 18);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Tel.Celular:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(456, 90);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 18);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Operadora:";
-            // 
-            // cbxOpe
-            // 
-            this.cbxOpe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxOpe.FormattingEnabled = true;
-            this.cbxOpe.Items.AddRange(new object[] {
-            "Claro",
-            "Nextel",
-            "Oi",
-            "Tim",
-            "Vivo"});
-            this.cbxOpe.Location = new System.Drawing.Point(459, 111);
-            this.cbxOpe.Name = "cbxOpe";
-            this.cbxOpe.Size = new System.Drawing.Size(123, 21);
-            this.cbxOpe.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(378, 90);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 18);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "DDD:";
-            // 
-            // txtDdd
-            // 
-            this.txtDdd.Location = new System.Drawing.Point(381, 111);
-            this.txtDdd.MaxLength = 3;
-            this.txtDdd.Name = "txtDdd";
-            this.txtDdd.Size = new System.Drawing.Size(50, 20);
-            this.txtDdd.TabIndex = 16;
-            this.txtDdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox2
             // 
@@ -307,6 +211,116 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Bairro:";
             // 
+            // txtFixo
+            // 
+            this.txtFixo.Location = new System.Drawing.Point(110, 111);
+            this.txtFixo.MaxLength = 8;
+            this.txtFixo.Name = "txtFixo";
+            this.txtFixo.Size = new System.Drawing.Size(110, 20);
+            this.txtFixo.TabIndex = 12;
+            this.txtFixo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFixo.TextChanged += new System.EventHandler(this.txtFixo_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(107, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 18);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Tel.Fixo:";
+            // 
+            // txtCel
+            // 
+            this.txtCel.Location = new System.Drawing.Point(247, 111);
+            this.txtCel.MaxLength = 9;
+            this.txtCel.Name = "txtCel";
+            this.txtCel.Size = new System.Drawing.Size(110, 20);
+            this.txtCel.TabIndex = 14;
+            this.txtCel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(248, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 18);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Tel.Celular:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(456, 90);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 18);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Operadora:";
+            // 
+            // cbxOpe
+            // 
+            this.cbxOpe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxOpe.FormattingEnabled = true;
+            this.cbxOpe.Items.AddRange(new object[] {
+            "Claro",
+            "Nextel",
+            "Oi",
+            "Tim",
+            "Vivo"});
+            this.cbxOpe.Location = new System.Drawing.Point(459, 111);
+            this.cbxOpe.Name = "cbxOpe";
+            this.cbxOpe.Size = new System.Drawing.Size(123, 21);
+            this.cbxOpe.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(378, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 18);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "DDD:";
+            // 
+            // txtDdd
+            // 
+            this.txtDdd.Location = new System.Drawing.Point(381, 111);
+            this.txtDdd.MaxLength = 3;
+            this.txtDdd.Name = "txtDdd";
+            this.txtDdd.Size = new System.Drawing.Size(50, 20);
+            this.txtDdd.TabIndex = 16;
+            this.txtDdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(110, 36);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(100, 20);
+            this.txtNome.TabIndex = 1;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+            // 
+            // Label1
+            // 
+            this.Label1.AutoSize = true;
+            this.Label1.Location = new System.Drawing.Point(69, 36);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new System.Drawing.Size(35, 13);
+            this.Label1.TabIndex = 0;
+            this.Label1.Text = "Nome";
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Location = new System.Drawing.Point(648, 18);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 0;
+            this.btnSalvar.Text = "SALVAR";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
             // FmrCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,6 +331,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FmrCliente";
             this.Text = "FmrCliente";
+            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -352,5 +367,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnSalvar;
     }
 }
