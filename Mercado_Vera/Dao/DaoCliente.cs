@@ -18,7 +18,7 @@ namespace Mercado_Vera.Dao
         public void CadastroCliente(Cliente cliente)
         {
             //VERIFICA SE EXISTE NOME CADASTRADO NO BANCO.
-            string query = "SELECT COUNT(*) AS NUMERO FROM TBL_CLIENTE WHERE CLI_NOME = '" + cliente.Nome;
+            string query = "SELECT COUNT(*) AS NUMERO FROM TBL_CLIENTE WHERE CLI_NOME ='" + cliente.Nome + "'";
             SqlDataReader dr = conexao.CarregarVariosDados(query);
             string numero = dr["NUMERO"].ToString();
 
@@ -35,62 +35,58 @@ namespace Mercado_Vera.Dao
                 SqlCommand cmd2 = con.CreateCommand();
                 SqlCommand cmd3 = con.CreateCommand();
 
-                cmd1.CommandText = "INSERT INTO TBL_FORNECEDOR(FOR_CNPJ,FOR_NOME_FANT) VALUES(@CNPJ,@NOME)";
+                cmd1.CommandText = "INSERT INTO TBL_CLIENTE(CLI_NOME) VALUES(@NOME)";
                 cmd2.CommandText = "INSERT INTO TBL_TELEFONE(TEL_DDD, TEL_FIXO, TEL_CELULAR, TEL_OPERADORA)VALUES(@DDD, @FIXO, @CEL, @OPE)";
                 cmd3.CommandText = "INSERT INTO TBL_ENDERECO(END_BAIRRO, END_RUA, END_NUMERO, END_CEP, END_COMP) VALUES(@BAIRRO,@RUA,@NUM,@CEP,@COMP)";
 
 
-                cmd1.Parameters.Add(new SqlParameter("@NOME", fornecedor.NomeFant));
+                cmd1.Parameters.Add(new SqlParameter("@NOME", cliente.Nome));
 
-                if (fornecedor.Cnpj == "")
-                    cmd1.Parameters.Add(new SqlParameter("@CNPJ", DBNull.Value));
-                else
-                    cmd1.Parameters.Add(new SqlParameter("@CNPJ", fornecedor.Cnpj));
-
-                if (fornecedor.Telefone.Ddd == 0)
+               
+                if (cliente.Telefone.Ddd == 0)
                     cmd2.Parameters.Add(new SqlParameter("@DDD", DBNull.Value));
                 else
-                    cmd2.Parameters.Add(new SqlParameter("@DDD", fornecedor.Telefone.Ddd));
+                    cmd2.Parameters.Add(new SqlParameter("@DDD", cliente.Telefone.Ddd));
 
-                if (fornecedor.Telefone.Fixo == 0)
+                if (cliente.Telefone.Fixo == 0)
                     cmd2.Parameters.Add(new SqlParameter("@FIXO", DBNull.Value));
                 else
-                    cmd2.Parameters.Add(new SqlParameter("@FIXO", fornecedor.Telefone.Fixo));
+                    cmd2.Parameters.Add(new SqlParameter("@FIXO", cliente.Telefone.Fixo));
 
-                if (fornecedor.Telefone.Cel == 0)
+                if (cliente.Telefone.Cel == 0)
                     cmd2.Parameters.Add(new SqlParameter("@CEL", DBNull.Value));
                 else
-                    cmd2.Parameters.Add(new SqlParameter("@CEL", fornecedor.Telefone.Cel));
+                    cmd2.Parameters.Add(new SqlParameter("@CEL", cliente.Telefone.Cel));
 
-                if (fornecedor.Telefone.Ope == "")
+                if (cliente.Telefone.Ope == "")
                     cmd2.Parameters.Add(new SqlParameter("@OPE", DBNull.Value));
                 else
-                    cmd2.Parameters.Add(new SqlParameter("@OPE", fornecedor.Telefone.Ope));
+                    cmd2.Parameters.Add(new SqlParameter("@OPE", cliente.Telefone.Ope));
 
-                if (fornecedor.Endereco.Bairro == "")
+                if (cliente.Endereco.Bairro == "")
                     cmd3.Parameters.Add(new SqlParameter("@BAIRRO", DBNull.Value));
                 else
-                    cmd3.Parameters.Add(new SqlParameter("@BAIRRO", fornecedor.Endereco.Bairro));
+                    cmd3.Parameters.Add(new SqlParameter("@BAIRRO", cliente.Endereco.Bairro));
 
-                if (fornecedor.Endereco.Rua == "")
+                if (cliente.Endereco.Rua == "")
                     cmd3.Parameters.Add(new SqlParameter("@RUA", DBNull.Value));
                 else
-                    cmd3.Parameters.Add(new SqlParameter("@RUA", fornecedor.Endereco.Rua));
+                    cmd3.Parameters.Add(new SqlParameter("@RUA", cliente.Endereco.Rua));
 
-                if (fornecedor.Endereco.Num == -1)
+                if (cliente.Endereco.Num == -1)
                     cmd3.Parameters.Add(new SqlParameter("@NUM", DBNull.Value));
                 else
-                    cmd3.Parameters.Add(new SqlParameter("@NUM", fornecedor.Endereco.Num));
+                    cmd3.Parameters.Add(new SqlParameter("@NUM", cliente.Endereco.Num));
 
-                if (fornecedor.Endereco.Cep == 0)
+                if (cliente.Endereco.Cep == 0)
                     cmd3.Parameters.Add(new SqlParameter("@CEP", DBNull.Value));
                 else
-                    cmd3.Parameters.Add(new SqlParameter("@CEP", fornecedor.Endereco.Cep));
+                    cmd3.Parameters.Add(new SqlParameter("@CEP", cliente.Endereco.Cep));
 
-                if (fornecedor.Endereco.Comp == "")
+                if (cliente.Endereco.Comp == "")
                     cmd3.Parameters.Add(new SqlParameter("@COMP", DBNull.Value));
                 else
-                    cmd3.Parameters.Add(new SqlParameter("@COMP", fornecedor.Endereco.Comp));
+                    cmd3.Parameters.Add(new SqlParameter("@COMP", cliente.Endereco.Comp));
 
 
                 con.Open();
@@ -117,10 +113,31 @@ namespace Mercado_Vera.Dao
                 {
                     con.Close();
                 }
-
+       
 
             }
+            
         }
+        public void RelaciId()
+        {
+            //Traz o ultimo ID do Telefone para fazer o relacionamento
+            string query = "SELECT MAX(TEL_ID) AS ID FROM TBL_TELEFONE";
+            string telId = conexao.SelecioneId(query);
 
+            //Traz o ultimo ID do fornecedor para fazer o relacionamento
+            query = "SELECT MAX(CLI_ID) AS ID FROM TBL_CLIENTE";
+            string cliId = conexao.SelecioneId(query);
+
+            //Traz o ultimo ID do fornecedor para fazer o relacionamento
+            query = "SELECT MAX(END_ID) AS ID FROM TBL_ENDERECO";
+            string endId = conexao.SelecioneId(query);
+
+            //Update na tabela fornecedor acrescentando telefone
+            query = "UPDATE TBL_CLIENTE SET TEL_ID = " + telId + " WHERE FOR_ID = " + cliId;
+            conexao.ExecutaInstrucaoNaBase(query);
+
+            query = "INSERT INTO TBL_CLI_END(END_ID, CLI_ID)VALUES('" + endId + "','" + cliId + "')";
+            conexao.ExecutaInstrucaoNaBase(query);
+        }
     }
 }
