@@ -10,10 +10,10 @@ namespace Mercado_Vera.Entity
     class Telefone
     {
         public int Id { get; set; }
-        public int Ddd { get; set; }
+        public string Ddd { get; set; }
         public string Ope { get; set; }
-        public int Fixo { get; set; }
-        public int Cel { get; set; }
+        public string Fixo { get; set; }
+        public string Cel { get; set; }
 
         public Telefone()
         {
@@ -51,10 +51,10 @@ namespace Mercado_Vera.Entity
                 throw new DomainExceptions("O telefone celular não pode ser menor que 9 dígitos");
             }
 
-            Ddd = int.Parse(ddd);
+            Ddd = ddd;
             Ope = ope;
-            Fixo = int.Parse(fixo);
-            Cel = int.Parse(cel);
+            Fixo = fixo;
+            Cel = cel;
         }
 
         public Telefone(string id, string ddd, string ope, string fixo, string cel)

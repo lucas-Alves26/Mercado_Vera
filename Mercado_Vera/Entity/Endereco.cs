@@ -12,7 +12,7 @@ namespace Mercado_Vera.Entity
         public string Bairro { get; set; }
         public string Rua { get; set; }
         public int Num { get; set; }
-        public int Cep { get; set; }
+        public string Cep { get; set; }
         public string Comp { get; set; }
 
         public Endereco()
@@ -33,7 +33,7 @@ namespace Mercado_Vera.Entity
             Bairro = bairro;
             Rua = rua;
             Num = int.Parse(num);
-            Cep = int.Parse(cep);
+            Cep = cep;
             Comp = comp;
         }
 

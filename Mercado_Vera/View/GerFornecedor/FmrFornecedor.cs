@@ -203,11 +203,6 @@ namespace Mercado_Vera.View.GerFornecedor
             }
         }
 
-        private void txtForn_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtFixo_TextChanged(object sender, EventArgs e)
         {
 

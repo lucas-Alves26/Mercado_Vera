@@ -47,17 +47,17 @@ namespace Mercado_Vera.Dao
                 else
                 cmd1.Parameters.Add(new SqlParameter("@CNPJ", fornecedor.Cnpj));
                 
-                if(fornecedor.Telefone.Ddd == 0)
+                if(fornecedor.Telefone.Ddd == "0")
                     cmd2.Parameters.Add(new SqlParameter("@DDD", DBNull.Value));
                 else
                     cmd2.Parameters.Add(new SqlParameter("@DDD", fornecedor.Telefone.Ddd));
 
-                if (fornecedor.Telefone.Fixo == 0)
+                if (fornecedor.Telefone.Fixo == "0")
                     cmd2.Parameters.Add(new SqlParameter("@FIXO", DBNull.Value));
                 else
                     cmd2.Parameters.Add(new SqlParameter("@FIXO", fornecedor.Telefone.Fixo));
 
-                if (fornecedor.Telefone.Cel == 0)
+                if (fornecedor.Telefone.Cel == "0")
                     cmd2.Parameters.Add(new SqlParameter("@CEL", DBNull.Value));
                 else
                     cmd2.Parameters.Add(new SqlParameter("@CEL", fornecedor.Telefone.Cel));
@@ -82,7 +82,7 @@ namespace Mercado_Vera.Dao
                 else
                     cmd3.Parameters.Add(new SqlParameter("@NUM", fornecedor.Endereco.Num));
 
-                if (fornecedor.Endereco.Cep == 0)
+                if (fornecedor.Endereco.Cep == "0")
                     cmd3.Parameters.Add(new SqlParameter("@CEP", DBNull.Value));
                 else
                     cmd3.Parameters.Add(new SqlParameter("@CEP", fornecedor.Endereco.Cep));
@@ -145,17 +145,17 @@ namespace Mercado_Vera.Dao
 
             cmd2.Parameters.Add(new SqlParameter("@ID", fornecedor.Telefone.Id));
 
-            if (fornecedor.Telefone.Fixo != 0)
+            if (fornecedor.Telefone.Fixo != "0")
                 cmd2.Parameters.Add(new SqlParameter("@FIXO", fornecedor.Telefone.Fixo));
             else
                 cmd2.Parameters.Add(new SqlParameter("@FIXO", DBNull.Value));
 
-            if (fornecedor.Telefone.Cel != 0)
+            if (fornecedor.Telefone.Cel != "0")
                 cmd2.Parameters.Add(new SqlParameter("@CEL", fornecedor.Telefone.Cel));
             else
                 cmd2.Parameters.Add(new SqlParameter("@CEL", DBNull.Value));
 
-            if (fornecedor.Telefone.Ddd != 0)
+            if (fornecedor.Telefone.Ddd != "0")
                 cmd2.Parameters.Add(new SqlParameter("@DDD", fornecedor.Telefone.Ddd));
             else
                 cmd2.Parameters.Add(new SqlParameter("@DDD", DBNull.Value));
@@ -182,7 +182,7 @@ namespace Mercado_Vera.Dao
             else
                 cmd3.Parameters.Add(new SqlParameter("@NUM", DBNull.Value));
 
-            if (fornecedor.Endereco.Cep != 0)
+            if (fornecedor.Endereco.Cep != "0")
                 cmd3.Parameters.Add(new SqlParameter("@CEP", fornecedor.Endereco.Cep));
             else
                 cmd3.Parameters.Add(new SqlParameter("@CEP", DBNull.Value));

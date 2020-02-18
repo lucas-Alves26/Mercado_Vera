@@ -14,7 +14,7 @@ namespace dllDao
 
         public Conexao()
         {
-            con.ConnectionString = @"Data Source=JEN\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
+            con.ConnectionString = @"Data Source=DESKTOP-LUCAS\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
         }
 
         public SqlConnection Connection()
@@ -45,7 +45,7 @@ namespace dllDao
         //retorna a string de conexao para ser utilizada.
         public string StrConexao()
         {
-            return @"Data Source=JEN\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
+            return @"Data Source=DESKTOP-LUCAS\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
         }
             
         //Executa query simples.

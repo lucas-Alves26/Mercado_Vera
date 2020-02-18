@@ -43,17 +43,17 @@ namespace Mercado_Vera.Dao
                 cmd1.Parameters.Add(new SqlParameter("@NOME", cliente.Nome));
 
                
-                if (cliente.Telefone.Ddd == 0)
+                if (cliente.Telefone.Ddd == "0")
                     cmd2.Parameters.Add(new SqlParameter("@DDD", DBNull.Value));
                 else
                     cmd2.Parameters.Add(new SqlParameter("@DDD", cliente.Telefone.Ddd));
 
-                if (cliente.Telefone.Fixo == 0)
+                if (cliente.Telefone.Fixo == "0")
                     cmd2.Parameters.Add(new SqlParameter("@FIXO", DBNull.Value));
                 else
                     cmd2.Parameters.Add(new SqlParameter("@FIXO", cliente.Telefone.Fixo));
 
-                if (cliente.Telefone.Cel == 0)
+                if (cliente.Telefone.Cel == "0")
                     cmd2.Parameters.Add(new SqlParameter("@CEL", DBNull.Value));
                 else
                     cmd2.Parameters.Add(new SqlParameter("@CEL", cliente.Telefone.Cel));
@@ -78,7 +78,7 @@ namespace Mercado_Vera.Dao
                 else
                     cmd3.Parameters.Add(new SqlParameter("@NUM", cliente.Endereco.Num));
 
-                if (cliente.Endereco.Cep == 0)
+                if (cliente.Endereco.Cep == "0")
                     cmd3.Parameters.Add(new SqlParameter("@CEP", DBNull.Value));
                 else
                     cmd3.Parameters.Add(new SqlParameter("@CEP", cliente.Endereco.Cep));
@@ -133,7 +133,7 @@ namespace Mercado_Vera.Dao
             string endId = conexao.SelecioneId(query);
 
             //Update na tabela fornecedor acrescentando telefone
-            query = "UPDATE TBL_CLIENTE SET TEL_ID = " + telId + " WHERE FOR_ID = " + cliId;
+            query = "UPDATE TBL_CLIENTE SET TEL_ID = " + telId + " WHERE CLI_ID = " + cliId;
             conexao.ExecutaInstrucaoNaBase(query);
 
             query = "INSERT INTO TBL_CLI_END(END_ID, CLI_ID)VALUES('" + endId + "','" + cliId + "')";

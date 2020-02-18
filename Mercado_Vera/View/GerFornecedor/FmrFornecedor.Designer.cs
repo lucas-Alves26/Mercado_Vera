@@ -332,7 +332,7 @@
             this.txtForn.Name = "txtForn";
             this.txtForn.Size = new System.Drawing.Size(321, 24);
             this.txtForn.TabIndex = 1;
-            this.txtForn.TextChanged += new System.EventHandler(this.txtForn_TextChanged);
+            this.txtForn.TextChanged += new System.EventHandler(this.FmrFornecedor_Load);
             this.txtForn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtForn_KeyPress);
             // 
             // label1
