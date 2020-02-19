@@ -225,6 +225,7 @@
             this.BtnImage.TabIndex = 0;
             this.BtnImage.Text = "add imagem";
             this.BtnImage.UseVisualStyleBackColor = true;
+            this.BtnImage.Click += new System.EventHandler(this.BtnImage_Click);
             // 
             // groupBox2
             // 

@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +20,7 @@ namespace Mercado_Vera.View.GerProduto
     {
         DaoProduto daoProd = new DaoProduto();
         DaoFornecedor daoForn = new DaoFornecedor();
+        DaoFoto fotos = new DaoFoto();
 
 
         string id;
@@ -45,6 +48,7 @@ namespace Mercado_Vera.View.GerProduto
             PopularFornecedor();
             PopularMarca();
             SqlDataReader dt;
+            byte[] foto = new Byte[0];
 
             dt = daoProd.SelectProdCompletoId(id);
             txtCodigo.Text = dt["PROD_COD"].ToString();
@@ -58,6 +62,19 @@ namespace Mercado_Vera.View.GerProduto
             cbxFornecedor.Text= dt["FOR_NOME_FANT"].ToString();
             catId = dt["SUB_CAT_ID"].ToString();
             fornId = dt["FOR_ID"].ToString();
+
+            foto = fotos.RetornaImg(id);
+
+            if (foto == null)
+            {
+                pictureBox1.Image = null;
+            }
+            else
+            {
+                MemoryStream stream = new MemoryStream(foto);
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox1.Image = Image.FromStream(stream);
+            }
 
             txtCodigo.Enabled = false;
             txtNome.Enabled = false;
@@ -96,7 +113,7 @@ namespace Mercado_Vera.View.GerProduto
                     fornId = cbxFornecedor.SelectedValue.ToString();
                 }
 
-                daoProd.produto = new Produto(id,txtCodigo.Text, txtNome.Text, txtPreco.Text, txtVenda.Text, txtQtd.Text, txtQtdMin.Text, cbxMarca.Text, catId, fornId);
+                daoProd.produto = new Produto(id, txtCodigo.Text, txtNome.Text, txtPreco.Text, txtVenda.Text, txtQtd.Text, txtQtdMin.Text, cbxMarca.Text, catId, fornId, ConverterParaBitArray());
                 daoProd.EditarProd(id);
                 MessageBox.Show("Produto atualizado com sucesso!");
             }
@@ -146,6 +163,43 @@ namespace Mercado_Vera.View.GerProduto
         private void btnCadiado_Click(object sender, EventArgs e)
         {
             HabilitarEdit();
+        }
+
+        //Converte a imagem para byte
+        private byte[] ConverterParaBitArray()
+        {
+            MemoryStream stream = new MemoryStream();
+            byte[] bArray;
+
+            if (pictureBox1.Image == null)
+            {
+                stream = null;
+                bArray = new byte[0];
+            }
+
+            else if (pictureBox1.Image != null)
+            {
+                pictureBox1.Image.Save(stream, ImageFormat.Png);
+                stream.Seek(0, SeekOrigin.Begin);
+            }
+
+            bArray = new byte[stream.Length];
+            stream.Read(bArray, 0, Convert.ToInt32(stream.Length));
+            return bArray;
+        }
+
+        private void BtnImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog abrir = new OpenFileDialog();
+            abrir.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            abrir.Filter = "Image Files (*.bmp, *.jpg, *.png, *.jpeg)| *.bmp; *.jpg; *.png; *.jpeg";
+            abrir.Multiselect = false;
+
+            if (abrir.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox1.Image = new Bitmap(abrir.FileName);
+            }
         }
     }
 }

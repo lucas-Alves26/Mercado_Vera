@@ -19,6 +19,7 @@ namespace Mercado_Vera.Entity
         public string Marca { get; set; }
         public int SubCate { get; set; }
         public int FornId { get; set; }
+        public byte[] Foto { get; set; }
 
         public Produto()
         {
@@ -29,7 +30,7 @@ namespace Mercado_Vera.Entity
             Id = int.Parse(id);
         }
 
-        public Produto(string cod, string nome, string preco, string precoVenda, string qtd, string qtdMin, string marca, string subCate, string fornId)
+        public Produto(string cod, string nome, string preco, string precoVenda, string qtd, string qtdMin, string marca, string subCate, string fornId, byte[] foto)
         {
             if(nome == "")
             {
@@ -65,6 +66,7 @@ namespace Mercado_Vera.Entity
                 fornId = "1";
             }
 
+            Foto = foto;
             Cod = cod;
             Nome = nome;
             Preco = decimal.Parse(preco);
@@ -76,8 +78,8 @@ namespace Mercado_Vera.Entity
             FornId = int.Parse(fornId);
         }
 
-        public Produto(string id,string cod, string nome, string preco, string precoVenda, string qtd, string qtdMin, string marca, string subCate, string fornId)
-            : this(cod, nome, preco, precoVenda, qtd, qtdMin, marca, subCate, fornId)
+        public Produto(string id, string cod, string nome, string preco, string precoVenda, string qtd, string qtdMin, string marca, string subCate, string fornId, byte[] foto)
+            : this(cod, nome, preco, precoVenda, qtd, qtdMin, marca, subCate, fornId, foto)
         {
             if (nome == "")
             {

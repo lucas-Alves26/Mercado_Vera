@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,11 +25,10 @@ namespace Mercado_Vera
         public FmrProduto()
         {
             InitializeComponent();
-
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
-         {
+        {
 
         }
 
@@ -46,7 +46,6 @@ namespace Mercado_Vera
 
 
         }  
-
         
 
         private void FmrProduto_Load(object sender, EventArgs e)
@@ -66,7 +65,7 @@ namespace Mercado_Vera
                     fornId = cbxFornecedor.SelectedValue.ToString();
                 }
 
-                DaoProd.produto = new Produto(txtCodigo.Text, txtNome.Text, txtPreco.Text, txtVenda.Text, txtQtd.Text, txtQtdMin.Text, cbxMarca.Text, categId,fornId);
+                DaoProd.produto = new Produto(txtCodigo.Text, txtNome.Text, txtPreco.Text, txtVenda.Text, txtQtd.Text, txtQtdMin.Text, cbxMarca.Text, categId,fornId, ConverterParaBitArray());
                 DaoProd.CadastroProd();
                 MessageBox.Show("Produto cadastrado com sucesso!");
                 Limpar();
@@ -216,15 +215,7 @@ namespace Mercado_Vera
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //if (PnlProd.Height == 419)
-            //{
-            //    PnlProd.Height = 0;
-            //}
 
-            //if (PnlExcluir.Height == 0)
-            //{
-            //    PnlExcluir.Height = 419;
-            //}
         }
 
         private void cbxMarca_Click(object sender, EventArgs e)
@@ -232,7 +223,6 @@ namespace Mercado_Vera
             cbxMarca.ValueMember = "PROD_MARCA";
             cbxMarca.DisplayMember = "PROD_MARCA";
             cbxMarca.DataSource = DaoProd.SelectMarca();// carrega a coluna EST_STR_NOME dentro cbx
-
         }
 
         private void cbxFornecedor_Click(object sender, EventArgs e)
@@ -250,6 +240,38 @@ namespace Mercado_Vera
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        //Converte a imagem para byte
+        private byte[] ConverterParaBitArray()
+        {
+            MemoryStream stream = new MemoryStream();
+            byte[] bArray = null;
+
+             if (pictureBox1.Image != null)
+            {
+                pictureBox1.Image.Save(stream, ImageFormat.Png);
+                stream.Seek(0, SeekOrigin.Begin);
+
+                bArray = new byte[stream.Length];
+                stream.Read(bArray, 0, Convert.ToInt32(stream.Length));
+            }
+        
+            return bArray;
+        }
+
+        private void BtnImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog abrir = new OpenFileDialog();
+            abrir.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            abrir.Filter = "Image Files (*.bmp, *.jpg, *.png, *.jpeg)| *.bmp; *.jpg; *.png; *.jpeg";
+            abrir.Multiselect = false;
+
+            if (abrir.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox1.Image = new Bitmap(abrir.FileName);
+            }
         }
     }
 }

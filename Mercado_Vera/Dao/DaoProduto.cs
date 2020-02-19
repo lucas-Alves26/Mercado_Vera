@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,8 +38,8 @@ namespace Mercado_Vera.Dao
                 SqlCommand cmd1 = con.CreateCommand();
                 SqlCommand cmd2 = con.CreateCommand();
 
-                cmd1.CommandText = "INSERT INTO TBL_PRODUTO(PROD_COD,PROD_NOME,PROD_MARCA,PROD_QTD,PROD_QTD_MIN,PROD_VALOR,PROD_VALOR_VENDA,SUB_CAT_ID)"
-                    + " VALUES (@CODBARRA,@NOME,@MARCA,@QTD,@QTDMIN,@PRECO,@PRECOVENDA,@CAT_ID)";
+                cmd1.CommandText = "INSERT INTO TBL_PRODUTO(PROD_COD,PROD_NOME,PROD_MARCA,PROD_QTD,PROD_QTD_MIN,PROD_VALOR,PROD_VALOR_VENDA,SUB_CAT_ID,FOTO)"
+                    + " VALUES (@CODBARRA,@NOME,@MARCA,@QTD,@QTDMIN,@PRECO,@PRECOVENDA,@CAT_ID,@FOTO)";
 
                 cmd1.Parameters.Add(new SqlParameter("@CODBARRA", produto.Cod));
                 cmd1.Parameters.Add(new SqlParameter("@NOME", produto.Nome));
@@ -58,7 +59,17 @@ namespace Mercado_Vera.Dao
                 cmd1.Parameters.Add(new SqlParameter("@PRECO", produto.Preco));
                 cmd1.Parameters.Add(new SqlParameter("@PRECOVENDA", produto.PrecoVenda));
                 cmd1.Parameters.Add(new SqlParameter("@CAT_ID", produto.SubCate));
-        
+
+                if (produto.Foto == null)
+                    cmd1.Parameters.Add(new SqlParameter("@FOTO", SqlBytes.Null));
+
+                //    cmd1.Parameters.Add(new SqlParameter("@FOTO", SqlDbType.VarBinary, produto.Foto == null ? -1 : produto.Foto.Length).Value = produto.Foto ?? (object)DBNull.Value);
+
+
+
+                else
+                    cmd1.Parameters.AddWithValue("@FOTO", produto.Foto);
+
 
                 con.Open();
                 SqlTransaction tran = con.BeginTransaction();
@@ -137,12 +148,13 @@ namespace Mercado_Vera.Dao
             SqlCommand cmd2 = con.CreateCommand();
 
 
-            cmd1.CommandText = "UPDATE TBL_PRODUTO SET PROD_COD= @CODBARRA, PROD_NOME = @NOME,PROD_VALOR = @PRECO, PROD_VALOR_VENDA = @PRECOVENDA, PROD_QTD = @QTD,PROD_QTD_MIN= @QTDMIN, PROD_MARCA = @MARCA, SUB_CAT_ID = @CAT_ID WHERE PROD_ID = @ID";
+            cmd1.CommandText = "UPDATE TBL_PRODUTO SET PROD_COD= @CODBARRA, PROD_NOME = @NOME,PROD_VALOR = @PRECO, PROD_VALOR_VENDA = @PRECOVENDA, PROD_QTD = @QTD,PROD_QTD_MIN= @QTDMIN, PROD_MARCA = @MARCA, SUB_CAT_ID = @CAT_ID, FOTO = @FOTO WHERE PROD_ID = @ID";
             cmd2.CommandText = "UPDATE TBL_PROD_FORN SET FOR_ID = @FORNID WHERE  PROD_ID = @ID";
 
             cmd1.Parameters.Add(new SqlParameter("@ID", produto.Id));
             cmd1.Parameters.Add(new SqlParameter("@CODBARRA", produto.Cod));
             cmd1.Parameters.Add(new SqlParameter("@NOME", produto.Nome));
+            cmd1.Parameters.AddWithValue("@FOTO", produto.Foto);
 
             if (produto.Marca == "")
                 cmd1.Parameters.Add(new SqlParameter("@MARCA", DBNull.Value));
