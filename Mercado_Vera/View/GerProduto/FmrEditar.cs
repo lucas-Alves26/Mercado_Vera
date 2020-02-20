@@ -39,8 +39,6 @@ namespace Mercado_Vera.View.GerProduto
 
         }
 
-
-
         private void FmrEditar_Load(object sender, EventArgs e)
         {
             
@@ -75,16 +73,6 @@ namespace Mercado_Vera.View.GerProduto
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox1.Image = Image.FromStream(stream);
             }
-
-            txtCodigo.Enabled = false;
-            txtNome.Enabled = false;
-            txtPreco.Enabled = false;
-            txtVenda.Enabled = false;
-            txtQtd.Enabled = false;
-            txtQtdMin.Enabled = false;
-            cbxCategoria.Enabled = false;
-            cbxMarca.Enabled = false;
-            cbxFornecedor.Enabled = false;
         }
 
         private void cbxMarca_Click(object sender, EventArgs e)
@@ -103,7 +91,7 @@ namespace Mercado_Vera.View.GerProduto
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
-        {           
+        {            
             try
             {
                 catId = cbxCategoria.SelectedValue.ToString();
@@ -121,19 +109,6 @@ namespace Mercado_Vera.View.GerProduto
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        public void HabilitarEdit()
-        {
-            txtCodigo.Enabled = true;
-            txtNome.Enabled = true;
-            txtPreco.Enabled = true;
-            txtVenda.Enabled = true;
-            txtQtd.Enabled = true;
-            txtQtdMin.Enabled = true;
-            cbxCategoria.Enabled = true;
-            cbxMarca.Enabled = true;
-            cbxFornecedor.Enabled = true;
         }
 
         public void PopularCategoria()
@@ -162,29 +137,22 @@ namespace Mercado_Vera.View.GerProduto
 
         private void btnCadiado_Click(object sender, EventArgs e)
         {
-            HabilitarEdit();
         }
 
         //Converte a imagem para byte
         private byte[] ConverterParaBitArray()
         {
             MemoryStream stream = new MemoryStream();
-            byte[] bArray;
+            byte[] bArray = null;
 
-            if (pictureBox1.Image == null)
-            {
-                stream = null;
-                bArray = new byte[0];
-            }
-
-            else if (pictureBox1.Image != null)
+            if (pictureBox1.Image != null)
             {
                 pictureBox1.Image.Save(stream, ImageFormat.Png);
                 stream.Seek(0, SeekOrigin.Begin);
+                bArray = new byte[stream.Length];
+                stream.Read(bArray, 0, Convert.ToInt32(stream.Length));
             }
-
-            bArray = new byte[stream.Length];
-            stream.Read(bArray, 0, Convert.ToInt32(stream.Length));
+            
             return bArray;
         }
 

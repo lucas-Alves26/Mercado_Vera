@@ -61,12 +61,7 @@ namespace Mercado_Vera.Dao
                 cmd1.Parameters.Add(new SqlParameter("@CAT_ID", produto.SubCate));
 
                 if (produto.Foto == null)
-                    cmd1.Parameters.Add(new SqlParameter("@FOTO", SqlBytes.Null));
-
-                //    cmd1.Parameters.Add(new SqlParameter("@FOTO", SqlDbType.VarBinary, produto.Foto == null ? -1 : produto.Foto.Length).Value = produto.Foto ?? (object)DBNull.Value);
-
-
-
+                    cmd1.Parameters.Add(new SqlParameter("@FOTO", SqlBytes.Null));              
                 else
                     cmd1.Parameters.AddWithValue("@FOTO", produto.Foto);
 
@@ -154,7 +149,11 @@ namespace Mercado_Vera.Dao
             cmd1.Parameters.Add(new SqlParameter("@ID", produto.Id));
             cmd1.Parameters.Add(new SqlParameter("@CODBARRA", produto.Cod));
             cmd1.Parameters.Add(new SqlParameter("@NOME", produto.Nome));
-            cmd1.Parameters.AddWithValue("@FOTO", produto.Foto);
+
+            if (produto.Foto == null)
+                cmd1.Parameters.Add(new SqlParameter("@FOTO", SqlBytes.Null));
+            else
+                cmd1.Parameters.AddWithValue("@FOTO", produto.Foto);
 
             if (produto.Marca == "")
                 cmd1.Parameters.Add(new SqlParameter("@MARCA", DBNull.Value));
@@ -171,10 +170,10 @@ namespace Mercado_Vera.Dao
             cmd1.Parameters.Add(new SqlParameter("@PRECO", produto.Preco));
             cmd1.Parameters.Add(new SqlParameter("@PRECOVENDA", produto.PrecoVenda));
             cmd1.Parameters.Add(new SqlParameter("@CAT_ID", produto.SubCate));
+
             //--------------
             cmd2.Parameters.Add(new SqlParameter("@FORNID", produto.FornId));
             cmd2.Parameters.Add(new SqlParameter("@ID", produto.Id));
-
 
             try
             {

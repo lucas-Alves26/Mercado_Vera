@@ -55,10 +55,14 @@ namespace Mercado_Vera
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             string fornId = "";
+            string categId = "";
 
             try
             {
-                string categId = cbxCategoria.SelectedValue.ToString();
+                if(cbxCategoria.Text != "")
+                {
+                   categId = cbxCategoria.SelectedValue.ToString();
+                }               
 
                 if (cbxFornecedor.Text != "")
                 {
@@ -252,7 +256,6 @@ namespace Mercado_Vera
             {
                 pictureBox1.Image.Save(stream, ImageFormat.Png);
                 stream.Seek(0, SeekOrigin.Begin);
-
                 bArray = new byte[stream.Length];
                 stream.Read(bArray, 0, Convert.ToInt32(stream.Length));
             }
