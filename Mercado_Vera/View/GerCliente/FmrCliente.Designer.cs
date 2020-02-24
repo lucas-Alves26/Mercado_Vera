@@ -34,6 +34,17 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Label1 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtFixo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbxOpe = new System.Windows.Forms.ComboBox();
+            this.txtCel = new System.Windows.Forms.TextBox();
+            this.txtDdd = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtComp = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -45,21 +56,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtBairro = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtFixo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtCel = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbxOpe = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDdd = new System.Windows.Forms.TextBox();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.Label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,7 +81,7 @@
             this.panel2.BackColor = System.Drawing.Color.SteelBlue;
             this.panel2.Controls.Add(this.btnSalvar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 383);
+            this.panel2.Location = new System.Drawing.Point(0, 381);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(592, 83);
             this.panel2.TabIndex = 1;
@@ -104,8 +104,137 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 59);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(592, 324);
+            this.panel3.Size = new System.Drawing.Size(592, 322);
             this.panel3.TabIndex = 2;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Label1);
+            this.groupBox1.Controls.Add(this.txtNome);
+            this.groupBox1.Controls.Add(this.txtFixo);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cbxOpe);
+            this.groupBox1.Controls.Add(this.txtCel);
+            this.groupBox1.Controls.Add(this.txtDdd);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Location = new System.Drawing.Point(22, 24);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(538, 124);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            // 
+            // Label1
+            // 
+            this.Label1.AutoSize = true;
+            this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.Label1.Location = new System.Drawing.Point(27, 17);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new System.Drawing.Size(58, 18);
+            this.Label1.TabIndex = 0;
+            this.Label1.Text = "Nome:";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(27, 38);
+            this.txtNome.MaxLength = 50;
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(473, 24);
+            this.txtNome.TabIndex = 1;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
+            // 
+            // txtFixo
+            // 
+            this.txtFixo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFixo.Location = new System.Drawing.Point(30, 89);
+            this.txtFixo.MaxLength = 8;
+            this.txtFixo.Name = "txtFixo";
+            this.txtFixo.Size = new System.Drawing.Size(110, 24);
+            this.txtFixo.TabIndex = 12;
+            this.txtFixo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFixo.TextChanged += new System.EventHandler(this.txtFixo_TextChanged);
+            this.txtFixo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFixo_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(27, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 18);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Tel.Fixo:";
+            // 
+            // cbxOpe
+            // 
+            this.cbxOpe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxOpe.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxOpe.FormattingEnabled = true;
+            this.cbxOpe.Items.AddRange(new object[] {
+            "Claro",
+            "Nextel",
+            "Oi",
+            "Tim",
+            "Vivo"});
+            this.cbxOpe.Location = new System.Drawing.Point(377, 89);
+            this.cbxOpe.Name = "cbxOpe";
+            this.cbxOpe.Size = new System.Drawing.Size(123, 26);
+            this.cbxOpe.TabIndex = 18;
+            // 
+            // txtCel
+            // 
+            this.txtCel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCel.Location = new System.Drawing.Point(165, 89);
+            this.txtCel.MaxLength = 9;
+            this.txtCel.Name = "txtCel";
+            this.txtCel.Size = new System.Drawing.Size(110, 24);
+            this.txtCel.TabIndex = 14;
+            this.txtCel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCel_KeyPress);
+            // 
+            // txtDdd
+            // 
+            this.txtDdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDdd.Location = new System.Drawing.Point(299, 89);
+            this.txtDdd.MaxLength = 3;
+            this.txtDdd.Name = "txtDdd";
+            this.txtDdd.Size = new System.Drawing.Size(50, 24);
+            this.txtDdd.TabIndex = 16;
+            this.txtDdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDdd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDdd_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(166, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 18);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Tel.Celular:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(296, 68);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 18);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "DDD:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(374, 68);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 18);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Operadora:";
             // 
             // groupBox2
             // 
@@ -227,140 +356,11 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Bairro:";
             // 
-            // txtFixo
-            // 
-            this.txtFixo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFixo.Location = new System.Drawing.Point(30, 89);
-            this.txtFixo.MaxLength = 8;
-            this.txtFixo.Name = "txtFixo";
-            this.txtFixo.Size = new System.Drawing.Size(110, 24);
-            this.txtFixo.TabIndex = 12;
-            this.txtFixo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFixo.TextChanged += new System.EventHandler(this.txtFixo_TextChanged);
-            this.txtFixo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFixo_KeyPress);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 18);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Tel.Fixo:";
-            // 
-            // txtCel
-            // 
-            this.txtCel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCel.Location = new System.Drawing.Point(165, 89);
-            this.txtCel.MaxLength = 9;
-            this.txtCel.Name = "txtCel";
-            this.txtCel.Size = new System.Drawing.Size(110, 24);
-            this.txtCel.TabIndex = 14;
-            this.txtCel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCel_KeyPress);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(166, 68);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 18);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Tel.Celular:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(374, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 18);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Operadora:";
-            // 
-            // cbxOpe
-            // 
-            this.cbxOpe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxOpe.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxOpe.FormattingEnabled = true;
-            this.cbxOpe.Items.AddRange(new object[] {
-            "Claro",
-            "Nextel",
-            "Oi",
-            "Tim",
-            "Vivo"});
-            this.cbxOpe.Location = new System.Drawing.Point(377, 89);
-            this.cbxOpe.Name = "cbxOpe";
-            this.cbxOpe.Size = new System.Drawing.Size(123, 26);
-            this.cbxOpe.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(296, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 18);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "DDD:";
-            // 
-            // txtDdd
-            // 
-            this.txtDdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDdd.Location = new System.Drawing.Point(299, 89);
-            this.txtDdd.MaxLength = 3;
-            this.txtDdd.Name = "txtDdd";
-            this.txtDdd.Size = new System.Drawing.Size(50, 24);
-            this.txtDdd.TabIndex = 16;
-            this.txtDdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtDdd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDdd_KeyPress);
-            // 
-            // txtNome
-            // 
-            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(27, 38);
-            this.txtNome.MaxLength = 50;
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(473, 24);
-            this.txtNome.TabIndex = 1;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
-            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
-            // 
-            // Label1
-            // 
-            this.Label1.AutoSize = true;
-            this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.Label1.Location = new System.Drawing.Point(27, 17);
-            this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(58, 18);
-            this.Label1.TabIndex = 0;
-            this.Label1.Text = "Nome:";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.Label1);
-            this.groupBox1.Controls.Add(this.txtNome);
-            this.groupBox1.Controls.Add(this.txtFixo);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.cbxOpe);
-            this.groupBox1.Controls.Add(this.txtCel);
-            this.groupBox1.Controls.Add(this.txtDdd);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(22, 24);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(538, 124);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            // 
             // FmrCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 466);
+            this.ClientSize = new System.Drawing.Size(592, 464);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -369,10 +369,10 @@
             this.Load += new System.EventHandler(this.FmrCliente_Load);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }

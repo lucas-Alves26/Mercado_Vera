@@ -1,7 +1,9 @@
 ﻿using Mercado_Vera.Dao;
+using Mercado_Vera.Entity;
 using Mercado_Vera.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
@@ -18,14 +20,13 @@ namespace Mercado_Vera
     {
         DaoVenda daoVenda = new DaoVenda();
         DaoFoto daoFoto = new DaoFoto();
-
+        ObservableCollection<ItemVenda> listaItens = new ObservableCollection<ItemVenda>();
 
 
         string qtd = "1";
         static decimal totalprod;
         byte[] foto = new Byte[0];
-        int l = -1;//Linhas
-        int c = -1;//Colunas
+   
 
         public FmrCaixa()
         {
@@ -63,7 +64,7 @@ namespace Mercado_Vera
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                     pictureBox1.Image = Image.FromStream(stream);
                 }
-
+                GetProdDg();
                 PrencheDg();
             }
 
@@ -80,13 +81,20 @@ namespace Mercado_Vera
 
         public void PrencheDg()
         {
-            //dataGridView1.Rows.Insert(int.Parse(txtIdB.Text),lblPod.Text);
-            //l++;
-            //dataGridView1.Rows[1].Cells[0].Value = txtIdB.Text;]
-
-            dataGridView2.Rows.Add(txtIdB.Text,txtBarra.Text,lblPod.Text,lblValorUni.Text,txtQtd.Text,lblTotaltem.Text);
+            dataGridView2.Rows.Add(txtIdB.Text,txtBarra.Text,lblPod.Text,lblValorUni.Text,qtd,lblTotaltem.Text);
         }
-           
+
+        public void GetProdDg()
+        {
+            ItemVenda itemVenda = new ItemVenda(txtIdB.Text, lblTotaltem.Text, qtd);
+            listaItens.Add(itemVenda);
+
+            //foreach (ItemVenda V in listaItens)
+            //{
+            //    atualiza(V.ProdId,)
+            //}
+
+        }
 
         private void panel10_Paint(object sender, PaintEventArgs e)
         {
@@ -156,5 +164,7 @@ namespace Mercado_Vera
             txtBarra.BackColor = System.Drawing.Color.LightSteelBlue;
             txtBarra.Focus();
         }
+
+
     }
 }

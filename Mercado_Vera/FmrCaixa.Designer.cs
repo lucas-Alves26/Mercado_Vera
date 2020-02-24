@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
@@ -70,8 +69,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +76,9 @@
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -96,26 +96,17 @@
             this.panel14.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1161, 49);
-            this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 49);
+            this.panel2.Location = new System.Drawing.Point(0, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1161, 68);
+            this.panel2.Size = new System.Drawing.Size(1154, 10);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -131,9 +122,9 @@
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 117);
+            this.panel3.Location = new System.Drawing.Point(0, 22);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(556, 716);
+            this.panel3.Size = new System.Drawing.Size(556, 727);
             this.panel3.TabIndex = 2;
             // 
             // panel19
@@ -149,22 +140,22 @@
             // lblPod
             // 
             this.lblPod.AutoSize = true;
-            this.lblPod.Font = new System.Drawing.Font("Copperplate Gothic Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPod.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPod.ForeColor = System.Drawing.Color.White;
             this.lblPod.Location = new System.Drawing.Point(11, 23);
             this.lblPod.Name = "lblPod";
-            this.lblPod.Size = new System.Drawing.Size(25, 35);
+            this.lblPod.Size = new System.Drawing.Size(26, 37);
             this.lblPod.TabIndex = 5;
             this.lblPod.Text = ".";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(3, 2);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(188, 18);
+            this.label5.Size = new System.Drawing.Size(167, 20);
             this.label5.TabIndex = 1;
             this.label5.Text = "NOME DO PRODUTO";
             // 
@@ -298,11 +289,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(3, 3);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(129, 18);
+            this.label8.Size = new System.Drawing.Size(115, 20);
             this.label8.TabIndex = 7;
             this.label8.Text = "QUANTIDADE";
             // 
@@ -331,11 +322,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(3, 3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(206, 18);
+            this.label7.Size = new System.Drawing.Size(185, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "CÓDIGO DO PRODUTO";
             // 
@@ -352,22 +343,22 @@
             // lblTotaltem
             // 
             this.lblTotaltem.AutoSize = true;
-            this.lblTotaltem.Font = new System.Drawing.Font("Copperplate Gothic Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotaltem.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotaltem.ForeColor = System.Drawing.Color.White;
             this.lblTotaltem.Location = new System.Drawing.Point(74, 34);
             this.lblTotaltem.Name = "lblTotaltem";
-            this.lblTotaltem.Size = new System.Drawing.Size(151, 35);
+            this.lblTotaltem.Size = new System.Drawing.Size(129, 37);
             this.lblTotaltem.TabIndex = 5;
             this.lblTotaltem.Text = "R$ 0,00";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 18);
+            this.label4.Size = new System.Drawing.Size(129, 20);
             this.label4.TabIndex = 4;
             this.label4.Text = "TOTAL DO ITEM";
             // 
@@ -384,22 +375,22 @@
             // lblValorUni
             // 
             this.lblValorUni.AutoSize = true;
-            this.lblValorUni.Font = new System.Drawing.Font("Copperplate Gothic Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorUni.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorUni.ForeColor = System.Drawing.Color.White;
             this.lblValorUni.Location = new System.Drawing.Point(74, 35);
             this.lblValorUni.Name = "lblValorUni";
-            this.lblValorUni.Size = new System.Drawing.Size(151, 35);
+            this.lblValorUni.Size = new System.Drawing.Size(129, 37);
             this.lblValorUni.TabIndex = 4;
             this.lblValorUni.Text = "R$ 0,00";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 18);
+            this.label3.Size = new System.Drawing.Size(145, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "VALOR UNITÁRIO";
             // 
@@ -430,11 +421,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(3, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 18);
+            this.label2.Size = new System.Drawing.Size(177, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "CÓDIGO  DE BARRAS";
             // 
@@ -462,9 +453,9 @@
             this.panel8.Controls.Add(this.panel14);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(556, 117);
+            this.panel8.Location = new System.Drawing.Point(556, 22);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(605, 716);
+            this.panel8.Size = new System.Drawing.Size(598, 727);
             this.panel8.TabIndex = 3;
             // 
             // panel16
@@ -480,22 +471,22 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Copperplate Gothic Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(110, 32);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(138, 33);
+            this.label14.Size = new System.Drawing.Size(116, 33);
             this.label14.TabIndex = 10;
             this.label14.Text = "R$ 0,00";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(3, 1);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 18);
+            this.label12.Size = new System.Drawing.Size(65, 20);
             this.label12.TabIndex = 10;
             this.label12.Text = "TROCO";
             // 
@@ -512,22 +503,22 @@
             // txtTotalRec
             // 
             this.txtTotalRec.AutoSize = true;
-            this.txtTotalRec.Font = new System.Drawing.Font("Copperplate Gothic Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalRec.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalRec.ForeColor = System.Drawing.Color.White;
             this.txtTotalRec.Location = new System.Drawing.Point(86, 32);
             this.txtTotalRec.Name = "txtTotalRec";
-            this.txtTotalRec.Size = new System.Drawing.Size(138, 33);
+            this.txtTotalRec.Size = new System.Drawing.Size(116, 33);
             this.txtTotalRec.TabIndex = 5;
             this.txtTotalRec.Text = "R$ 0,00";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(3, 1);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(167, 18);
+            this.label11.Size = new System.Drawing.Size(148, 20);
             this.label11.TabIndex = 9;
             this.label11.Text = "TOTAL RECEBIDO";
             // 
@@ -544,22 +535,22 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Copperplate Gothic Bold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(356, 11);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(174, 53);
+            this.label10.Size = new System.Drawing.Size(145, 55);
             this.label10.TabIndex = 6;
             this.label10.Text = "00,00";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Copperplate Gothic Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(3, 4);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(158, 26);
+            this.label9.Size = new System.Drawing.Size(141, 29);
             this.label9.TabIndex = 8;
             this.label9.Text = "SUBTOTAL";
             // 
@@ -582,27 +573,6 @@
             this.panel10.Size = new System.Drawing.Size(542, 367);
             this.panel10.TabIndex = 0;
             this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel13.Controls.Add(this.label1);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(542, 29);
-            this.panel13.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(148, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "LISTA DE PRODUTOS";
             // 
             // dataGridView2
             // 
@@ -656,17 +626,49 @@
             this.total.Name = "total";
             this.total.Width = 70;
             // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel13.Controls.Add(this.label1);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(542, 29);
+            this.panel13.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(148, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "LISTA DE PRODUTOS";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1154, 12);
+            this.panel1.TabIndex = 0;
+            // 
             // FmrCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1161, 833);
+            this.ClientSize = new System.Drawing.Size(1154, 749);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FmrCaixa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Caixa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FmrCaixa_Load);
@@ -696,16 +698,14 @@
             this.panel14.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
@@ -756,5 +756,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.Panel panel1;
     }
 }
