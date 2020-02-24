@@ -31,17 +31,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.lblPod = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.btnQld = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.btnFin = new System.Windows.Forms.Button();
             this.BtnVenda = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.txtQtd = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.txtIdB = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.lblTotaltem = new System.Windows.Forms.Label();
@@ -53,31 +57,30 @@
             this.txtBarra = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
+            this.txtTotalRec = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valoruni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblPod = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -85,15 +88,16 @@
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel13.SuspendLayout();
-            this.panel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -132,6 +136,38 @@
             this.panel3.Size = new System.Drawing.Size(556, 716);
             this.panel3.TabIndex = 2;
             // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel19.Controls.Add(this.lblPod);
+            this.panel19.Controls.Add(this.label5);
+            this.panel19.Location = new System.Drawing.Point(16, 31);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(530, 63);
+            this.panel19.TabIndex = 2;
+            // 
+            // lblPod
+            // 
+            this.lblPod.AutoSize = true;
+            this.lblPod.Font = new System.Drawing.Font("Copperplate Gothic Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPod.ForeColor = System.Drawing.Color.White;
+            this.lblPod.Location = new System.Drawing.Point(11, 23);
+            this.lblPod.Name = "lblPod";
+            this.lblPod.Size = new System.Drawing.Size(25, 35);
+            this.lblPod.TabIndex = 5;
+            this.lblPod.Text = ".";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(3, 2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(188, 18);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "NOME DO PRODUTO";
+            // 
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.AliceBlue;
@@ -162,8 +198,8 @@
             // 
             this.panel17.BackColor = System.Drawing.Color.AliceBlue;
             this.panel17.Controls.Add(this.btnQld);
-            this.panel17.Controls.Add(this.button2);
-            this.panel17.Controls.Add(this.button1);
+            this.panel17.Controls.Add(this.btnDel);
+            this.panel17.Controls.Add(this.btnFin);
             this.panel17.Controls.Add(this.BtnVenda);
             this.panel17.Location = new System.Drawing.Point(16, 586);
             this.panel17.Name = "panel17";
@@ -187,37 +223,37 @@
             this.btnQld.UseVisualStyleBackColor = false;
             this.btnQld.Click += new System.EventHandler(this.btnQld_Click);
             // 
-            // button2
+            // btnDel
             // 
-            this.button2.BackColor = System.Drawing.Color.AliceBlue;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(6, 53);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(177, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "F3 - REMOVER ITEM";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnDel.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnDel.FlatAppearance.BorderSize = 0;
+            this.btnDel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.btnDel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDel.Location = new System.Drawing.Point(6, 53);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(177, 23);
+            this.btnDel.TabIndex = 2;
+            this.btnDel.Text = "F3 - REMOVER ITEM";
+            this.btnDel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDel.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnFin
             // 
-            this.button1.BackColor = System.Drawing.Color.AliceBlue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(6, 77);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "F4 - FINALIZAR VENDA";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnFin.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnFin.FlatAppearance.BorderSize = 0;
+            this.btnFin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.btnFin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnFin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFin.Location = new System.Drawing.Point(6, 77);
+            this.btnFin.Name = "btnFin";
+            this.btnFin.Size = new System.Drawing.Size(177, 23);
+            this.btnFin.TabIndex = 1;
+            this.btnFin.Text = "F4 - FINALIZAR VENDA";
+            this.btnFin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFin.UseVisualStyleBackColor = false;
             // 
             // BtnVenda
             // 
@@ -234,6 +270,7 @@
             this.BtnVenda.Text = "F1 - NOVA VENDA";
             this.BtnVenda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnVenda.UseVisualStyleBackColor = false;
+            this.BtnVenda.Click += new System.EventHandler(this.BtnVenda_Click);
             // 
             // panel12
             // 
@@ -272,11 +309,24 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel11.Controls.Add(this.txtIdB);
             this.panel11.Controls.Add(this.label7);
             this.panel11.Location = new System.Drawing.Point(16, 495);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(256, 76);
             this.panel11.TabIndex = 4;
+            // 
+            // txtIdB
+            // 
+            this.txtIdB.BackColor = System.Drawing.Color.SteelBlue;
+            this.txtIdB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIdB.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdB.ForeColor = System.Drawing.Color.White;
+            this.txtIdB.Location = new System.Drawing.Point(17, 33);
+            this.txtIdB.Name = "txtIdB";
+            this.txtIdB.Size = new System.Drawing.Size(219, 28);
+            this.txtIdB.TabIndex = 3;
+            this.txtIdB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
@@ -367,11 +417,11 @@
             // 
             this.txtBarra.BackColor = System.Drawing.Color.SteelBlue;
             this.txtBarra.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBarra.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBarra.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBarra.ForeColor = System.Drawing.Color.White;
             this.txtBarra.Location = new System.Drawing.Point(9, 32);
             this.txtBarra.Name = "txtBarra";
-            this.txtBarra.Size = new System.Drawing.Size(219, 28);
+            this.txtBarra.Size = new System.Drawing.Size(219, 32);
             this.txtBarra.TabIndex = 2;
             this.txtBarra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBarra_KeyPress);
@@ -391,10 +441,19 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Location = new System.Drawing.Point(16, 120);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(277, 335);
             this.panel4.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(4, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(267, 327);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel8
             // 
@@ -443,23 +502,23 @@
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel15.Controls.Add(this.label13);
+            this.panel15.Controls.Add(this.txtTotalRec);
             this.panel15.Controls.Add(this.label11);
             this.panel15.Location = new System.Drawing.Point(29, 489);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(266, 77);
             this.panel15.TabIndex = 2;
             // 
-            // label13
+            // txtTotalRec
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Copperplate Gothic Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(86, 32);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(138, 33);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "R$ 0,00";
+            this.txtTotalRec.AutoSize = true;
+            this.txtTotalRec.Font = new System.Drawing.Font("Copperplate Gothic Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalRec.ForeColor = System.Drawing.Color.White;
+            this.txtTotalRec.Location = new System.Drawing.Point(86, 32);
+            this.txtTotalRec.Name = "txtTotalRec";
+            this.txtTotalRec.Size = new System.Drawing.Size(138, 33);
+            this.txtTotalRec.TabIndex = 5;
+            this.txtTotalRec.Text = "R$ 0,00";
             // 
             // label11
             // 
@@ -516,73 +575,13 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.White;
-            this.panel10.Controls.Add(this.dataGridView1);
+            this.panel10.Controls.Add(this.dataGridView2);
             this.panel10.Controls.Add(this.panel13);
             this.panel10.Location = new System.Drawing.Point(2, 2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(542, 367);
             this.panel10.TabIndex = 0;
             this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.item,
-            this.Codigo,
-            this.Desc,
-            this.Qtd,
-            this.Valoruni,
-            this.Total});
-            this.dataGridView1.GridColor = System.Drawing.Color.Gray;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 33);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(535, 331);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // item
-            // 
-            this.item.HeaderText = "N° Item";
-            this.item.Name = "item";
-            this.item.ReadOnly = true;
-            this.item.Width = 48;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // Desc
-            // 
-            this.Desc.HeaderText = "Descrição";
-            this.Desc.Name = "Desc";
-            this.Desc.ReadOnly = true;
-            this.Desc.Width = 155;
-            // 
-            // Qtd
-            // 
-            this.Qtd.HeaderText = "Qtd";
-            this.Qtd.Name = "Qtd";
-            this.Qtd.ReadOnly = true;
-            this.Qtd.Width = 48;
-            // 
-            // Valoruni
-            // 
-            this.Valoruni.HeaderText = "Vlr. Unit.";
-            this.Valoruni.Name = "Valoruni";
-            this.Valoruni.ReadOnly = true;
-            this.Valoruni.Width = 72;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 80;
             // 
             // panel13
             // 
@@ -605,37 +604,57 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "LISTA DE PRODUTOS";
             // 
-            // panel19
+            // dataGridView2
             // 
-            this.panel19.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel19.Controls.Add(this.lblPod);
-            this.panel19.Controls.Add(this.label5);
-            this.panel19.Location = new System.Drawing.Point(16, 31);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(530, 63);
-            this.panel19.TabIndex = 2;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.codigo,
+            this.nome,
+            this.valor,
+            this.quantidade,
+            this.total});
+            this.dataGridView2.Location = new System.Drawing.Point(3, 31);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 25;
+            this.dataGridView2.Size = new System.Drawing.Size(536, 333);
+            this.dataGridView2.TabIndex = 4;
             // 
-            // label5
+            // id
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(3, 2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(188, 18);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "NOME DO PRODUTO";
+            this.id.HeaderText = "N° Item";
+            this.id.Name = "id";
+            this.id.Width = 66;
             // 
-            // lblPod
+            // codigo
             // 
-            this.lblPod.AutoSize = true;
-            this.lblPod.Font = new System.Drawing.Font("Copperplate Gothic Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPod.ForeColor = System.Drawing.Color.White;
-            this.lblPod.Location = new System.Drawing.Point(11, 23);
-            this.lblPod.Name = "lblPod";
-            this.lblPod.Size = new System.Drawing.Size(31, 35);
-            this.lblPod.TabIndex = 5;
-            this.lblPod.Text = ">";
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            this.codigo.Width = 97;
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "Descrição";
+            this.nome.Name = "nome";
+            this.nome.Width = 151;
+            // 
+            // valor
+            // 
+            this.valor.HeaderText = "Vlr. Unit.";
+            this.valor.Name = "valor";
+            this.valor.Width = 74;
+            // 
+            // quantidade
+            // 
+            this.quantidade.HeaderText = "Qtd.";
+            this.quantidade.Name = "quantidade";
+            this.quantidade.Width = 50;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            this.total.Width = 70;
             // 
             // FmrCaixa
             // 
@@ -652,6 +671,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FmrCaixa_Load);
             this.panel3.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -664,6 +685,8 @@
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
@@ -673,11 +696,9 @@
             this.panel14.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -712,26 +733,28 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label txtTotalRec;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button BtnVenda;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.Button btnFin;
         private System.Windows.Forms.TextBox txtQtd;
         private System.Windows.Forms.Button btnQld;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn item;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qtd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Valoruni;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblPod;
+        private System.Windows.Forms.TextBox txtIdB;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
     }
 }
