@@ -75,25 +75,20 @@ namespace Mercado_Vera
             finally
             {
                 txtBarra.Clear();
+                 lblSubTotal.Text = dataGridView2.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[total.Name].Value ?? 0)).ToString("##.00");
             }
         }
 
-
+        //preenche datagridview com as informações do produto
         public void PrencheDg()
         {
-            dataGridView2.Rows.Add(txtIdB.Text,txtBarra.Text,lblPod.Text,lblValorUni.Text,qtd,lblTotaltem.Text);
+            dataGridView2.Rows.Add(txtIdB.Text, txtBarra.Text, lblPod.Text, lblValorUni.Text, qtd, lblTotaltem.Text);
         }
-
+        //pega o ID e a qantidade do produto para armazenar em uma lista
         public void GetProdDg()
         {
             ItemVenda itemVenda = new ItemVenda(txtIdB.Text, lblTotaltem.Text, qtd);
             listaItens.Add(itemVenda);
-
-            //foreach (ItemVenda V in listaItens)
-            //{
-            //    atualiza(V.ProdId,)
-            //}
-
         }
 
         private void panel10_Paint(object sender, PaintEventArgs e)
@@ -102,6 +97,11 @@ namespace Mercado_Vera
         }
 
         private void FmrCaixa_Load(object sender, EventArgs e)
+        {
+            TravarBotoes();
+        }
+
+        private void TravarBotoes()
         {
             txtBarra.Enabled = false;
             txtIdB.Enabled = false;
@@ -163,8 +163,54 @@ namespace Mercado_Vera
             btnFin.Enabled = true;
             txtBarra.BackColor = System.Drawing.Color.LightSteelBlue;
             txtBarra.Focus();
+            BtnVenda.Enabled = false;
         }
 
+        private void btnFin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (ItemVenda V in listaItens)
+                {
+                    daoVenda.UpdateEstoque(V.ProdId, V.Qtd);
+                }
 
+                MessageBox.Show("Venda Finalizada");
+            }
+            catch (DomainExceptions ex)
+            {               
+                MessageBox.Show(ex.Message);
+            }
+
+            finally
+            {
+                txtQtd.Clear();
+                txtIdB.Clear();
+                lblPod.Text = "R$ 0,00";
+                lblTotaltem.Text = "R$ 0,00";
+                lblSubTotal.Text = "R$ 0,00";
+            }
+
+            BtnVenda.Enabled = true;
+         
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView2.Rows.RemoveAt(dataGridView2.CurrentRow.Index);
+                lblSubTotal.Text = dataGridView2.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[total.Name].Value ?? 0)).ToString("##00.00");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -65,7 +65,7 @@
             this.txtTotalRec = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblSubTotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -126,13 +126,14 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(556, 727);
             this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.SteelBlue;
             this.panel19.Controls.Add(this.lblPod);
             this.panel19.Controls.Add(this.label5);
-            this.panel19.Location = new System.Drawing.Point(16, 31);
+            this.panel19.Location = new System.Drawing.Point(16, 25);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(530, 63);
             this.panel19.TabIndex = 2;
@@ -163,7 +164,7 @@
             // 
             this.panel18.BackColor = System.Drawing.Color.AliceBlue;
             this.panel18.Controls.Add(this.button4);
-            this.panel18.Location = new System.Drawing.Point(217, 586);
+            this.panel18.Location = new System.Drawing.Point(217, 569);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(189, 106);
             this.panel18.TabIndex = 7;
@@ -192,7 +193,7 @@
             this.panel17.Controls.Add(this.btnDel);
             this.panel17.Controls.Add(this.btnFin);
             this.panel17.Controls.Add(this.BtnVenda);
-            this.panel17.Location = new System.Drawing.Point(16, 586);
+            this.panel17.Location = new System.Drawing.Point(16, 569);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(195, 106);
             this.panel17.TabIndex = 6;
@@ -229,6 +230,7 @@
             this.btnDel.Text = "F3 - REMOVER ITEM";
             this.btnDel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDel.UseVisualStyleBackColor = false;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnFin
             // 
@@ -245,6 +247,7 @@
             this.btnFin.Text = "F4 - FINALIZAR VENDA";
             this.btnFin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFin.UseVisualStyleBackColor = false;
+            this.btnFin.Click += new System.EventHandler(this.btnFin_Click);
             // 
             // BtnVenda
             // 
@@ -268,7 +271,7 @@
             this.panel12.BackColor = System.Drawing.Color.SteelBlue;
             this.panel12.Controls.Add(this.txtQtd);
             this.panel12.Controls.Add(this.label8);
-            this.panel12.Location = new System.Drawing.Point(307, 495);
+            this.panel12.Location = new System.Drawing.Point(307, 469);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(239, 76);
             this.panel12.TabIndex = 5;
@@ -302,7 +305,7 @@
             this.panel11.BackColor = System.Drawing.Color.SteelBlue;
             this.panel11.Controls.Add(this.txtIdB);
             this.panel11.Controls.Add(this.label7);
-            this.panel11.Location = new System.Drawing.Point(16, 495);
+            this.panel11.Location = new System.Drawing.Point(16, 469);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(256, 76);
             this.panel11.TabIndex = 4;
@@ -335,7 +338,7 @@
             this.panel7.BackColor = System.Drawing.Color.SteelBlue;
             this.panel7.Controls.Add(this.lblTotaltem);
             this.panel7.Controls.Add(this.label4);
-            this.panel7.Location = new System.Drawing.Point(307, 374);
+            this.panel7.Location = new System.Drawing.Point(307, 365);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(239, 81);
             this.panel7.TabIndex = 3;
@@ -367,7 +370,7 @@
             this.panel6.BackColor = System.Drawing.Color.SteelBlue;
             this.panel6.Controls.Add(this.lblValorUni);
             this.panel6.Controls.Add(this.label3);
-            this.panel6.Location = new System.Drawing.Point(307, 246);
+            this.panel6.Location = new System.Drawing.Point(307, 237);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(239, 81);
             this.panel6.TabIndex = 2;
@@ -399,7 +402,7 @@
             this.panel5.BackColor = System.Drawing.Color.SteelBlue;
             this.panel5.Controls.Add(this.txtBarra);
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(307, 120);
+            this.panel5.Location = new System.Drawing.Point(307, 111);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(239, 81);
             this.panel5.TabIndex = 1;
@@ -433,7 +436,7 @@
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Location = new System.Drawing.Point(16, 120);
+            this.panel4.Location = new System.Drawing.Point(16, 111);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(277, 335);
             this.panel4.TabIndex = 0;
@@ -525,23 +528,23 @@
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel14.Controls.Add(this.label10);
+            this.panel14.Controls.Add(this.lblSubTotal);
             this.panel14.Controls.Add(this.label9);
             this.panel14.Location = new System.Drawing.Point(29, 402);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(547, 77);
             this.panel14.TabIndex = 1;
             // 
-            // label10
+            // lblSubTotal
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(356, 11);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(145, 55);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "00,00";
+            this.lblSubTotal.AutoSize = true;
+            this.lblSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTotal.ForeColor = System.Drawing.Color.White;
+            this.lblSubTotal.Location = new System.Drawing.Point(356, 11);
+            this.lblSubTotal.Name = "lblSubTotal";
+            this.lblSubTotal.Size = new System.Drawing.Size(145, 55);
+            this.lblSubTotal.TabIndex = 6;
+            this.lblSubTotal.Text = "00,00";
             // 
             // label9
             // 
@@ -735,7 +738,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label txtTotalRec;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblSubTotal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button BtnVenda;
         private System.Windows.Forms.Button btnDel;
