@@ -30,6 +30,34 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panelFinalizar = new System.Windows.Forms.Panel();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.btnDinheira = new System.Windows.Forms.Button();
+            this.btnCredito = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.btnDebito = new System.Windows.Forms.Button();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.btnFinal = new System.Windows.Forms.Button();
+            this.btnBuscaCli = new System.Windows.Forms.Button();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.lblPagamento = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.lblDebito = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.lblCredito = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel = new System.Windows.Forms.Panel();
+            this.txtDinheiro = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.panelTotalCli = new System.Windows.Forms.Panel();
+            this.lblTotal2 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panelCliente = new System.Windows.Forms.Panel();
+            this.lblNomeCli = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.TextBox();
+            this.label = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.lblPod = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,14 +85,25 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.txtTotalRec = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.panelDebito = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.cbxBandeira = new System.Windows.Forms.ComboBox();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.lblValorDebito = new System.Windows.Forms.Label();
+            this.valorDebito = new System.Windows.Forms.Label();
+            this.btnSairDebito = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panelTroco = new System.Windows.Forms.Panel();
+            this.lblTroco = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panelTotalRec = new System.Windows.Forms.Panel();
+            this.lblTotalRec = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panelSubtotal = new System.Windows.Forms.Panel();
             this.lblSubTotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -80,6 +119,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
+            this.panelFinalizar.SuspendLayout();
+            this.panel26.SuspendLayout();
+            this.panel27.SuspendLayout();
+            this.panel25.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel.SuspendLayout();
+            this.panelTotalCli.SuspendLayout();
+            this.panelCliente.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -90,10 +138,13 @@
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel8.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.panel15.SuspendLayout();
+            this.panelPrincipal.SuspendLayout();
+            this.panelDebito.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel14.SuspendLayout();
+            this.panelTroco.SuspendLayout();
+            this.panelTotalRec.SuspendLayout();
+            this.panelSubtotal.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -112,6 +163,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.panelFinalizar);
             this.panel3.Controls.Add(this.panel19);
             this.panel3.Controls.Add(this.panel18);
             this.panel3.Controls.Add(this.panel17);
@@ -127,6 +179,354 @@
             this.panel3.Size = new System.Drawing.Size(556, 727);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // panelFinalizar
+            // 
+            this.panelFinalizar.Controls.Add(this.panel26);
+            this.panelFinalizar.Controls.Add(this.panel27);
+            this.panelFinalizar.Controls.Add(this.panel25);
+            this.panelFinalizar.Controls.Add(this.panel24);
+            this.panelFinalizar.Controls.Add(this.panel23);
+            this.panelFinalizar.Controls.Add(this.panel);
+            this.panelFinalizar.Controls.Add(this.panelTotalCli);
+            this.panelFinalizar.Controls.Add(this.panelCliente);
+            this.panelFinalizar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelFinalizar.Location = new System.Drawing.Point(0, 0);
+            this.panelFinalizar.Name = "panelFinalizar";
+            this.panelFinalizar.Size = new System.Drawing.Size(556, 727);
+            this.panelFinalizar.TabIndex = 8;
+            // 
+            // panel26
+            // 
+            this.panel26.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel26.Controls.Add(this.btnDinheira);
+            this.panel26.Controls.Add(this.btnCredito);
+            this.panel26.Controls.Add(this.button9);
+            this.panel26.Controls.Add(this.btnDebito);
+            this.panel26.Location = new System.Drawing.Point(268, 340);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(242, 106);
+            this.panel26.TabIndex = 9;
+            // 
+            // btnDinheira
+            // 
+            this.btnDinheira.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnDinheira.FlatAppearance.BorderSize = 0;
+            this.btnDinheira.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.btnDinheira.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnDinheira.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDinheira.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDinheira.Location = new System.Drawing.Point(9, 30);
+            this.btnDinheira.Name = "btnDinheira";
+            this.btnDinheira.Size = new System.Drawing.Size(177, 23);
+            this.btnDinheira.TabIndex = 7;
+            this.btnDinheira.Text = "00 - Dinheiro";
+            this.btnDinheira.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDinheira.UseVisualStyleBackColor = false;
+            this.btnDinheira.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnCredito
+            // 
+            this.btnCredito.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnCredito.FlatAppearance.BorderSize = 0;
+            this.btnCredito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.btnCredito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnCredito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCredito.Location = new System.Drawing.Point(9, 56);
+            this.btnCredito.Name = "btnCredito";
+            this.btnCredito.Size = new System.Drawing.Size(177, 23);
+            this.btnCredito.TabIndex = 6;
+            this.btnCredito.Text = "00 - Cartão Crédito";
+            this.btnCredito.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCredito.UseVisualStyleBackColor = false;
+            this.btnCredito.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.AliceBlue;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Location = new System.Drawing.Point(9, 6);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(177, 23);
+            this.button9.TabIndex = 4;
+            this.button9.Text = "00 - Desconto";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button9.UseVisualStyleBackColor = false;
+            // 
+            // btnDebito
+            // 
+            this.btnDebito.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnDebito.FlatAppearance.BorderSize = 0;
+            this.btnDebito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.btnDebito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnDebito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDebito.Location = new System.Drawing.Point(9, 80);
+            this.btnDebito.Name = "btnDebito";
+            this.btnDebito.Size = new System.Drawing.Size(177, 23);
+            this.btnDebito.TabIndex = 5;
+            this.btnDebito.Text = "00 - Cartão Débito";
+            this.btnDebito.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDebito.UseVisualStyleBackColor = false;
+            this.btnDebito.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // panel27
+            // 
+            this.panel27.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel27.Controls.Add(this.btnFinal);
+            this.panel27.Controls.Add(this.btnBuscaCli);
+            this.panel27.Location = new System.Drawing.Point(16, 340);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(242, 106);
+            this.panel27.TabIndex = 8;
+            // 
+            // btnFinal
+            // 
+            this.btnFinal.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnFinal.FlatAppearance.BorderSize = 0;
+            this.btnFinal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.btnFinal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinal.Location = new System.Drawing.Point(6, 27);
+            this.btnFinal.Name = "btnFinal";
+            this.btnFinal.Size = new System.Drawing.Size(177, 23);
+            this.btnFinal.TabIndex = 3;
+            this.btnFinal.Text = "00 - Finalizar Venda";
+            this.btnFinal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFinal.UseVisualStyleBackColor = false;
+            this.btnFinal.Click += new System.EventHandler(this.btnFinal_Click);
+            // 
+            // btnBuscaCli
+            // 
+            this.btnBuscaCli.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnBuscaCli.FlatAppearance.BorderSize = 0;
+            this.btnBuscaCli.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.btnBuscaCli.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnBuscaCli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscaCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscaCli.Location = new System.Drawing.Point(6, 3);
+            this.btnBuscaCli.Name = "btnBuscaCli";
+            this.btnBuscaCli.Size = new System.Drawing.Size(177, 23);
+            this.btnBuscaCli.TabIndex = 0;
+            this.btnBuscaCli.Text = "00 - Cliente";
+            this.btnBuscaCli.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscaCli.UseVisualStyleBackColor = false;
+            this.btnBuscaCli.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // panel25
+            // 
+            this.panel25.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel25.Controls.Add(this.lblPagamento);
+            this.panel25.Controls.Add(this.label21);
+            this.panel25.Location = new System.Drawing.Point(268, 265);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(242, 63);
+            this.panel25.TabIndex = 7;
+            // 
+            // lblPagamento
+            // 
+            this.lblPagamento.AutoSize = true;
+            this.lblPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPagamento.ForeColor = System.Drawing.Color.White;
+            this.lblPagamento.Location = new System.Drawing.Point(3, 27);
+            this.lblPagamento.Name = "lblPagamento";
+            this.lblPagamento.Size = new System.Drawing.Size(88, 29);
+            this.lblPagamento.TabIndex = 5;
+            this.lblPagamento.Text = "CAIXA";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(3, 2);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(199, 20);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "FORMA DE PAGAMENTO";
+            // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.Green;
+            this.panel24.Controls.Add(this.lblDebito);
+            this.panel24.Controls.Add(this.label19);
+            this.panel24.Location = new System.Drawing.Point(16, 265);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(242, 63);
+            this.panel24.TabIndex = 6;
+            // 
+            // lblDebito
+            // 
+            this.lblDebito.AutoSize = true;
+            this.lblDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDebito.ForeColor = System.Drawing.Color.White;
+            this.lblDebito.Location = new System.Drawing.Point(157, 27);
+            this.lblDebito.Name = "lblDebito";
+            this.lblDebito.Size = new System.Drawing.Size(62, 29);
+            this.lblDebito.TabIndex = 5;
+            this.lblDebito.Text = "0,00";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(3, 2);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(166, 20);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "CARTÃO DE DÉBITO";
+            // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.Green;
+            this.panel23.Controls.Add(this.lblCredito);
+            this.panel23.Controls.Add(this.label15);
+            this.panel23.Location = new System.Drawing.Point(268, 193);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(242, 63);
+            this.panel23.TabIndex = 5;
+            // 
+            // lblCredito
+            // 
+            this.lblCredito.AutoSize = true;
+            this.lblCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCredito.ForeColor = System.Drawing.Color.White;
+            this.lblCredito.Location = new System.Drawing.Point(157, 27);
+            this.lblCredito.Name = "lblCredito";
+            this.lblCredito.Size = new System.Drawing.Size(62, 29);
+            this.lblCredito.TabIndex = 5;
+            this.lblCredito.Text = "0,00";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(3, 2);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(178, 20);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "CARTÃO DE CRÉDITO";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // panel
+            // 
+            this.panel.BackColor = System.Drawing.Color.Green;
+            this.panel.Controls.Add(this.txtDinheiro);
+            this.panel.Controls.Add(this.label16);
+            this.panel.Location = new System.Drawing.Point(16, 193);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(242, 63);
+            this.panel.TabIndex = 4;
+            // 
+            // txtDinheiro
+            // 
+            this.txtDinheiro.BackColor = System.Drawing.Color.Green;
+            this.txtDinheiro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDinheiro.ForeColor = System.Drawing.Color.White;
+            this.txtDinheiro.Location = new System.Drawing.Point(101, 27);
+            this.txtDinheiro.Name = "txtDinheiro";
+            this.txtDinheiro.Size = new System.Drawing.Size(135, 28);
+            this.txtDinheiro.TabIndex = 2;
+            this.txtDinheiro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDinheiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDinheiro_KeyPress);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(3, 2);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(89, 20);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "DINHEIRO";
+            // 
+            // panelTotalCli
+            // 
+            this.panelTotalCli.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelTotalCli.Controls.Add(this.lblTotal2);
+            this.panelTotalCli.Controls.Add(this.label13);
+            this.panelTotalCli.Location = new System.Drawing.Point(16, 103);
+            this.panelTotalCli.Name = "panelTotalCli";
+            this.panelTotalCli.Size = new System.Drawing.Size(494, 81);
+            this.panelTotalCli.TabIndex = 4;
+            // 
+            // lblTotal2
+            // 
+            this.lblTotal2.AutoSize = true;
+            this.lblTotal2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal2.ForeColor = System.Drawing.Color.White;
+            this.lblTotal2.Location = new System.Drawing.Point(342, 30);
+            this.lblTotal2.Name = "lblTotal2";
+            this.lblTotal2.Size = new System.Drawing.Size(129, 37);
+            this.lblTotal2.TabIndex = 4;
+            this.lblTotal2.Text = "R$ 0,00";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(2, 3);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 20);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "TOTAL";
+            // 
+            // panelCliente
+            // 
+            this.panelCliente.BackColor = System.Drawing.Color.Green;
+            this.panelCliente.Controls.Add(this.lblNomeCli);
+            this.panelCliente.Controls.Add(this.lblId);
+            this.panelCliente.Controls.Add(this.label);
+            this.panelCliente.Location = new System.Drawing.Point(16, 31);
+            this.panelCliente.Name = "panelCliente";
+            this.panelCliente.Size = new System.Drawing.Size(494, 63);
+            this.panelCliente.TabIndex = 3;
+            // 
+            // lblNomeCli
+            // 
+            this.lblNomeCli.AutoSize = true;
+            this.lblNomeCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeCli.ForeColor = System.Drawing.Color.White;
+            this.lblNomeCli.Location = new System.Drawing.Point(139, 34);
+            this.lblNomeCli.Name = "lblNomeCli";
+            this.lblNomeCli.Size = new System.Drawing.Size(98, 20);
+            this.lblNomeCli.TabIndex = 3;
+            this.lblNomeCli.Text = "CLIENTE - 1";
+            // 
+            // lblId
+            // 
+            this.lblId.BackColor = System.Drawing.Color.Green;
+            this.lblId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.ForeColor = System.Drawing.Color.White;
+            this.lblId.Location = new System.Drawing.Point(7, 31);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(72, 28);
+            this.lblId.TabIndex = 2;
+            this.lblId.Text = "1";
+            this.lblId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.Color.White;
+            this.label.Location = new System.Drawing.Point(3, 2);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(83, 20);
+            this.label.TabIndex = 1;
+            this.label.Text = "CLIENTE";
             // 
             // panel19
             // 
@@ -449,38 +849,161 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Controls.Add(this.panel8);
+            this.panelPrincipal.Controls.Add(this.panelDebito);
+            this.panelPrincipal.Controls.Add(this.panelTroco);
+            this.panelPrincipal.Controls.Add(this.panelTotalRec);
+            this.panelPrincipal.Controls.Add(this.panelSubtotal);
+            this.panelPrincipal.Controls.Add(this.panel9);
+            this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelPrincipal.Location = new System.Drawing.Point(556, 22);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(598, 727);
+            this.panelPrincipal.TabIndex = 3;
+            // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.panel16);
-            this.panel8.Controls.Add(this.panel15);
-            this.panel8.Controls.Add(this.panel14);
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(556, 22);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel8.Location = new System.Drawing.Point(0, 10);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(598, 727);
-            this.panel8.TabIndex = 3;
+            this.panel8.Size = new System.Drawing.Size(19, 717);
+            this.panel8.TabIndex = 5;
             // 
-            // panel16
+            // panelDebito
             // 
-            this.panel16.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel16.Controls.Add(this.label14);
-            this.panel16.Controls.Add(this.label12);
-            this.panel16.Location = new System.Drawing.Point(311, 489);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(265, 77);
-            this.panel16.TabIndex = 3;
+            this.panelDebito.Controls.Add(this.groupBox1);
+            this.panelDebito.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelDebito.Location = new System.Drawing.Point(0, 0);
+            this.panelDebito.Name = "panelDebito";
+            this.panelDebito.Size = new System.Drawing.Size(598, 10);
+            this.panelDebito.TabIndex = 4;
             // 
-            // label14
+            // groupBox1
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(110, 32);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(116, 33);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "R$ 0,00";
+            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Controls.Add(this.cbxBandeira);
+            this.groupBox1.Controls.Add(this.panel14);
+            this.groupBox1.Controls.Add(this.btnSairDebito);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Location = new System.Drawing.Point(29, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(547, 379);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(472, 137);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(36, 23);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "ok";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label22.Location = new System.Drawing.Point(278, 61);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(81, 20);
+            this.label22.TabIndex = 13;
+            this.label22.Text = "Bandeira";
+            // 
+            // cbxBandeira
+            // 
+            this.cbxBandeira.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxBandeira.FormattingEnabled = true;
+            this.cbxBandeira.Items.AddRange(new object[] {
+            "Visa",
+            "Mastercard",
+            "American Express",
+            "Elo",
+            "Caixa"});
+            this.cbxBandeira.Location = new System.Drawing.Point(282, 97);
+            this.cbxBandeira.Name = "cbxBandeira";
+            this.cbxBandeira.Size = new System.Drawing.Size(226, 21);
+            this.cbxBandeira.TabIndex = 12;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.Green;
+            this.panel14.Controls.Add(this.lblValorDebito);
+            this.panel14.Controls.Add(this.valorDebito);
+            this.panel14.Location = new System.Drawing.Point(9, 61);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(242, 57);
+            this.panel14.TabIndex = 11;
+            // 
+            // lblValorDebito
+            // 
+            this.lblValorDebito.AutoSize = true;
+            this.lblValorDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorDebito.ForeColor = System.Drawing.Color.White;
+            this.lblValorDebito.Location = new System.Drawing.Point(157, 18);
+            this.lblValorDebito.Name = "lblValorDebito";
+            this.lblValorDebito.Size = new System.Drawing.Size(62, 29);
+            this.lblValorDebito.TabIndex = 5;
+            this.lblValorDebito.Text = "0,00";
+            // 
+            // valorDebito
+            // 
+            this.valorDebito.AutoSize = true;
+            this.valorDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.valorDebito.ForeColor = System.Drawing.Color.White;
+            this.valorDebito.Location = new System.Drawing.Point(3, 2);
+            this.valorDebito.Name = "valorDebito";
+            this.valorDebito.Size = new System.Drawing.Size(51, 20);
+            this.valorDebito.TabIndex = 1;
+            this.valorDebito.Text = "Valor";
+            // 
+            // btnSairDebito
+            // 
+            this.btnSairDebito.Location = new System.Drawing.Point(472, 9);
+            this.btnSairDebito.Name = "btnSairDebito";
+            this.btnSairDebito.Size = new System.Drawing.Size(69, 23);
+            this.btnSairDebito.TabIndex = 10;
+            this.btnSairDebito.Text = "ESC- SAIR";
+            this.btnSairDebito.UseVisualStyleBackColor = true;
+            this.btnSairDebito.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label6.Location = new System.Drawing.Point(5, 12);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(462, 20);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "DADOS PARA PAGAMENTO COM CARTÃO DE DÉBITO";
+            // 
+            // panelTroco
+            // 
+            this.panelTroco.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelTroco.Controls.Add(this.lblTroco);
+            this.panelTroco.Controls.Add(this.label12);
+            this.panelTroco.Location = new System.Drawing.Point(311, 489);
+            this.panelTroco.Name = "panelTroco";
+            this.panelTroco.Size = new System.Drawing.Size(265, 77);
+            this.panelTroco.TabIndex = 3;
+            // 
+            // lblTroco
+            // 
+            this.lblTroco.AutoSize = true;
+            this.lblTroco.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTroco.ForeColor = System.Drawing.Color.White;
+            this.lblTroco.Location = new System.Drawing.Point(103, 32);
+            this.lblTroco.Name = "lblTroco";
+            this.lblTroco.Size = new System.Drawing.Size(116, 33);
+            this.lblTroco.TabIndex = 10;
+            this.lblTroco.Text = "R$ 0,00";
             // 
             // label12
             // 
@@ -493,26 +1016,26 @@
             this.label12.TabIndex = 10;
             this.label12.Text = "TROCO";
             // 
-            // panel15
+            // panelTotalRec
             // 
-            this.panel15.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel15.Controls.Add(this.txtTotalRec);
-            this.panel15.Controls.Add(this.label11);
-            this.panel15.Location = new System.Drawing.Point(29, 489);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(266, 77);
-            this.panel15.TabIndex = 2;
+            this.panelTotalRec.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelTotalRec.Controls.Add(this.lblTotalRec);
+            this.panelTotalRec.Controls.Add(this.label11);
+            this.panelTotalRec.Location = new System.Drawing.Point(29, 489);
+            this.panelTotalRec.Name = "panelTotalRec";
+            this.panelTotalRec.Size = new System.Drawing.Size(266, 77);
+            this.panelTotalRec.TabIndex = 2;
             // 
-            // txtTotalRec
+            // lblTotalRec
             // 
-            this.txtTotalRec.AutoSize = true;
-            this.txtTotalRec.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalRec.ForeColor = System.Drawing.Color.White;
-            this.txtTotalRec.Location = new System.Drawing.Point(86, 32);
-            this.txtTotalRec.Name = "txtTotalRec";
-            this.txtTotalRec.Size = new System.Drawing.Size(116, 33);
-            this.txtTotalRec.TabIndex = 5;
-            this.txtTotalRec.Text = "R$ 0,00";
+            this.lblTotalRec.AutoSize = true;
+            this.lblTotalRec.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRec.ForeColor = System.Drawing.Color.White;
+            this.lblTotalRec.Location = new System.Drawing.Point(86, 32);
+            this.lblTotalRec.Name = "lblTotalRec";
+            this.lblTotalRec.Size = new System.Drawing.Size(116, 33);
+            this.lblTotalRec.TabIndex = 5;
+            this.lblTotalRec.Text = "R$ 0,00";
             // 
             // label11
             // 
@@ -525,15 +1048,15 @@
             this.label11.TabIndex = 9;
             this.label11.Text = "TOTAL RECEBIDO";
             // 
-            // panel14
+            // panelSubtotal
             // 
-            this.panel14.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel14.Controls.Add(this.lblSubTotal);
-            this.panel14.Controls.Add(this.label9);
-            this.panel14.Location = new System.Drawing.Point(29, 402);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(547, 77);
-            this.panel14.TabIndex = 1;
+            this.panelSubtotal.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelSubtotal.Controls.Add(this.lblSubTotal);
+            this.panelSubtotal.Controls.Add(this.label9);
+            this.panelSubtotal.Location = new System.Drawing.Point(29, 402);
+            this.panelSubtotal.Name = "panelSubtotal";
+            this.panelSubtotal.Size = new System.Drawing.Size(547, 77);
+            this.panelSubtotal.TabIndex = 1;
             // 
             // lblSubTotal
             // 
@@ -666,7 +1189,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1154, 749);
-            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -676,6 +1199,21 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FmrCaixa_Load);
             this.panel3.ResumeLayout(false);
+            this.panelFinalizar.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
+            this.panel27.ResumeLayout(false);
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
+            this.panelTotalCli.ResumeLayout(false);
+            this.panelTotalCli.PerformLayout();
+            this.panelCliente.ResumeLayout(false);
+            this.panelCliente.PerformLayout();
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
             this.panel18.ResumeLayout(false);
@@ -692,13 +1230,18 @@
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
+            this.panelPrincipal.ResumeLayout(false);
+            this.panelDebito.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            this.panelTroco.ResumeLayout(false);
+            this.panelTroco.PerformLayout();
+            this.panelTotalRec.ResumeLayout(false);
+            this.panelTotalRec.PerformLayout();
+            this.panelSubtotal.ResumeLayout(false);
+            this.panelSubtotal.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -713,16 +1256,16 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panelPrincipal;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panelTroco;
+        private System.Windows.Forms.Panel panelTotalRec;
+        private System.Windows.Forms.Panel panelSubtotal;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Panel panel17;
@@ -734,9 +1277,9 @@
         private System.Windows.Forms.Label lblValorUni;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblTroco;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label txtTotalRec;
+        private System.Windows.Forms.Label lblTotalRec;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblSubTotal;
         private System.Windows.Forms.Label label9;
@@ -760,5 +1303,44 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelFinalizar;
+        private System.Windows.Forms.Panel panelCliente;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label lblNomeCli;
+        private System.Windows.Forms.TextBox lblId;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Label lblCredito;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.TextBox txtDinheiro;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Panel panelTotalCli;
+        private System.Windows.Forms.Label lblTotal2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Label lblPagamento;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Label lblDebito;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Button btnDinheira;
+        private System.Windows.Forms.Button btnCredito;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnDebito;
+        private System.Windows.Forms.Panel panel27;
+        private System.Windows.Forms.Button btnFinal;
+        private System.Windows.Forms.Button btnBuscaCli;
+        private System.Windows.Forms.Panel panelDebito;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox cbxBandeira;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label lblValorDebito;
+        private System.Windows.Forms.Label valorDebito;
+        private System.Windows.Forms.Button btnSairDebito;
+        private System.Windows.Forms.Button button2;
     }
 }

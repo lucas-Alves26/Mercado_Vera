@@ -3,6 +3,7 @@ using Mercado_Vera.Entity;
 using Mercado_Vera.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -138,6 +139,24 @@ namespace Mercado_Vera.Dao
 
             query = "INSERT INTO TBL_CLI_END(END_ID, CLI_ID)VALUES('" + endId + "','" + cliId + "')";
             conexao.ExecutaInstrucaoNaBase(query);
+        }
+        public DataTable SelectCliente()
+        {
+            string query = "SELECT CLI_ID, CLI_NOME FROM TBL_CLIENTE ORDER BY CLI_NOME ASC";
+            return conexao.CarregarDados(query);
+        }
+
+        public DataTable SelectCliNome(string nome)
+        {
+            string query = "SELECT CLI_ID, CLI_NOME FROM TBL_CLIENTE " +
+                "WHERE CLI_NOME LIKE '" + nome + "%' ORDER BY PROD_NOME ASC";
+            return conexao.CarregarDados(query);
+        }
+        public DataTable SelectCliiD(string id)
+        {
+            string query = "SELECT CLI_ID, CLI_NOME FROM TBL_CLIENTE " +
+                "WHERE CLI_ID LIKE '" + id + "%' ORDER BY PROD_NOME ASC";
+            return conexao.CarregarDados(query);
         }
     }
 }

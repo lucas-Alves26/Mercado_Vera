@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mercado_Vera.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,15 +23,38 @@ namespace Mercado_Vera.Entity
         {
         }
 
-        public Venda(int cliId, int qtd, decimal valorTotal, DateTime date, string tipoPagamento, string bandeira, int parcelas)
+        public Venda(string cliId, string qtd, string valorTotal, string date, string tipoPagamento, string bandeira, string parcelas)
         {
-            CliId = cliId;
-            Qtd = qtd;
-            ValorTotal = valorTotal;
-            Date = date;
+            if(tipoPagamento == "Crédito")
+            {
+                if (bandeira == "")
+                {
+                    throw new DomainExceptions("A bandeira do cartão deve ser preenchida!");
+                }
+                else if(parcelas == "")
+                {
+                    throw new DomainExceptions("o número de parcelas do cartão deve ser preenchida!");
+                }
+            }
+            if(tipoPagamento == "Débito")
+            {
+                if(bandeira == "")
+                {
+                    throw new DomainExceptions("A bandeira do cartão deve ser preenchida!");
+                }
+            }
+            if(parcelas == null)
+            {
+                parcelas = "0";
+            }
+       
+            CliId = int.Parse(cliId);
+            Qtd = int.Parse(qtd);
+            ValorTotal = decimal.Parse(valorTotal);
+            Date = DateTime.Parse(date);
             TipoPagamento = tipoPagamento;
             Bandeira = bandeira;
-            Parcelas = parcelas;
+            Parcelas = int.Parse(parcelas);
         }
     }
 

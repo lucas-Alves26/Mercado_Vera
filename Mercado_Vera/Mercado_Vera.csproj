@@ -65,6 +65,12 @@
     <Compile Include="FmrCaixa.Designer.cs">
       <DependentUpon>FmrCaixa.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GerCliente\BuscaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerCliente\BuscaCliente.Designer.cs">
+      <DependentUpon>BuscaCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GerCliente\FmrCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\GerCliente\BuscaCliente.resx">
+      <DependentUpon>BuscaCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\GerCliente\FmrCliente.resx">
       <DependentUpon>FmrCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +187,9 @@
       <Project>{974ABFEB-BEBC-49C2-85C6-D35CBE8BA1AE}</Project>
       <Name>dllDao</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\GerVenda\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

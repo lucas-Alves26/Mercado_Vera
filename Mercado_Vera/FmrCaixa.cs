@@ -1,6 +1,7 @@
 ﻿using Mercado_Vera.Dao;
 using Mercado_Vera.Entity;
 using Mercado_Vera.Exceptions;
+using Mercado_Vera.View.GerCliente;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,15 +23,31 @@ namespace Mercado_Vera
         DaoFoto daoFoto = new DaoFoto();
         ObservableCollection<ItemVenda> listaItens = new ObservableCollection<ItemVenda>();
 
-
+        string parcelas;
+        string bandeira;
+        string pagamento;
+        string dataHora = DateTime.Now.ToString();
         string qtd = "1";
         static decimal totalprod;
         byte[] foto = new Byte[0];
-   
+        public static string cliId { get; set; }
+        public static string nomeCli { get; set; } 
+  
 
         public FmrCaixa()
         {
             InitializeComponent();
+            panelFinalizar.Visible = false;
+
+        }
+
+        public void Atualiza()
+        {
+            if(cliId != null && nomeCli != null)
+            {
+                lblId.Text = cliId;
+                lblNomeCli.Text = nomeCli;
+            }
         }
         //Metodo que prenche o txtbox com o produto do BD
         public void PrencheProduto()
@@ -93,11 +110,12 @@ namespace Mercado_Vera
 
         private void panel10_Paint(object sender, PaintEventArgs e)
         {
-
+            Atualiza();
         }
 
         private void FmrCaixa_Load(object sender, EventArgs e)
         {
+            
             TravarBotoes();
         }
 
@@ -168,29 +186,8 @@ namespace Mercado_Vera
 
         private void btnFin_Click(object sender, EventArgs e)
         {
-            try
-            {
-                foreach (ItemVenda V in listaItens)
-                {
-                    daoVenda.UpdateEstoque(V.ProdId, V.Qtd);
-                }
-
-                MessageBox.Show("Venda Finalizada");
-            }
-            catch (DomainExceptions ex)
-            {               
-                MessageBox.Show(ex.Message);
-            }
-
-            finally
-            {
-                txtQtd.Clear();
-                txtIdB.Clear();
-                lblPod.Text = "R$ 0,00";
-                lblTotaltem.Text = "R$ 0,00";
-                lblSubTotal.Text = "R$ 0,00";
-            }
-
+            lblTotal2.Text = lblSubTotal.Text;
+            panelFinalizar.Visible = true;
             BtnVenda.Enabled = true;
          
         }
@@ -211,6 +208,106 @@ namespace Mercado_Vera
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            
+            BuscaCliente buscaCli = new BuscaCliente();
+            buscaCli.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Atualiza();
+        }
+
+        private void btnFinal_Click(object sender, EventArgs e)
+        {
+            bandeira = cbxBandeira.Text;
+            if(cliId == null)
+            {
+                cliId = "1";
+            }
+
+            string qtdTotal =dataGridView2.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[quantidade.Name].Value ?? 0)).ToString("##");
+            Venda venda = new Venda(cliId, qtdTotal, lblSubTotal.Text, dataHora, pagamento,bandeira, parcelas);
+            daoVenda.RegistraVenda(venda);
+            try
+            {
+                foreach (ItemVenda V in listaItens)
+                {
+                    daoVenda.UpdateEstoque(V.ProdId, V.Qtd);
+                }
+
+                MessageBox.Show("Venda Finalizada");
+            }
+            catch (DomainExceptions ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            finally
+            {
+                txtQtd.Clear();
+                txtIdB.Clear();
+                lblPod.Text = "R$ 0,00";
+                lblTotaltem.Text = "R$ 0,00";
+                lblSubTotal.Text = "R$ 0,00";
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtDinheiro.BackColor = System.Drawing.Color.DarkSeaGreen;
+            txtDinheiro.Focus();
+            pagamento = "Dinheiro";
+            lblPagamento.Text = "CAIXA";
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            pagamento = "Crédito";
+            
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            lblDebito.Text = lblSubTotal.Text;
+            lblValorDebito.Text = lblSubTotal.Text;
+            pagamento = "Débito";
+            panelDebito.Height = 400;
+        }
+
+        private void txtDinheiro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {             
+                txtDinheiro.BackColor = System.Drawing.Color.Green;
+                btnFin.Focus();
+                lblTotalRec.Text = txtDinheiro.Text;
+                decimal soma = decimal.Parse(txtDinheiro.Text) - decimal.Parse(lblSubTotal.Text);
+                //txtDinheiro.Text = "R$ " + txtDinheiro.Text;
+                lblTroco.Text = soma.ToString();
+                
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panelDebito.Height = 10;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            panelDebito.Height = 10;
+            pagamento = "Dinehiro";
         }
     }
 }

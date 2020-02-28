@@ -35,13 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DgPesquisa = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BtnNovo = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.PROD_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PROD_COD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PROD_NOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +44,13 @@
             this.PROD_QTD_MIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PROD_MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FOR_NOME_FANT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnNovo = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgPesquisa)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -145,6 +145,67 @@
             this.DgPesquisa.TabIndex = 27;
             this.DgPesquisa.DoubleClick += new System.EventHandler(this.DgPesquisa_DoubleClick);
             // 
+            // PROD_ID
+            // 
+            this.PROD_ID.DataPropertyName = "PROD_ID";
+            this.PROD_ID.HeaderText = "ID";
+            this.PROD_ID.Name = "PROD_ID";
+            this.PROD_ID.Width = 32;
+            // 
+            // PROD_COD
+            // 
+            this.PROD_COD.DataPropertyName = "PROD_COD";
+            this.PROD_COD.HeaderText = "Cód.Barra";
+            this.PROD_COD.Name = "PROD_COD";
+            // 
+            // PROD_NOME
+            // 
+            this.PROD_NOME.DataPropertyName = "PROD_NOME";
+            this.PROD_NOME.HeaderText = "Nome";
+            this.PROD_NOME.Name = "PROD_NOME";
+            this.PROD_NOME.Width = 180;
+            // 
+            // PROD_VALOR
+            // 
+            this.PROD_VALOR.DataPropertyName = "PROD_VALOR";
+            this.PROD_VALOR.HeaderText = "P.Cusco";
+            this.PROD_VALOR.Name = "PROD_VALOR";
+            this.PROD_VALOR.Width = 60;
+            // 
+            // PROD_VALOR_VENDA
+            // 
+            this.PROD_VALOR_VENDA.DataPropertyName = "PROD_VALOR_VENDA";
+            this.PROD_VALOR_VENDA.HeaderText = "P.Venda";
+            this.PROD_VALOR_VENDA.Name = "PROD_VALOR_VENDA";
+            this.PROD_VALOR_VENDA.Width = 60;
+            // 
+            // PROD_QTD
+            // 
+            this.PROD_QTD.DataPropertyName = "PROD_QTD";
+            this.PROD_QTD.HeaderText = "Qtd.Total";
+            this.PROD_QTD.Name = "PROD_QTD";
+            this.PROD_QTD.Width = 55;
+            // 
+            // PROD_QTD_MIN
+            // 
+            this.PROD_QTD_MIN.DataPropertyName = "PROD_QTD_MIN";
+            this.PROD_QTD_MIN.HeaderText = "Qtd.Minima";
+            this.PROD_QTD_MIN.Name = "PROD_QTD_MIN";
+            this.PROD_QTD_MIN.Width = 65;
+            // 
+            // PROD_MARCA
+            // 
+            this.PROD_MARCA.DataPropertyName = "PROD_MARCA";
+            this.PROD_MARCA.HeaderText = "Marca";
+            this.PROD_MARCA.Name = "PROD_MARCA";
+            // 
+            // FOR_NOME_FANT
+            // 
+            this.FOR_NOME_FANT.DataPropertyName = "FOR_NOME_FANT";
+            this.FOR_NOME_FANT.HeaderText = "Fornecedor";
+            this.FOR_NOME_FANT.Name = "FOR_NOME_FANT";
+            this.FOR_NOME_FANT.Width = 115;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtNomePes);
@@ -222,67 +283,6 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // PROD_ID
-            // 
-            this.PROD_ID.DataPropertyName = "PROD_ID";
-            this.PROD_ID.HeaderText = "ID";
-            this.PROD_ID.Name = "PROD_ID";
-            this.PROD_ID.Width = 32;
-            // 
-            // PROD_COD
-            // 
-            this.PROD_COD.DataPropertyName = "PROD_COD";
-            this.PROD_COD.HeaderText = "Cód.Barra";
-            this.PROD_COD.Name = "PROD_COD";
-            // 
-            // PROD_NOME
-            // 
-            this.PROD_NOME.DataPropertyName = "PROD_NOME";
-            this.PROD_NOME.HeaderText = "Nome";
-            this.PROD_NOME.Name = "PROD_NOME";
-            this.PROD_NOME.Width = 180;
-            // 
-            // PROD_VALOR
-            // 
-            this.PROD_VALOR.DataPropertyName = "PROD_VALOR";
-            this.PROD_VALOR.HeaderText = "P.Cusco";
-            this.PROD_VALOR.Name = "PROD_VALOR";
-            this.PROD_VALOR.Width = 60;
-            // 
-            // PROD_VALOR_VENDA
-            // 
-            this.PROD_VALOR_VENDA.DataPropertyName = "PROD_VALOR_VENDA";
-            this.PROD_VALOR_VENDA.HeaderText = "P.Venda";
-            this.PROD_VALOR_VENDA.Name = "PROD_VALOR_VENDA";
-            this.PROD_VALOR_VENDA.Width = 60;
-            // 
-            // PROD_QTD
-            // 
-            this.PROD_QTD.DataPropertyName = "PROD_QTD";
-            this.PROD_QTD.HeaderText = "Qtd.Total";
-            this.PROD_QTD.Name = "PROD_QTD";
-            this.PROD_QTD.Width = 55;
-            // 
-            // PROD_QTD_MIN
-            // 
-            this.PROD_QTD_MIN.DataPropertyName = "PROD_QTD_MIN";
-            this.PROD_QTD_MIN.HeaderText = "Qtd.Minima";
-            this.PROD_QTD_MIN.Name = "PROD_QTD_MIN";
-            this.PROD_QTD_MIN.Width = 65;
-            // 
-            // PROD_MARCA
-            // 
-            this.PROD_MARCA.DataPropertyName = "PROD_MARCA";
-            this.PROD_MARCA.HeaderText = "Marca";
-            this.PROD_MARCA.Name = "PROD_MARCA";
-            // 
-            // FOR_NOME_FANT
-            // 
-            this.FOR_NOME_FANT.DataPropertyName = "FOR_NOME_FANT";
-            this.FOR_NOME_FANT.HeaderText = "Fornecedor";
-            this.FOR_NOME_FANT.Name = "FOR_NOME_FANT";
-            this.FOR_NOME_FANT.Width = 115;
             // 
             // FmrPesquisa
             // 

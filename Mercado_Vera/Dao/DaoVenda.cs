@@ -1,4 +1,5 @@
 ﻿using dllDao;
+using Mercado_Vera.Entity;
 using Mercado_Vera.Exceptions;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,42 @@ namespace Mercado_Vera.Dao
     class DaoVenda
     {
         Conexao conexao = new Conexao();
-        
 
+        public void RegistraVenda(Venda venda)
+        {
+            string data = venda.Date.ToString("yyyy-MM-dd");
+
+            SqlConnection con = new SqlConnection(conexao.StrConexao());
+            SqlCommand cmd1 = con.CreateCommand();
+
+            cmd1.CommandText = "INSERT INTO TBL_VENDA(CLI_ID, VEN_PAGAMENTO, VEN_PARCELA, VEN_BANDEIRA, VEN_QTD, VEN_TOTAL, VEN_DATE) VALUES(@CLIID, @PAGAMENTO, @PARCELA, @BANDEIRA, @QTD, @TOTAL, @DATE)";
+
+            cmd1.Parameters.Add(new SqlParameter("@CLIID", venda.CliId));
+            cmd1.Parameters.Add(new SqlParameter("@PAGAMENTO", venda.TipoPagamento));
+            cmd1.Parameters.Add(new SqlParameter("@PARCELA", venda.Parcelas));
+            cmd1.Parameters.Add(new SqlParameter("@BANDEIRA", venda.Bandeira));
+            cmd1.Parameters.Add(new SqlParameter("@QTD", venda.Qtd));
+            cmd1.Parameters.Add(new SqlParameter("@TOTAL", venda.ValorTotal));
+            cmd1.Parameters.Add(new SqlParameter("@DATE", data));
+
+            con.Open();
+                SqlTransaction tran = con.BeginTransaction();
+
+                try
+                {
+                    cmd1.Transaction = tran;
+                    cmd1.ExecuteNonQuery();                 
+                    tran.Commit();
+                }
+                catch (Exception)
+                {
+                    tran.Rollback();
+                }
+                finally
+                {
+                    con.Close();
+                }
+        }
         public void ConsultaQuantidade(string cod, string qtd)
         {
             string query = "SELECT PROD_QTD FROM TBL_PRODUTO WHERE PROD_COD = '"+ cod+"'";
