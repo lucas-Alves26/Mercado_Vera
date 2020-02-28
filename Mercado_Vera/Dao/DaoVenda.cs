@@ -49,6 +49,13 @@ namespace Mercado_Vera.Dao
                     con.Close();
                 }
         }
+        public void RegistrarItemVenda(int idProd, decimal valor, int qtd)
+        {
+            string query = "SELECT MAX(VEN_ID) FROM TBL_VENDA";
+            string idVenda = conexao.SelecioneId(query);
+            query = "INSERT INTO TBL_ITEM_VENDA(PROD_ID, VEN_ID, ITEM_VALOR, ITEM_QTD) VALUES("+idProd+","+idVenda+","+valor.ToString().Replace(',', '.') + ","+qtd+")";
+            conexao.ExecutaInstrucaoNaBase(query);
+        }
         public void ConsultaQuantidade(string cod, string qtd)
         {
             string query = "SELECT PROD_QTD FROM TBL_PRODUTO WHERE PROD_COD = '"+ cod+"'";

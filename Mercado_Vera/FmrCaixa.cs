@@ -242,7 +242,8 @@ namespace Mercado_Vera
             {
                 foreach (ItemVenda V in listaItens)
                 {
-                    daoVenda.UpdateEstoque(V.ProdId, V.Qtd);
+                    daoVenda.RegistrarItemVenda(V.ProdId, V.ValorTotal, V.Qtd);
+                    daoVenda.UpdateEstoque(V.ProdId, V.Qtd);             
                 }
 
                 MessageBox.Show("Venda Finalizada");
@@ -257,8 +258,9 @@ namespace Mercado_Vera
                 txtQtd.Clear();
                 txtIdB.Clear();
                 lblPod.Text = "R$ 0,00";
-                lblTotaltem.Text = "R$ 0,00";
+                lblTotaltem.Text = "R$ 0,00";               
                 lblSubTotal.Text = "R$ 0,00";
+                panelFinalizar.Visible = false;
             }
 
         }
@@ -269,12 +271,13 @@ namespace Mercado_Vera
             txtDinheiro.Focus();
             pagamento = "Dinheiro";
             lblPagamento.Text = "CAIXA";
+            btnBuscaCli.Enabled = false;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             pagamento = "Crédito";
-            
+            btnBuscaCli.Enabled = false;
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -282,11 +285,27 @@ namespace Mercado_Vera
             lblDebito.Text = lblSubTotal.Text;
             lblValorDebito.Text = lblSubTotal.Text;
             pagamento = "Débito";
+            lblPagamento.Text = "DÉBITO";
             panelDebito.Height = 400;
+            txtDinheiro.Text = "0,00";
+            lblCredito.Text = "0,00";
+            btnBuscaCli.Enabled = false;
         }
 
         private void txtDinheiro_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //este campo aceita somente uma virgula
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+                MessageBox.Show("este campo aceita somente numero e virgula");
+            }
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+                MessageBox.Show("este campo aceita somente uma virgula");
+            }
+
             if (e.KeyChar == 13)
             {             
                 txtDinheiro.BackColor = System.Drawing.Color.Green;
@@ -294,8 +313,7 @@ namespace Mercado_Vera
                 lblTotalRec.Text = txtDinheiro.Text;
                 decimal soma = decimal.Parse(txtDinheiro.Text) - decimal.Parse(lblSubTotal.Text);
                 //txtDinheiro.Text = "R$ " + txtDinheiro.Text;
-                lblTroco.Text = soma.ToString();
-                
+                lblTroco.Text = soma.ToString();              
             }
         }
 
