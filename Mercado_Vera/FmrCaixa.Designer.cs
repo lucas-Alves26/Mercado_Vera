@@ -118,6 +118,14 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lblRsDinheiro = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panelFinalizar.SuspendLayout();
             this.panel26.SuspendLayout();
@@ -343,17 +351,18 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.White;
             this.label21.Location = new System.Drawing.Point(3, 2);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(199, 20);
+            this.label21.Size = new System.Drawing.Size(217, 20);
             this.label21.TabIndex = 1;
             this.label21.Text = "FORMA DE PAGAMENTO";
             // 
             // panel24
             // 
             this.panel24.BackColor = System.Drawing.Color.Green;
+            this.panel24.Controls.Add(this.label20);
             this.panel24.Controls.Add(this.lblDebito);
             this.panel24.Controls.Add(this.label19);
             this.panel24.Location = new System.Drawing.Point(16, 265);
@@ -366,7 +375,7 @@
             this.lblDebito.AutoSize = true;
             this.lblDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDebito.ForeColor = System.Drawing.Color.White;
-            this.lblDebito.Location = new System.Drawing.Point(157, 27);
+            this.lblDebito.Location = new System.Drawing.Point(132, 27);
             this.lblDebito.Name = "lblDebito";
             this.lblDebito.Size = new System.Drawing.Size(62, 29);
             this.lblDebito.TabIndex = 5;
@@ -375,17 +384,18 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(3, 2);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(166, 20);
+            this.label19.Size = new System.Drawing.Size(75, 20);
             this.label19.TabIndex = 1;
-            this.label19.Text = "CARTÃO DE DÉBITO";
+            this.label19.Text = "DÉBITO";
             // 
             // panel23
             // 
             this.panel23.BackColor = System.Drawing.Color.Green;
+            this.panel23.Controls.Add(this.label18);
             this.panel23.Controls.Add(this.lblCredito);
             this.panel23.Controls.Add(this.label15);
             this.panel23.Location = new System.Drawing.Point(268, 193);
@@ -398,7 +408,7 @@
             this.lblCredito.AutoSize = true;
             this.lblCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCredito.ForeColor = System.Drawing.Color.White;
-            this.lblCredito.Location = new System.Drawing.Point(157, 27);
+            this.lblCredito.Location = new System.Drawing.Point(127, 26);
             this.lblCredito.Name = "lblCredito";
             this.lblCredito.Size = new System.Drawing.Size(62, 29);
             this.lblCredito.TabIndex = 5;
@@ -407,18 +417,19 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(3, 2);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(178, 20);
+            this.label15.Size = new System.Drawing.Size(88, 20);
             this.label15.TabIndex = 1;
-            this.label15.Text = "CARTÃO DE CRÉDITO";
+            this.label15.Text = "CRÉDITO";
             this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // panel
             // 
             this.panel.BackColor = System.Drawing.Color.Green;
+            this.panel.Controls.Add(this.lblRsDinheiro);
             this.panel.Controls.Add(this.txtDinheiro);
             this.panel.Controls.Add(this.label16);
             this.panel.Location = new System.Drawing.Point(16, 193);
@@ -432,27 +443,27 @@
             this.txtDinheiro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDinheiro.ForeColor = System.Drawing.Color.White;
-            this.txtDinheiro.Location = new System.Drawing.Point(101, 27);
+            this.txtDinheiro.Location = new System.Drawing.Point(137, 27);
             this.txtDinheiro.Name = "txtDinheiro";
-            this.txtDinheiro.Size = new System.Drawing.Size(135, 28);
+            this.txtDinheiro.Size = new System.Drawing.Size(99, 28);
             this.txtDinheiro.TabIndex = 2;
-            this.txtDinheiro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDinheiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDinheiro_KeyPress);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(3, 2);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(89, 20);
+            this.label16.Size = new System.Drawing.Size(97, 20);
             this.label16.TabIndex = 1;
             this.label16.Text = "DINHEIRO";
             // 
             // panelTotalCli
             // 
             this.panelTotalCli.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelTotalCli.Controls.Add(this.label17);
             this.panelTotalCli.Controls.Add(this.lblTotal2);
             this.panelTotalCli.Controls.Add(this.label13);
             this.panelTotalCli.Location = new System.Drawing.Point(16, 103);
@@ -465,20 +476,20 @@
             this.lblTotal2.AutoSize = true;
             this.lblTotal2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal2.ForeColor = System.Drawing.Color.White;
-            this.lblTotal2.Location = new System.Drawing.Point(342, 30);
+            this.lblTotal2.Location = new System.Drawing.Point(358, 30);
             this.lblTotal2.Name = "lblTotal2";
-            this.lblTotal2.Size = new System.Drawing.Size(129, 37);
+            this.lblTotal2.Size = new System.Drawing.Size(80, 37);
             this.lblTotal2.TabIndex = 4;
-            this.lblTotal2.Text = "R$ 0,00";
+            this.lblTotal2.Text = "0,00";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(2, 3);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 20);
+            this.label13.Size = new System.Drawing.Size(64, 20);
             this.label13.TabIndex = 3;
             this.label13.Text = "TOTAL";
             // 
@@ -736,6 +747,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel7.Controls.Add(this.label14);
             this.panel7.Controls.Add(this.lblTotaltem);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Location = new System.Drawing.Point(307, 365);
@@ -748,11 +760,11 @@
             this.lblTotaltem.AutoSize = true;
             this.lblTotaltem.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotaltem.ForeColor = System.Drawing.Color.White;
-            this.lblTotaltem.Location = new System.Drawing.Point(74, 34);
+            this.lblTotaltem.Location = new System.Drawing.Point(116, 31);
             this.lblTotaltem.Name = "lblTotaltem";
-            this.lblTotaltem.Size = new System.Drawing.Size(129, 37);
+            this.lblTotaltem.Size = new System.Drawing.Size(80, 37);
             this.lblTotaltem.TabIndex = 5;
-            this.lblTotaltem.Text = "R$ 0,00";
+            this.lblTotaltem.Text = "0,00";
             // 
             // label4
             // 
@@ -768,6 +780,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.lblValorUni);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Location = new System.Drawing.Point(307, 237);
@@ -780,11 +793,12 @@
             this.lblValorUni.AutoSize = true;
             this.lblValorUni.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValorUni.ForeColor = System.Drawing.Color.White;
-            this.lblValorUni.Location = new System.Drawing.Point(74, 35);
+            this.lblValorUni.Location = new System.Drawing.Point(112, 30);
             this.lblValorUni.Name = "lblValorUni";
-            this.lblValorUni.Size = new System.Drawing.Size(129, 37);
+            this.lblValorUni.Size = new System.Drawing.Size(80, 37);
             this.lblValorUni.TabIndex = 4;
-            this.lblValorUni.Text = "R$ 0,00";
+            this.lblValorUni.Text = "0,00";
+            this.lblValorUni.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -987,6 +1001,7 @@
             // panelTroco
             // 
             this.panelTroco.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelTroco.Controls.Add(this.label24);
             this.panelTroco.Controls.Add(this.lblTroco);
             this.panelTroco.Controls.Add(this.label12);
             this.panelTroco.Location = new System.Drawing.Point(311, 489);
@@ -999,11 +1014,11 @@
             this.lblTroco.AutoSize = true;
             this.lblTroco.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTroco.ForeColor = System.Drawing.Color.White;
-            this.lblTroco.Location = new System.Drawing.Point(103, 32);
+            this.lblTroco.Location = new System.Drawing.Point(124, 32);
             this.lblTroco.Name = "lblTroco";
-            this.lblTroco.Size = new System.Drawing.Size(116, 33);
+            this.lblTroco.Size = new System.Drawing.Size(71, 33);
             this.lblTroco.TabIndex = 10;
-            this.lblTroco.Text = "R$ 0,00";
+            this.lblTroco.Text = "0,00";
             // 
             // label12
             // 
@@ -1019,6 +1034,7 @@
             // panelTotalRec
             // 
             this.panelTotalRec.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelTotalRec.Controls.Add(this.label23);
             this.panelTotalRec.Controls.Add(this.lblTotalRec);
             this.panelTotalRec.Controls.Add(this.label11);
             this.panelTotalRec.Location = new System.Drawing.Point(29, 489);
@@ -1031,11 +1047,11 @@
             this.lblTotalRec.AutoSize = true;
             this.lblTotalRec.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalRec.ForeColor = System.Drawing.Color.White;
-            this.lblTotalRec.Location = new System.Drawing.Point(86, 32);
+            this.lblTotalRec.Location = new System.Drawing.Point(124, 32);
             this.lblTotalRec.Name = "lblTotalRec";
-            this.lblTotalRec.Size = new System.Drawing.Size(116, 33);
-            this.lblTotalRec.TabIndex = 5;
-            this.lblTotalRec.Text = "R$ 0,00";
+            this.lblTotalRec.Size = new System.Drawing.Size(71, 33);
+            this.lblTotalRec.TabIndex = 10;
+            this.lblTotalRec.Text = "0,00";
             // 
             // label11
             // 
@@ -1063,11 +1079,11 @@
             this.lblSubTotal.AutoSize = true;
             this.lblSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubTotal.ForeColor = System.Drawing.Color.White;
-            this.lblSubTotal.Location = new System.Drawing.Point(356, 11);
+            this.lblSubTotal.Location = new System.Drawing.Point(321, 14);
             this.lblSubTotal.Name = "lblSubTotal";
-            this.lblSubTotal.Size = new System.Drawing.Size(145, 55);
+            this.lblSubTotal.Size = new System.Drawing.Size(118, 55);
             this.lblSubTotal.TabIndex = 6;
-            this.lblSubTotal.Text = "00,00";
+            this.lblSubTotal.Text = "0,00";
             // 
             // label9
             // 
@@ -1181,6 +1197,96 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1154, 12);
             this.panel1.TabIndex = 0;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(58, 30);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 37);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "R$";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(61, 31);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(57, 37);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "R$";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(304, 30);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(57, 37);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "R$";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(87, 26);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(45, 29);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "R$";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(89, 27);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(45, 29);
+            this.label20.TabIndex = 7;
+            this.label20.Text = "R$";
+            // 
+            // lblRsDinheiro
+            // 
+            this.lblRsDinheiro.AutoSize = true;
+            this.lblRsDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRsDinheiro.ForeColor = System.Drawing.Color.White;
+            this.lblRsDinheiro.Location = new System.Drawing.Point(89, 27);
+            this.lblRsDinheiro.Name = "lblRsDinheiro";
+            this.lblRsDinheiro.Size = new System.Drawing.Size(45, 29);
+            this.lblRsDinheiro.TabIndex = 8;
+            this.lblRsDinheiro.Text = "R$";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(78, 32);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(52, 33);
+            this.label23.TabIndex = 11;
+            this.label23.Text = "R$";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Location = new System.Drawing.Point(78, 32);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(52, 33);
+            this.label24.TabIndex = 12;
+            this.label24.Text = "R$";
             // 
             // FmrCaixa
             // 
@@ -1342,5 +1448,13 @@
         private System.Windows.Forms.Label valorDebito;
         private System.Windows.Forms.Button btnSairDebito;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblRsDinheiro;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
     }
 }

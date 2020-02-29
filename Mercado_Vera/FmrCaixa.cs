@@ -110,12 +110,11 @@ namespace Mercado_Vera
 
         private void panel10_Paint(object sender, PaintEventArgs e)
         {
-            Atualiza();
         }
 
         private void FmrCaixa_Load(object sender, EventArgs e)
         {
-            
+            lblRsDinheiro.Visible = false;
             TravarBotoes();
         }
 
@@ -131,7 +130,7 @@ namespace Mercado_Vera
 
         private void button4_Leave(object sender, EventArgs e)
         {
-            PrencheProduto();           
+            //PrencheProduto();           
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -186,9 +185,13 @@ namespace Mercado_Vera
 
         private void btnFin_Click(object sender, EventArgs e)
         {
+            txtBarra.BackColor = System.Drawing.Color.SteelBlue;
+            txtBarra.Enabled = false;
             lblTotal2.Text = lblSubTotal.Text;
             panelFinalizar.Visible = true;
-            BtnVenda.Enabled = true;
+            BtnVenda.Enabled = false;
+
+            TravarBotoes();
          
         }
 
@@ -216,15 +219,13 @@ namespace Mercado_Vera
         }
 
         private void button6_Click(object sender, EventArgs e)
-        {
-            
+        {           
             BuscaCliente buscaCli = new BuscaCliente();
             buscaCli.Show();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Atualiza();
         }
 
         private void btnFinal_Click(object sender, EventArgs e)
@@ -257,27 +258,51 @@ namespace Mercado_Vera
             {
                 txtQtd.Clear();
                 txtIdB.Clear();
-                lblPod.Text = "R$ 0,00";
-                lblTotaltem.Text = "R$ 0,00";               
-                lblSubTotal.Text = "R$ 0,00";
+                lblPod.Text = "";
+                lblTotaltem.Text = "0,00";               
+                lblSubTotal.Text = "0,00";
                 panelFinalizar.Visible = false;
+                lblRsDinheiro.Visible = false;
+                BtnVenda.Enabled = true;
+                pictureBox1.Image = null;
+                lblTotaltem.Text = "0,00";
+                lblValorUni.Text = "0,00";
+                panelDebito.Height = 10;
+
+                dataGridView2.Rows.Clear();//limpa o datagrid e mantem o header
+              
+
             }
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            lblCredito.Text = "0,00";
+            lblDebito.Text = "0,00";
+            lblPagamento.Text = "CAIXA";
+            pagamento = "Dinheiro";
             txtDinheiro.BackColor = System.Drawing.Color.DarkSeaGreen;
             txtDinheiro.Focus();
-            pagamento = "Dinheiro";
-            lblPagamento.Text = "CAIXA";
+            lblRsDinheiro.Visible = true;
             btnBuscaCli.Enabled = false;
+            panelDebito.Height = 10;
+
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            txtDinheiro.BackColor = System.Drawing.Color.Green;
+            txtDinheiro.Text = "";
+            lblRsDinheiro.Visible = false;
+            lblDebito.Text = "0,00";
+            lblTotalRec.Text = "0,00";
+            lblTroco.Text = "0,00";
             pagamento = "Crédito";
+            lblPagamento.Text = "CRÉDITO";
             btnBuscaCli.Enabled = false;
+            lblCredito.Text = lblSubTotal.Text;
+            panelDebito.Height = 10;
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -287,9 +312,12 @@ namespace Mercado_Vera
             pagamento = "Débito";
             lblPagamento.Text = "DÉBITO";
             panelDebito.Height = 400;
-            txtDinheiro.Text = "0,00";
+            txtDinheiro.Text = "";
             lblCredito.Text = "0,00";
-            btnBuscaCli.Enabled = false;
+            lblTotalRec.Text = "0,00";
+            lblTroco.Text = "0,00";
+            lblRsDinheiro.Visible = false;
+            btnBuscaCli.Enabled = false;  
         }
 
         private void txtDinheiro_KeyPress(object sender, KeyPressEventArgs e)
@@ -310,10 +338,10 @@ namespace Mercado_Vera
             {             
                 txtDinheiro.BackColor = System.Drawing.Color.Green;
                 btnFin.Focus();
+                decimal subt = decimal.Parse(txtDinheiro.Text) - decimal.Parse(lblSubTotal.Text);
+                txtDinheiro.Text = txtDinheiro.Text;
                 lblTotalRec.Text = txtDinheiro.Text;
-                decimal soma = decimal.Parse(txtDinheiro.Text) - decimal.Parse(lblSubTotal.Text);
-                //txtDinheiro.Text = "R$ " + txtDinheiro.Text;
-                lblTroco.Text = soma.ToString();              
+                lblTroco.Text = subt.ToString();              
             }
         }
 
@@ -325,7 +353,7 @@ namespace Mercado_Vera
         private void button1_Click_1(object sender, EventArgs e)
         {
             panelDebito.Height = 10;
-            pagamento = "Dinehiro";
+            pagamento = "Dinheiro";
         }
     }
 }

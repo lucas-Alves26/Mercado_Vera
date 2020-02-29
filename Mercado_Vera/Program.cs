@@ -19,7 +19,7 @@ namespace Mercado_Vera
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FmrCaixa());
+            Application.Run(new FmrCliente());
             //FmrProduto
             //FmrCaixa
             //FmrPesquisa
