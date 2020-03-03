@@ -37,21 +37,26 @@
             this.button9 = new System.Windows.Forms.Button();
             this.btnDebito = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
+            this.btnCancelarVenda = new System.Windows.Forms.Button();
             this.btnFinal = new System.Windows.Forms.Button();
             this.btnBuscaCli = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
             this.lblPagamento = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel24 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
             this.lblDebito = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
             this.lblCredito = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
+            this.lblRsDinheiro = new System.Windows.Forms.Label();
             this.txtDinheiro = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.panelTotalCli = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
             this.lblTotal2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panelCliente = new System.Windows.Forms.Panel();
@@ -62,6 +67,7 @@
             this.lblPod = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.btnQld = new System.Windows.Forms.Button();
@@ -75,9 +81,11 @@
             this.txtIdB = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.lblTotaltem = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.lblValorUni = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -86,7 +94,26 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.panelCredito = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label33 = new System.Windows.Forms.Label();
+            this.lblValorParcela = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.txtParcela = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.btnOkCredito = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.cbxBandCred = new System.Windows.Forms.ComboBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
+            this.lblValorCred = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
             this.panelDebito = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -98,9 +125,11 @@
             this.btnSairDebito = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panelTroco = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
             this.lblTroco = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panelTotalRec = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
             this.lblTotalRec = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panelSubtotal = new System.Windows.Forms.Panel();
@@ -118,14 +147,6 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lblRsDinheiro = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panelFinalizar.SuspendLayout();
             this.panel26.SuspendLayout();
@@ -147,6 +168,11 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelPrincipal.SuspendLayout();
+            this.panelCredito.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panelDebito.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -286,12 +312,30 @@
             // panel27
             // 
             this.panel27.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel27.Controls.Add(this.btnCancelarVenda);
             this.panel27.Controls.Add(this.btnFinal);
             this.panel27.Controls.Add(this.btnBuscaCli);
             this.panel27.Location = new System.Drawing.Point(16, 340);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(242, 106);
             this.panel27.TabIndex = 8;
+            // 
+            // btnCancelarVenda
+            // 
+            this.btnCancelarVenda.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnCancelarVenda.FlatAppearance.BorderSize = 0;
+            this.btnCancelarVenda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.btnCancelarVenda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnCancelarVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarVenda.Location = new System.Drawing.Point(6, 50);
+            this.btnCancelarVenda.Name = "btnCancelarVenda";
+            this.btnCancelarVenda.Size = new System.Drawing.Size(177, 23);
+            this.btnCancelarVenda.TabIndex = 4;
+            this.btnCancelarVenda.Text = "00 - Cancelar Venda";
+            this.btnCancelarVenda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarVenda.UseVisualStyleBackColor = false;
+            this.btnCancelarVenda.Click += new System.EventHandler(this.btnCancelarVenda_Click);
             // 
             // btnFinal
             // 
@@ -370,6 +414,17 @@
             this.panel24.Size = new System.Drawing.Size(242, 63);
             this.panel24.TabIndex = 6;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(89, 27);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(45, 29);
+            this.label20.TabIndex = 7;
+            this.label20.Text = "R$";
+            // 
             // lblDebito
             // 
             this.lblDebito.AutoSize = true;
@@ -402,6 +457,17 @@
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(242, 63);
             this.panel23.TabIndex = 5;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(87, 26);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(45, 29);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "R$";
             // 
             // lblCredito
             // 
@@ -437,6 +503,17 @@
             this.panel.Size = new System.Drawing.Size(242, 63);
             this.panel.TabIndex = 4;
             // 
+            // lblRsDinheiro
+            // 
+            this.lblRsDinheiro.AutoSize = true;
+            this.lblRsDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRsDinheiro.ForeColor = System.Drawing.Color.White;
+            this.lblRsDinheiro.Location = new System.Drawing.Point(89, 27);
+            this.lblRsDinheiro.Name = "lblRsDinheiro";
+            this.lblRsDinheiro.Size = new System.Drawing.Size(45, 29);
+            this.lblRsDinheiro.TabIndex = 8;
+            this.lblRsDinheiro.Text = "R$";
+            // 
             // txtDinheiro
             // 
             this.txtDinheiro.BackColor = System.Drawing.Color.Green;
@@ -471,14 +548,25 @@
             this.panelTotalCli.Size = new System.Drawing.Size(494, 81);
             this.panelTotalCli.TabIndex = 4;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(304, 30);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(59, 37);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "R$";
+            // 
             // lblTotal2
             // 
             this.lblTotal2.AutoSize = true;
-            this.lblTotal2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal2.ForeColor = System.Drawing.Color.White;
             this.lblTotal2.Location = new System.Drawing.Point(358, 30);
             this.lblTotal2.Name = "lblTotal2";
-            this.lblTotal2.Size = new System.Drawing.Size(80, 37);
+            this.lblTotal2.Size = new System.Drawing.Size(84, 37);
             this.lblTotal2.TabIndex = 4;
             this.lblTotal2.Text = "0,00";
             // 
@@ -507,11 +595,11 @@
             // lblNomeCli
             // 
             this.lblNomeCli.AutoSize = true;
-            this.lblNomeCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomeCli.ForeColor = System.Drawing.Color.White;
-            this.lblNomeCli.Location = new System.Drawing.Point(139, 34);
+            this.lblNomeCli.Location = new System.Drawing.Point(138, 31);
             this.lblNomeCli.Name = "lblNomeCli";
-            this.lblNomeCli.Size = new System.Drawing.Size(98, 20);
+            this.lblNomeCli.Size = new System.Drawing.Size(109, 20);
             this.lblNomeCli.TabIndex = 3;
             this.lblNomeCli.Text = "CLIENTE - 1";
             // 
@@ -521,7 +609,7 @@
             this.lblId.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.ForeColor = System.Drawing.Color.White;
-            this.lblId.Location = new System.Drawing.Point(7, 31);
+            this.lblId.Location = new System.Drawing.Point(7, 24);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(72, 28);
             this.lblId.TabIndex = 2;
@@ -574,11 +662,29 @@
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel18.Controls.Add(this.btnClose);
             this.panel18.Controls.Add(this.button4);
             this.panel18.Location = new System.Drawing.Point(217, 569);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(189, 106);
             this.panel18.TabIndex = 7;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(6, 27);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(177, 23);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "F6 - SAIR";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // button4
             // 
@@ -755,12 +861,24 @@
             this.panel7.Size = new System.Drawing.Size(239, 81);
             this.panel7.TabIndex = 3;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(58, 31);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(57, 37);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "R$";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblTotaltem
             // 
             this.lblTotaltem.AutoSize = true;
             this.lblTotaltem.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotaltem.ForeColor = System.Drawing.Color.White;
-            this.lblTotaltem.Location = new System.Drawing.Point(116, 31);
+            this.lblTotaltem.Location = new System.Drawing.Point(112, 31);
             this.lblTotaltem.Name = "lblTotaltem";
             this.lblTotaltem.Size = new System.Drawing.Size(80, 37);
             this.lblTotaltem.TabIndex = 5;
@@ -787,6 +905,18 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(239, 81);
             this.panel6.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(58, 30);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 37);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "R$";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblValorUni
             // 
@@ -865,7 +995,7 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Controls.Add(this.panel8);
+            this.panelPrincipal.Controls.Add(this.panelCredito);
             this.panelPrincipal.Controls.Add(this.panelDebito);
             this.panelPrincipal.Controls.Add(this.panelTroco);
             this.panelPrincipal.Controls.Add(this.panelTotalRec);
@@ -877,13 +1007,237 @@
             this.panelPrincipal.Size = new System.Drawing.Size(598, 727);
             this.panelPrincipal.TabIndex = 3;
             // 
+            // panelCredito
+            // 
+            this.panelCredito.Controls.Add(this.groupBox2);
+            this.panelCredito.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCredito.Location = new System.Drawing.Point(0, 10);
+            this.panelCredito.Name = "panelCredito";
+            this.panelCredito.Size = new System.Drawing.Size(598, 386);
+            this.panelCredito.TabIndex = 5;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.panel16);
+            this.groupBox2.Controls.Add(this.label26);
+            this.groupBox2.Controls.Add(this.panel15);
+            this.groupBox2.Controls.Add(this.btnOkCredito);
+            this.groupBox2.Controls.Add(this.label25);
+            this.groupBox2.Controls.Add(this.cbxBandCred);
+            this.groupBox2.Controls.Add(this.panel8);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.label28);
+            this.groupBox2.Location = new System.Drawing.Point(19, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(560, 379);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel16.Controls.Add(this.label33);
+            this.panel16.Controls.Add(this.lblValorParcela);
+            this.panel16.Controls.Add(this.textBox1);
+            this.panel16.Controls.Add(this.label30);
+            this.panel16.Location = new System.Drawing.Point(381, 60);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(169, 57);
+            this.panel16.TabIndex = 13;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.ForeColor = System.Drawing.Color.White;
+            this.label33.Location = new System.Drawing.Point(18, 23);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(45, 29);
+            this.label33.TabIndex = 7;
+            this.label33.Text = "R$";
+            // 
+            // lblValorParcela
+            // 
+            this.lblValorParcela.AutoSize = true;
+            this.lblValorParcela.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorParcela.ForeColor = System.Drawing.Color.White;
+            this.lblValorParcela.Location = new System.Drawing.Point(58, 23);
+            this.lblValorParcela.Name = "lblValorParcela";
+            this.lblValorParcela.Size = new System.Drawing.Size(62, 29);
+            this.lblValorParcela.TabIndex = 7;
+            this.lblValorParcela.Text = "0,00";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.SteelBlue;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(12, 22);
+            this.textBox1.MaxLength = 2;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(47, 28);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.White;
+            this.label30.Location = new System.Drawing.Point(3, 2);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(116, 20);
+            this.label30.TabIndex = 1;
+            this.label30.Text = "Valor Parcela";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label26.Location = new System.Drawing.Point(257, 66);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(44, 42);
+            this.label26.TabIndex = 15;
+            this.label26.Text = "X";
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel15.Controls.Add(this.txtParcela);
+            this.panel15.Controls.Add(this.label31);
+            this.panel15.Location = new System.Drawing.Point(301, 60);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(68, 57);
+            this.panel15.TabIndex = 12;
+            // 
+            // txtParcela
+            // 
+            this.txtParcela.BackColor = System.Drawing.Color.SteelBlue;
+            this.txtParcela.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtParcela.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtParcela.ForeColor = System.Drawing.Color.White;
+            this.txtParcela.Location = new System.Drawing.Point(12, 22);
+            this.txtParcela.MaxLength = 2;
+            this.txtParcela.Name = "txtParcela";
+            this.txtParcela.Size = new System.Drawing.Size(47, 28);
+            this.txtParcela.TabIndex = 2;
+            this.txtParcela.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtParcela.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParcela_KeyPress);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.White;
+            this.label31.Location = new System.Drawing.Point(3, 2);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(67, 20);
+            this.label31.TabIndex = 1;
+            this.label31.Text = "N° Pac.";
+            this.label31.Click += new System.EventHandler(this.label31_Click);
+            // 
+            // btnOkCredito
+            // 
+            this.btnOkCredito.Location = new System.Drawing.Point(264, 168);
+            this.btnOkCredito.Name = "btnOkCredito";
+            this.btnOkCredito.Size = new System.Drawing.Size(36, 23);
+            this.btnOkCredito.TabIndex = 14;
+            this.btnOkCredito.Text = "ok";
+            this.btnOkCredito.UseVisualStyleBackColor = true;
+            this.btnOkCredito.Click += new System.EventHandler(this.btnOkCredito_Click);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label25.Location = new System.Drawing.Point(6, 147);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(81, 20);
+            this.label25.TabIndex = 13;
+            this.label25.Text = "Bandeira";
+            // 
+            // cbxBandCred
+            // 
+            this.cbxBandCred.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxBandCred.FormattingEnabled = true;
+            this.cbxBandCred.Items.AddRange(new object[] {
+            "Visa",
+            "Mastercard",
+            "American Express",
+            "Elo",
+            "Caixa"});
+            this.cbxBandCred.Location = new System.Drawing.Point(10, 170);
+            this.cbxBandCred.Name = "cbxBandCred";
+            this.cbxBandCred.Size = new System.Drawing.Size(236, 21);
+            this.cbxBandCred.TabIndex = 12;
+            // 
             // panel8
             // 
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel8.Location = new System.Drawing.Point(0, 10);
+            this.panel8.BackColor = System.Drawing.Color.Green;
+            this.panel8.Controls.Add(this.label29);
+            this.panel8.Controls.Add(this.lblValorCred);
+            this.panel8.Controls.Add(this.label27);
+            this.panel8.Location = new System.Drawing.Point(9, 61);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(19, 717);
-            this.panel8.TabIndex = 5;
+            this.panel8.Size = new System.Drawing.Size(242, 57);
+            this.panel8.TabIndex = 11;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Location = new System.Drawing.Point(95, 22);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(45, 29);
+            this.label29.TabIndex = 6;
+            this.label29.Text = "R$";
+            // 
+            // lblValorCred
+            // 
+            this.lblValorCred.AutoSize = true;
+            this.lblValorCred.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorCred.ForeColor = System.Drawing.Color.White;
+            this.lblValorCred.Location = new System.Drawing.Point(135, 22);
+            this.lblValorCred.Name = "lblValorCred";
+            this.lblValorCred.Size = new System.Drawing.Size(62, 29);
+            this.lblValorCred.TabIndex = 5;
+            this.lblValorCred.Text = "0,00";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Location = new System.Drawing.Point(3, 2);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(51, 20);
+            this.label27.TabIndex = 1;
+            this.label27.Text = "Valor";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(481, 9);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(69, 23);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "ESC- SAIR";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.SteelBlue;
+            this.label28.Location = new System.Drawing.Point(5, 12);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(475, 20);
+            this.label28.TabIndex = 9;
+            this.label28.Text = "DADOS PARA PAGAMENTO COM CARTÃO DE CRÉDITO";
             // 
             // panelDebito
             // 
@@ -1009,6 +1363,17 @@
             this.panelTroco.Size = new System.Drawing.Size(265, 77);
             this.panelTroco.TabIndex = 3;
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Location = new System.Drawing.Point(78, 32);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(52, 33);
+            this.label24.TabIndex = 12;
+            this.label24.Text = "R$";
+            // 
             // lblTroco
             // 
             this.lblTroco.AutoSize = true;
@@ -1041,6 +1406,17 @@
             this.panelTotalRec.Name = "panelTotalRec";
             this.panelTotalRec.Size = new System.Drawing.Size(266, 77);
             this.panelTotalRec.TabIndex = 2;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(78, 32);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(52, 33);
+            this.label23.TabIndex = 11;
+            this.label23.Text = "R$";
             // 
             // lblTotalRec
             // 
@@ -1198,96 +1574,6 @@
             this.panel1.Size = new System.Drawing.Size(1154, 12);
             this.panel1.TabIndex = 0;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(58, 30);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 37);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "R$";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(61, 31);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(57, 37);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "R$";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(304, 30);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(57, 37);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "R$";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(87, 26);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(45, 29);
-            this.label18.TabIndex = 6;
-            this.label18.Text = "R$";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(89, 27);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(45, 29);
-            this.label20.TabIndex = 7;
-            this.label20.Text = "R$";
-            // 
-            // lblRsDinheiro
-            // 
-            this.lblRsDinheiro.AutoSize = true;
-            this.lblRsDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRsDinheiro.ForeColor = System.Drawing.Color.White;
-            this.lblRsDinheiro.Location = new System.Drawing.Point(89, 27);
-            this.lblRsDinheiro.Name = "lblRsDinheiro";
-            this.lblRsDinheiro.Size = new System.Drawing.Size(45, 29);
-            this.lblRsDinheiro.TabIndex = 8;
-            this.lblRsDinheiro.Text = "R$";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(78, 32);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(52, 33);
-            this.label23.TabIndex = 11;
-            this.label23.Text = "R$";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Location = new System.Drawing.Point(78, 32);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(52, 33);
-            this.label24.TabIndex = 12;
-            this.label24.Text = "R$";
-            // 
             // FmrCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1337,6 +1623,15 @@
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelPrincipal.ResumeLayout(false);
+            this.panelCredito.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panelDebito.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -1438,7 +1733,7 @@
         private System.Windows.Forms.Button btnFinal;
         private System.Windows.Forms.Button btnBuscaCli;
         private System.Windows.Forms.Panel panelDebito;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panelCredito;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label22;
@@ -1456,5 +1751,26 @@
         private System.Windows.Forms.Label lblRsDinheiro;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnOkCredito;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ComboBox cbxBandCred;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label lblValorCred;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox txtParcela;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label lblValorParcela;
+        private System.Windows.Forms.Button btnCancelarVenda;
+        private System.Windows.Forms.Button btnClose;
     }
 }

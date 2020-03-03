@@ -34,9 +34,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnOk = new System.Windows.Forms.Button();
             this.CLI_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CLI_NOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +50,7 @@
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(401, 69);
+            this.groupBox1.Size = new System.Drawing.Size(479, 69);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             // 
@@ -59,7 +60,7 @@
             this.txtNomePes.Location = new System.Drawing.Point(95, 34);
             this.txtNomePes.MaxLength = 50;
             this.txtNomePes.Name = "txtNomePes";
-            this.txtNomePes.Size = new System.Drawing.Size(279, 24);
+            this.txtNomePes.Size = new System.Drawing.Size(378, 24);
             this.txtNomePes.TabIndex = 24;
             this.txtNomePes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNomePes_KeyDown);
             this.txtNomePes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomePes_KeyPress);
@@ -112,16 +113,6 @@
             this.dataGridView1.TabIndex = 30;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
-            // btnOk
-            // 
-            this.btnOk.Location = new System.Drawing.Point(419, 18);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 63);
-            this.btnOk.TabIndex = 31;
-            this.btnOk.Text = "ok";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
             // CLI_ID
             // 
             this.CLI_ID.DataPropertyName = "CLI_ID";
@@ -135,12 +126,33 @@
             this.CLI_NOME.Name = "CLI_NOME";
             this.CLI_NOME.Width = 335;
             // 
+            // btnOk
+            // 
+            this.btnOk.Location = new System.Drawing.Point(416, 422);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.TabIndex = 31;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(335, 422);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.TabIndex = 32;
+            this.btnNovo.Text = "NOVO";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
             // BuscaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(506, 446);
+            this.ClientSize = new System.Drawing.Size(508, 482);
+            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -166,5 +178,6 @@
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.DataGridViewTextBoxColumn CLI_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CLI_NOME;
+        private System.Windows.Forms.Button btnNovo;
     }
 }

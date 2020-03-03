@@ -365,6 +365,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FmrCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FmrCliente";
             this.Load += new System.EventHandler(this.FmrCliente_Load);
             this.panel2.ResumeLayout(false);

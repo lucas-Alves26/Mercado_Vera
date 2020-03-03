@@ -25,8 +25,17 @@ namespace Mercado_Vera.Dao
 
             cmd1.Parameters.Add(new SqlParameter("@CLIID", venda.CliId));
             cmd1.Parameters.Add(new SqlParameter("@PAGAMENTO", venda.TipoPagamento));
-            cmd1.Parameters.Add(new SqlParameter("@PARCELA", venda.Parcelas));
-            cmd1.Parameters.Add(new SqlParameter("@BANDEIRA", venda.Bandeira));
+
+            if(venda.Parcelas!=0)
+                cmd1.Parameters.Add(new SqlParameter("@PARCELA", venda.Parcelas));
+            else
+                cmd1.Parameters.Add(new SqlParameter("@PARCELA", DBNull.Value));
+
+            if(venda.Bandeira!=null)
+                cmd1.Parameters.Add(new SqlParameter("@BANDEIRA", venda.Bandeira));
+            else
+                cmd1.Parameters.Add(new SqlParameter("@BANDEIRA", DBNull.Value));
+
             cmd1.Parameters.Add(new SqlParameter("@QTD", venda.Qtd));
             cmd1.Parameters.Add(new SqlParameter("@TOTAL", venda.ValorTotal));
             cmd1.Parameters.Add(new SqlParameter("@DATE", data));

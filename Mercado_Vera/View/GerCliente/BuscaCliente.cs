@@ -13,14 +13,29 @@ namespace Mercado_Vera.View.GerCliente
 {
     public partial class BuscaCliente : Form
     {
+
         DaoCliente daoCliente = new DaoCliente();
-   
+
+        public String id
+        {
+            get { return txtId.Text; }
+            set { txtId.Text = value; }
+        }
+
+        public string nome
+        {
+            get { return txtNomePes.Text; }
+            set { txtNomePes.Text = value; }
+        }
+
+
         public BuscaCliente()
         {
             InitializeComponent();
-        }
 
-        private void BuscaCliente_Load(object sender, EventArgs e)
+        }        
+
+            private void BuscaCliente_Load(object sender, EventArgs e)
         {
            dataGridView1.DataSource = daoCliente.SelectCliente();
         }
@@ -67,7 +82,14 @@ namespace Mercado_Vera.View.GerCliente
 
             FmrCaixa.cliId = txtId.Text;
             FmrCaixa.nomeCli = txtNomePes.Text;
+
             this.Close();
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            FmrCliente cliente = new FmrCliente();
+            cliente.ShowDialog();
         }
     }
 }
