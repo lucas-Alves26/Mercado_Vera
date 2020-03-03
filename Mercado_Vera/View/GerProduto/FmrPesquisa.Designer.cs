@@ -30,8 +30,8 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.cbxMarcaPes = new System.Windows.Forms.ComboBox();
-            this.txtNomePes = new System.Windows.Forms.TextBox();
-            this.txtCodigoPes = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DgPesquisa = new System.Windows.Forms.DataGridView();
@@ -80,30 +80,30 @@
             this.cbxMarcaPes.SelectedIndexChanged += new System.EventHandler(this.cbxMarcaPes_SelectedIndexChanged);
             this.cbxMarcaPes.Click += new System.EventHandler(this.cbxMarcaPes_Click);
             // 
-            // txtNomePes
+            // txtNome
             // 
-            this.txtNomePes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomePes.Location = new System.Drawing.Point(163, 34);
-            this.txtNomePes.MaxLength = 50;
-            this.txtNomePes.Name = "txtNomePes";
-            this.txtNomePes.Size = new System.Drawing.Size(349, 24);
-            this.txtNomePes.TabIndex = 24;
-            this.txtNomePes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNomePes_KeyDown);
-            this.txtNomePes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomePes_KeyPress);
-            this.txtNomePes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNomePes_KeyUp);
+            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(163, 34);
+            this.txtNome.MaxLength = 50;
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(349, 24);
+            this.txtNome.TabIndex = 24;
+            this.txtNome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNomePes_KeyDown);
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomePes_KeyPress);
+            this.txtNome.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNomePes_KeyUp);
             // 
-            // txtCodigoPes
+            // txtCodigo
             // 
-            this.txtCodigoPes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoPes.Location = new System.Drawing.Point(13, 34);
-            this.txtCodigoPes.MaxLength = 12;
-            this.txtCodigoPes.Name = "txtCodigoPes";
-            this.txtCodigoPes.Size = new System.Drawing.Size(134, 24);
-            this.txtCodigoPes.TabIndex = 23;
-            this.txtCodigoPes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCodigoPes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoPes_KeyDown);
-            this.txtCodigoPes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoPes_KeyPress);
-            this.txtCodigoPes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCodigoPes_KeyUp);
+            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(13, 34);
+            this.txtCodigo.MaxLength = 12;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(134, 24);
+            this.txtCodigo.TabIndex = 23;
+            this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoPes_KeyDown);
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoPes_KeyPress);
+            this.txtCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCodigoPes_KeyUp);
             // 
             // label2
             // 
@@ -208,12 +208,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtNomePes);
+            this.groupBox1.Controls.Add(this.txtNome);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbxMarcaPes);
-            this.groupBox1.Controls.Add(this.txtCodigoPes);
+            this.groupBox1.Controls.Add(this.txtCodigo);
             this.groupBox1.Location = new System.Drawing.Point(13, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(676, 69);
@@ -309,8 +309,8 @@
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxMarcaPes;
-        private System.Windows.Forms.TextBox txtNomePes;
-        private System.Windows.Forms.TextBox txtCodigoPes;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DgPesquisa;

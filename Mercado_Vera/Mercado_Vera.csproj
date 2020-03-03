@@ -127,6 +127,12 @@
     <Compile Include="View\GerProduto\tstExcluir.Designer.cs">
       <DependentUpon>tstExcluir.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GerVenda\FmrPesqProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerVenda\FmrPesqProd.Designer.cs">
+      <DependentUpon>FmrPesqProd.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FmrCaixa.resx">
       <DependentUpon>FmrCaixa.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +175,9 @@
     <EmbeddedResource Include="View\GerProduto\tstExcluir.resx">
       <DependentUpon>tstExcluir.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\GerVenda\FmrPesqProd.resx">
+      <DependentUpon>FmrPesqProd.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -188,8 +197,6 @@
       <Name>dllDao</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\GerVenda\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

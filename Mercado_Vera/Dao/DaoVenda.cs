@@ -65,22 +65,31 @@ namespace Mercado_Vera.Dao
             query = "INSERT INTO TBL_ITEM_VENDA(PROD_ID, VEN_ID, ITEM_VALOR, ITEM_QTD) VALUES("+idProd+","+idVenda+","+valor.ToString().Replace(',', '.') + ","+qtd+")";
             conexao.ExecutaInstrucaoNaBase(query);
         }
-        public void ConsultaQuantidade(string cod, string qtd)
+        public void ConsultaQuantidade(string cod, string qtd, string id)
         {
-            string query = "SELECT PROD_QTD FROM TBL_PRODUTO WHERE PROD_COD = '"+ cod+"'";
+            if(id == null)
+            {
+                id = "null";
+            }
+
+            string query = "SELECT PROD_QTD FROM TBL_PRODUTO WHERE PROD_COD = '"+ cod+"' OR PROD_ID = " + id;
             SqlDataReader dr = conexao.CarregarVariosDados(query);
 
                 if(int.Parse(dr["PROD_QTD"].ToString()) < int.Parse(qtd) || int.Parse(dr["PROD_QTD"].ToString()) <= 0)
                 {
                     //CORTA O MÉTODO E ENVIA ESSA MENSAGEM AO USUÁRIO
                     throw new DomainExceptions("Estoque do produto "+ dr["PROD_QTD"].ToString() + " , não é possivel adicionar essa quantidade!");
-                }
-            
+                }          
         }
 
-        public SqlDataReader RetornaProd(string cod)
+        public SqlDataReader RetornaProd(string cod, string id)
         {
-            string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME, P.PROD_VALOR_VENDA FROM  TBL_PRODUTO AS P WHERE P.PROD_COD =" + cod;
+            if (id == null)
+            {
+                id = "null";
+            }
+
+            string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME, P.PROD_VALOR_VENDA FROM  TBL_PRODUTO AS P WHERE P.PROD_COD = '" + cod +"' OR P.PROD_ID =" + id;
             return conexao.CarregarVariosDados(query);
         }
 

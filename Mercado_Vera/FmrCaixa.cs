@@ -2,6 +2,7 @@
 using Mercado_Vera.Entity;
 using Mercado_Vera.Exceptions;
 using Mercado_Vera.View.GerCliente;
+using Mercado_Vera.View.GerVenda;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,8 +23,8 @@ namespace Mercado_Vera
         DaoVenda daoVenda = new DaoVenda();
         DaoFoto daoFoto = new DaoFoto();
         ObservableCollection<ItemVenda> listaItens = new ObservableCollection<ItemVenda>();
-        
 
+        string statusVenda ="Fechada";
         string parcelas;
         string bandeira;
         string pagamento;
@@ -32,8 +33,10 @@ namespace Mercado_Vera
         static decimal totalprod;
         byte[] foto = new Byte[0];
         public static string cliId { get; set; }
-        public static string nomeCli { get; set; } 
-  
+        public static string nomeCli { get; set; }
+        public static string idProd { get; set; }
+        public static string nomeProd { get; set; }
+
 
         public FmrCaixa()
         {
@@ -55,8 +58,9 @@ namespace Mercado_Vera
                 txtQtd.Enabled = false;
             try
             {
-                daoVenda.ConsultaQuantidade(txtBarra.Text, qtd);
-                SqlDataReader dr = daoVenda.RetornaProd(txtBarra.Text);
+                daoVenda.ConsultaQuantidade(txtBarra.Text, qtd, idProd);
+                SqlDataReader dr = daoVenda.RetornaProd(txtBarra.Text, idProd);
+                txtBarra.Text = dr["PROD_COD"].ToString();
                 lblValorUni.Text = dr["PROD_VALOR_VENDA"].ToString();
                 lblPod.Text = dr["PROD_NOME"].ToString();
                 txtIdB.Text = dr["PROD_ID"].ToString();
@@ -77,7 +81,9 @@ namespace Mercado_Vera
                 }
                 GetProdDg();
                 PrencheDg();
+                qtd = "1";
             }
+
 
             catch (DomainExceptions ex)
             {
@@ -88,6 +94,8 @@ namespace Mercado_Vera
                 txtBarra.Clear();
                  lblSubTotal.Text = dataGridView2.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[total.Name].Value ?? 0)).ToString("##0.00");
             }
+
+
         }
 
         //preenche datagridview com as informações do produto
@@ -133,10 +141,10 @@ namespace Mercado_Vera
         private void btnQld_Click(object sender, EventArgs e)
         {
             txtQtd.BackColor = System.Drawing.Color.LightSteelBlue;
-            txtQtd.Focus();
             txtBarra.BackColor = System.Drawing.Color.SteelBlue;
             txtBarra.Enabled = false;
             txtQtd.Enabled = true;
+            txtQtd.Focus();
         }
 
         private void txtBarra_KeyPress(object sender, KeyPressEventArgs e)
@@ -176,6 +184,7 @@ namespace Mercado_Vera
             txtBarra.BackColor = System.Drawing.Color.LightSteelBlue;
             txtBarra.Focus();
             BtnVenda.Enabled = false;
+            statusVenda = "Aberta";
         }
 
         //Botão de finalizar venda da primeira tela, leva para tela de pagamento
@@ -291,6 +300,7 @@ namespace Mercado_Vera
                 lblPagamento.Text = "CAIXA";
 
                 dataGridView2.Rows.Clear();//limpa o datagrid e mantem o header
+                statusVenda = "Fechada";
             }
         }
 
@@ -463,6 +473,7 @@ namespace Mercado_Vera
                 lblPagamento.Text = "CAIXA";
 
                 dataGridView2.Rows.Clear();//limpa o datagrid e mantem o header
+                statusVenda = "Fechada";
             }
         }
 
@@ -479,8 +490,25 @@ namespace Mercado_Vera
                 if (confirm.ToString().ToUpper() == "YES")
                 {
                     Close();
+                    statusVenda = "Fechada";
                 }
             }            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FmrPesqProd pesqPrd = new FmrPesqProd();
+            pesqPrd.ShowDialog();
+
+            if (statusVenda == "Aberta")
+            {
+                idProd = pesqPrd.id;
+
+                if (idProd != null)
+                {
+                    PrencheProduto();
+                }
+            }
         }
     }
 }

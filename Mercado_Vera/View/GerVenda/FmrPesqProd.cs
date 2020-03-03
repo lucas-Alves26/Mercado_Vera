@@ -1,6 +1,4 @@
 ﻿using Mercado_Vera.Dao;
-using Mercado_Vera.Entity;
-using Mercado_Vera.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,24 +9,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Mercado_Vera.View.GerProduto
+namespace Mercado_Vera.View.GerVenda
 {
-    public partial class FmrPesquisa : Form
+    public partial class FmrPesqProd : Form
     {
         DaoProduto daoProd = new DaoProduto();
 
-        string busca="";
-        string id;
+        string busca = "";
 
-        public FmrPesquisa()
+        public String id;
+        //{
+        //    get { return id; }
+        //    set { id = value; }
+        //}
+
+
+        public FmrPesqProd()
         {
             InitializeComponent();
-
-           
         }
 
-        private void FmrPesquisa_Load(object sender, EventArgs e)
-        {            
+        private void FmrPesqProd_Load(object sender, EventArgs e)
+        {
             DgPesquisa.DataSource = daoProd.SelectProdCompleto(busca);
         }
 
@@ -61,20 +63,20 @@ namespace Mercado_Vera.View.GerProduto
             }
             else
             {
-                busca = txtCodigo.Text;
+                busca = txtCodigoProd.Text;
                 DgPesquisa.DataSource = daoProd.SelectProdCodCompl(busca);
             }
         }
 
-        private void txtCodigoPes_KeyDown(object sender, KeyEventArgs e)
+        private void txtCodigoPes_KeyUp(object sender, KeyEventArgs e)
         {
-            busca = txtCodigo.Text;
+            busca = txtCodigoProd.Text;
             DgPesquisa.DataSource = daoProd.SelectProdCodCompl(busca);
         }
 
-        private void txtCodigoPes_KeyUp(object sender, KeyEventArgs e)
+        private void txtCodigoPes_KeyDown(object sender, KeyEventArgs e)
         {
-            busca = txtCodigo.Text;
+            busca = txtCodigoProd.Text;
             DgPesquisa.DataSource = daoProd.SelectProdCodCompl(busca);
         }
 
@@ -94,87 +96,35 @@ namespace Mercado_Vera.View.GerProduto
             }
             else
             {
-                busca = txtNome.Text;
+                busca = txtNomeProd.Text;
                 DgPesquisa.DataSource = daoProd.SelectProdNomeCompl(busca);
             }
         }
 
         private void txtNomePes_KeyDown(object sender, KeyEventArgs e)
         {
-            busca = txtNome.Text;
+            busca = txtNomeProd.Text;
             DgPesquisa.DataSource = daoProd.SelectProdNomeCompl(busca);
         }
 
         private void txtNomePes_KeyUp(object sender, KeyEventArgs e)
         {
-            busca = txtNome.Text;
+            busca = txtNomeProd.Text;
             DgPesquisa.DataSource = daoProd.SelectProdNomeCompl(busca);
         }
 
-        private void FmrPesquisa_DoubleClick(object sender, EventArgs e)
+        private void btnOk_Click(object sender, EventArgs e)
         {
-            
+            FmrCaixa.idProd = id;
+            this.Close();
         }
 
         private void DgPesquisa_DoubleClick(object sender, EventArgs e)
         {
             //ao clicar duas vezes passa o nome eo id para os txtbox
-            this.txtCodigo.Text = Convert.ToString(this.DgPesquisa.CurrentRow.Cells["PROD_COD"].Value);
-            this.txtNome.Text = Convert.ToString(this.DgPesquisa.CurrentRow.Cells["PROD_NOME"].Value);
+            this.txtCodigoProd.Text = Convert.ToString(this.DgPesquisa.CurrentRow.Cells["PROD_COD"].Value);
+            this.txtNomeProd.Text = Convert.ToString(this.DgPesquisa.CurrentRow.Cells["PROD_NOME"].Value);
             id = Convert.ToString(this.DgPesquisa.CurrentRow.Cells["PROD_ID"].Value);
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (id == null)
-            {
-                MessageBox.Show("Selecione um produto primeiro!");
-            }
-            else
-            {            
-                this.Visible = false;
-
-                FmrEditar editar = new FmrEditar();
-                editar.GetId(id);
-                editar.ShowDialog();
-
-                this.Visible = true;
-            }
-        }
-
-        private void BtnNovo_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-
-            FmrProduto produto = new FmrProduto();
-            produto.ShowDialog();
-
-            this.Visible = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DgPesquisa.DataSource = daoProd.SelectProdCompleto(busca = "");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                daoProd.produto = new Produto(id);
-                DialogResult confirm = MessageBox.Show("Deseja Continuar?", "Excluir Arquivo", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-
-                if (confirm.ToString().ToUpper() == "YES")
-                {
-                    daoProd.DeleteProd();
-                    DgPesquisa.DataSource = daoProd.SelectProdNomeCompl(busca);
-                    MessageBox.Show("Produto Excluido com sucesso!");
-                }
-            }
-            catch (DomainExceptions ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
     }
 }
