@@ -51,10 +51,12 @@
     <Compile Include="Dao\DaoFoto.cs" />
     <Compile Include="Dao\DaoProduto.cs" />
     <Compile Include="Dao\DaoVenda.cs" />
+    <Compile Include="Dao\LoginDaoComandos.cs" />
     <Compile Include="Entity\Cliente.cs" />
     <Compile Include="Entity\Endereco.cs" />
     <Compile Include="Entity\ItemVenda.cs" />
     <Compile Include="Entity\Fornecedor.cs" />
+    <Compile Include="Entity\LoginEnty.cs" />
     <Compile Include="Entity\Produto.cs" />
     <Compile Include="Entity\Telefone.cs" />
     <Compile Include="Entity\Venda.cs" />
@@ -64,6 +66,12 @@
     </Compile>
     <Compile Include="FmrCaixa.Designer.cs">
       <DependentUpon>FmrCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmrPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmrPrincipal.Designer.cs">
+      <DependentUpon>FmrPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="View\GerCliente\BuscaCliente.cs">
       <SubType>Form</SubType>
@@ -133,8 +141,17 @@
     <Compile Include="View\GerVenda\FmrPesqProd.Designer.cs">
       <DependentUpon>FmrPesqProd.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Login\FmrLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login\FmrLogin.Designer.cs">
+      <DependentUpon>FmrLogin.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FmrCaixa.resx">
       <DependentUpon>FmrCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmrPrincipal.resx">
+      <DependentUpon>FmrPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -177,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\GerVenda\FmrPesqProd.resx">
       <DependentUpon>FmrPesqProd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Login\FmrLogin.resx">
+      <DependentUpon>FmrLogin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

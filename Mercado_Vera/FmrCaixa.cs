@@ -152,7 +152,7 @@ namespace Mercado_Vera
             if (!(char.IsNumber(e.KeyChar)) && !(e.KeyChar == (char)Keys.Enter) && !(e.KeyChar == (char)Keys.Back))
                 e.Handled = true;
 
-            if (e.KeyChar == 13)
+            if (e.KeyChar == 13 && txtBarra.Text !="")
             {
                 PrencheProduto();
             }
@@ -246,9 +246,13 @@ namespace Mercado_Vera
             lblTroco.Text = "0,00";
             lblValorDebito.Text = "0,00";
             lblValorCred.Text = "0,00";
+            txtDinheiro.Text = "";
             parcelas = null;
             lblPagamento.Text = "CREDIÁRIO";
             pagamento = "Crediário";
+            bandeira = null;
+            cbxBandCred.Text = null;
+            cbxBandeira.Text = null;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -272,6 +276,9 @@ namespace Mercado_Vera
                     daoVenda.RegistrarItemVenda(V.ProdId, V.ValorTotal, V.Qtd);
                     daoVenda.UpdateEstoque(V.ProdId, V.Qtd);             
                 }
+
+                //Acrecenta valor negativo aos clientes de crediário
+                daoVenda.UpdateCrediario(lblId.Text, lblSubTotal.Text);
 
                 MessageBox.Show("Venda Finalizada !");
             }
@@ -298,6 +305,7 @@ namespace Mercado_Vera
                 parcelas = "";
                 bandeira= "";
                 lblPagamento.Text = "CAIXA";
+                
 
                 dataGridView2.Rows.Clear();//limpa o datagrid e mantem o header
                 statusVenda = "Fechada";
@@ -353,7 +361,6 @@ namespace Mercado_Vera
             bandeira = cbxBandeira.Text;
             pagamento = "Débito";
             lblPagamento.Text = "DÉBITO";
-            parcelas = "";
             txtDinheiro.Text = "";
             lblCredito.Text = "0,00";
             lblTotalRec.Text = "0,00";
@@ -365,6 +372,8 @@ namespace Mercado_Vera
             lblNomeCli.Text = "CLIENTE - 1";
             cbxBandCred.Text = "";
             lblRsDinheiro.Visible = false;
+            parcelas = null;
+            bandeira = null;
         }
 
         private void txtDinheiro_KeyPress(object sender, KeyPressEventArgs e)
@@ -405,14 +414,13 @@ namespace Mercado_Vera
                 MessageBox.Show("Selecione a bandeira do cartão de Débito!");
             }          
         }
-        //botão de pagamento em dinheiro
+        //botão EscDebito
         private void button1_Click_1(object sender, EventArgs e)
         {
             panelDebito.Height = 10;
+            lblValorDebito.Text = "0,00";
             panelCredito.Height = 10;
-            pagamento = "Dinheiro";
-            parcelas = null;
-            bandeira = null;
+            cbxBandeira.Text = null; 
         }
 
         private void label31_Click(object sender, EventArgs e)
@@ -436,15 +444,22 @@ namespace Mercado_Vera
         //botão ok crédito
         private void btnOkCredito_Click(object sender, EventArgs e)
         {
+
             bandeira = cbxBandCred.Text;
 
-            if (bandeira != "")
+            if (txtParcela.Text == "" || txtParcela.Text == "0")
             {
-                panelCredito.Height = 10;
+                MessageBox.Show("Coloque um valor maior que zero na parcela !");
             }
+
+            else if (bandeira == "")
+            {
+                MessageBox.Show("Selecione a bandeira do cartão de crédito !");
+            }
+      
             else
             {
-                MessageBox.Show("Selecione a bandeira do cartão de crédito!");
+                panelCredito.Height = 10;
             }
         }
 
@@ -471,7 +486,8 @@ namespace Mercado_Vera
                 parcelas = "";
                 bandeira = "";
                 lblPagamento.Text = "CAIXA";
-
+                lblId.Text = "1";
+                lblNomeCli.Text = "CLIENTE - 1";
                 dataGridView2.Rows.Clear();//limpa o datagrid e mantem o header
                 statusVenda = "Fechada";
             }
@@ -509,6 +525,14 @@ namespace Mercado_Vera
                     PrencheProduto();
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            txtParcela.Text = "";
+            lblValorCred.Text = "0,00";
+            lblValorParcela.Text = "0,00";
+            panelCredito.Height = 10;
         }
     }
 }

@@ -92,10 +92,15 @@ namespace Mercado_Vera.Dao
             string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME, P.PROD_VALOR_VENDA FROM  TBL_PRODUTO AS P WHERE P.PROD_COD = '" + cod +"' OR P.PROD_ID =" + id;
             return conexao.CarregarVariosDados(query);
         }
-
         public void UpdateEstoque(int id, int qtd)
         {
             string query = "UPDATE TBL_PRODUTO SET PROD_QTD = PROD_QTD -" + qtd+" WHERE PROD_ID = " + id;
+            conexao.ExecutaInstrucaoNaBase(query);
+        }
+
+        public void UpdateCrediario(string id,  string valor)
+        {
+            string query = "UPDATE TBL_CLIENTE SET CLI_DIVIDA -= "+ valor.Replace(",", ".") + " WHERE CLI_ID = " + id;
             conexao.ExecutaInstrucaoNaBase(query);
         }
     }

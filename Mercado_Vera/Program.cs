@@ -1,6 +1,7 @@
 ﻿using Mercado_Vera.View.GerCliente;
 using Mercado_Vera.View.GerFornecedor;
 using Mercado_Vera.View.GerProduto;
+using Mercado_Vera.View.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace Mercado_Vera
             //FmrPesquisaFor
             //FmrEditar
             //FmrCliente
+            //FmrLogin
 
         }
     }
