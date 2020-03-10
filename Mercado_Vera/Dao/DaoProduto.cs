@@ -203,38 +203,6 @@ namespace Mercado_Vera.Dao
             string query = "SELECT DISTINCT PROD_MARCA FROM TBL_PRODUTO WHERE PROD_MARCA IS NOT NULL ORDER BY PROD_MARCA ASC";
             return conexao.CarregarDados(query);
         }
-        //METODO DE PESQUISA SIMPLES DE PRODUTO 
-        public DataTable SelectProdDel(string busca)
-        {
-            string query="";
-
-            if (busca == "")
-            {
-                query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA FROM  TBL_PRODUTO AS P "
-                     + "ORDER BY PROD_NOME ASC";
-            }
-
-            else if (busca != "")
-            {
-                query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME, P.PROD_VALOR_VENDA, P.PROD_QTD, P.PROD_MARCA FROM  TBL_PRODUTO AS P " +
-                "WHERE P.PROD_MARCA = '" + busca + "' ORDER BY PROD_NOME ASC";
-            }
-            return conexao.CarregarDados(query);
-        }
-        //METODO SIMPLES  QUE BUSCA O PRODUTO PELO NOME
-        public DataTable SelectProdNome(string nome)
-        {
-            string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA FROM  TBL_PRODUTO AS P " +
-                "WHERE P.PROD_NOME LIKE '"+nome+"%' ORDER BY PROD_NOME ASC";
-            return conexao.CarregarDados(query);
-        }
-        //METODO SIMPLES  QUE BUSCA PRODUTO PELO CÓDIGO 
-        public DataTable SelectProdCod(string codigo)
-        {
-            string query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA FROM  TBL_PRODUTO AS P " +
-                "WHERE P.PROD_COD LIKE '" + codigo + "%' ORDER BY PROD_NOME ASC";
-            return conexao.CarregarDados(query);
-        }
         public DataTable SelectProdCompleto(string busca)
         {
             string query = "";
@@ -303,6 +271,28 @@ namespace Mercado_Vera.Dao
 
             conexao.ExecutaInstrucaoNaBase(SQLquery);
         }
+        //METODO SIMPLES  QUE BUSCA O PRODUTO PELO NOME  OU CODIGO
+        public DataTable SelectProd(string nome, string cod)
+        {
+            string query = "";
 
+            if (nome == "" && cod =="")
+            {
+                query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA, F.FOR_NOME_FANT FROM " +
+                " TBL_PRODUTO AS P  INNER JOIN TBL_PROD_FORN AS PF ON PF.PROD_ID = P.PROD_ID INNER JOIN TBL_FORNECEDOR AS F ON F.FOR_ID = PF.FOR_ID  ORDER BY P.PROD_NOME ASC";
+            }
+            else if(nome != "")
+            {
+                query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA, F.FOR_NOME_FANT FROM " +
+                " TBL_PRODUTO AS P  INNER JOIN TBL_PROD_FORN AS PF ON PF.PROD_ID = P.PROD_ID INNER JOIN TBL_FORNECEDOR AS F ON F.FOR_ID = PF.FOR_ID WHERE P.PROD_NOME LIKE '" + nome + "%' ORDER BY P.PROD_NOME ASC";
+            }
+
+            else if(cod != "")
+            {
+                query = "SELECT P.PROD_ID, P.PROD_COD,P.PROD_NOME,P.PROD_VALOR, P.PROD_QTD, P.PROD_MARCA, F.FOR_NOME_FANT FROM " +
+               " TBL_PRODUTO AS P  INNER JOIN TBL_PROD_FORN AS PF ON PF.PROD_ID = P.PROD_ID INNER JOIN TBL_FORNECEDOR AS F ON F.FOR_ID = PF.FOR_ID WHERE P.PROD_COD LIKE '" + cod + "%' ORDER BY P.PROD_NOME ASC";
+            }
+            return conexao.CarregarDados(query);
+        }
     }
 }

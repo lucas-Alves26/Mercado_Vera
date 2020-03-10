@@ -1,6 +1,7 @@
 ﻿using Mercado_Vera.View.GerCliente;
 using Mercado_Vera.View.GerFornecedor;
 using Mercado_Vera.View.GerProduto;
+using Mercado_Vera.View.GerVenda;
 using Mercado_Vera.View.Login;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace Mercado_Vera
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FmrCaixa());
+            Application.Run(new PesqCliente());
             //FmrProduto
             //FmrCaixa
             //FmrPesquisa
@@ -29,6 +30,7 @@ namespace Mercado_Vera
             //FmrEditar
             //FmrCliente
             //FmrLogin
+            //FmrAbertura
 
         }
     }

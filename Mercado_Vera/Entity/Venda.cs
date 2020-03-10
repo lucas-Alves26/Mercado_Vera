@@ -43,7 +43,7 @@ namespace Mercado_Vera.Entity
                     throw new DomainExceptions("A bandeira do cartão deve ser preenchida!");
                 }
             }
-            if(parcelas == null)
+            if(parcelas == null || parcelas == "")
             {
                 parcelas = "0";
             }

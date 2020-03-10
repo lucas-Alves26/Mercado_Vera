@@ -18,10 +18,7 @@ namespace Mercado_Vera.View.GerVenda
         string busca = "";
 
         public String id;
-        //{
-        //    get { return id; }
-        //    set { id = value; }
-        //}
+
 
 
         public FmrPesqProd()
@@ -31,7 +28,7 @@ namespace Mercado_Vera.View.GerVenda
 
         private void FmrPesqProd_Load(object sender, EventArgs e)
         {
-            DgPesquisa.DataSource = daoProd.SelectProdCompleto(busca);
+            DgPesquisa.DataSource = daoProd.SelectProd(busca, busca);
         }
 
         private void cbxMarcaPes_Click(object sender, EventArgs e)
@@ -64,20 +61,20 @@ namespace Mercado_Vera.View.GerVenda
             else
             {
                 busca = txtCodigoProd.Text;
-                DgPesquisa.DataSource = daoProd.SelectProdCodCompl(busca);
+                DgPesquisa.DataSource = daoProd.SelectProd("",busca);
             }
         }
 
         private void txtCodigoPes_KeyUp(object sender, KeyEventArgs e)
         {
             busca = txtCodigoProd.Text;
-            DgPesquisa.DataSource = daoProd.SelectProdCodCompl(busca);
+            DgPesquisa.DataSource = daoProd.SelectProd("", busca);
         }
 
         private void txtCodigoPes_KeyDown(object sender, KeyEventArgs e)
         {
             busca = txtCodigoProd.Text;
-            DgPesquisa.DataSource = daoProd.SelectProdCodCompl(busca);
+            DgPesquisa.DataSource = daoProd.SelectProd("", busca);
         }
 
         private void txtNomePes_KeyPress(object sender, KeyPressEventArgs e)
@@ -97,25 +94,26 @@ namespace Mercado_Vera.View.GerVenda
             else
             {
                 busca = txtNomeProd.Text;
-                DgPesquisa.DataSource = daoProd.SelectProdNomeCompl(busca);
+                DgPesquisa.DataSource = daoProd.SelectProd(busca, "");
             }
         }
 
         private void txtNomePes_KeyDown(object sender, KeyEventArgs e)
         {
             busca = txtNomeProd.Text;
-            DgPesquisa.DataSource = daoProd.SelectProdNomeCompl(busca);
+            DgPesquisa.DataSource = daoProd.SelectProd(busca, "");
         }
 
         private void txtNomePes_KeyUp(object sender, KeyEventArgs e)
         {
             busca = txtNomeProd.Text;
-            DgPesquisa.DataSource = daoProd.SelectProdNomeCompl(busca);
+            DgPesquisa.DataSource = daoProd.SelectProd(busca, "");
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             FmrCaixa.idProd = id;
+            //FmrCaixa.qtd = "1";
             this.Close();
         }
 

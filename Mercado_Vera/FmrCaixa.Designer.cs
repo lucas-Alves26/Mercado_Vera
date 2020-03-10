@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelFinalizar = new System.Windows.Forms.Panel();
@@ -147,6 +148,7 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel3.SuspendLayout();
             this.panelFinalizar.SuspendLayout();
             this.panel26.SuspendLayout();
@@ -1576,6 +1578,11 @@
             this.panel1.Size = new System.Drawing.Size(1154, 12);
             this.panel1.TabIndex = 0;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // FmrCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1774,5 +1781,6 @@
         private System.Windows.Forms.Label lblValorParcela;
         private System.Windows.Forms.Button btnCancelarVenda;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

@@ -3,6 +3,7 @@ using Mercado_Vera.Entity;
 using Mercado_Vera.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -81,7 +82,6 @@ namespace Mercado_Vera.Dao
                     throw new DomainExceptions("Estoque do produto "+ dr["PROD_QTD"].ToString() + " , não é possivel adicionar essa quantidade!");
                 }          
         }
-
         public SqlDataReader RetornaProd(string cod, string id)
         {
             if (id == null)
@@ -97,11 +97,28 @@ namespace Mercado_Vera.Dao
             string query = "UPDATE TBL_PRODUTO SET PROD_QTD = PROD_QTD -" + qtd+" WHERE PROD_ID = " + id;
             conexao.ExecutaInstrucaoNaBase(query);
         }
-
         public void UpdateCrediario(string id,  string valor)
         {
             string query = "UPDATE TBL_CLIENTE SET CLI_DIVIDA -= "+ valor.Replace(",", ".") + " WHERE CLI_ID = " + id;
             conexao.ExecutaInstrucaoNaBase(query);
         }
+        public DataTable SelectVendaDia(string data)
+        {            
+            string query = "SELECT V.VEN_DATE, V.VEN_PAGAMENTO, V.VEN_PARCELA, V.VEN_TOTAL, V.VEN_ID, C.CLI_NOME FROM TBL_VENDA AS V "
+                + "INNER JOIN TBL_CLIENTE AS C ON C.CLI_ID = V.CLI_ID WHERE VEN_DATE = '"+data+"'";
+            return conexao.CarregarDados(query);
+        }
+        public SqlDataReader RetornaResumo(string pagamento, string date)
+        {
+            string query = "select sum(VEN_TOTAL) as VALOR from TBL_VENDA where VEN_PAGAMENTO = '"+pagamento+"' AND VEN_DATE = '"+date+"'";
+            return conexao.CarregarVariosDados(query);
+        }
+        public SqlDataReader RetornaTotal(string date)
+        {
+            string query = "select sum(VEN_TOTAL) as TOTAL from TBL_VENDA where VEN_DATE = '" + date + "'";
+            return conexao.CarregarVariosDados(query);
+        }
+
+      
     }
 }

@@ -203,7 +203,7 @@
             // 
             // PROD_VALOR_VENDA
             // 
-            this.PROD_VALOR_VENDA.DataPropertyName = "PROD_VALOR_VENDA";
+            this.PROD_VALOR_VENDA.DataPropertyName = "PROD_VALOR";
             this.PROD_VALOR_VENDA.HeaderText = "P.Venda";
             this.PROD_VALOR_VENDA.Name = "PROD_VALOR_VENDA";
             this.PROD_VALOR_VENDA.Width = 60;

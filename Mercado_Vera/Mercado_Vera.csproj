@@ -85,6 +85,12 @@
     <Compile Include="View\GerCliente\FmrCliente.Designer.cs">
       <DependentUpon>FmrCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GerCliente\PesqCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerCliente\PesqCliente.Designer.cs">
+      <DependentUpon>PesqCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GerFornecedor\FmrFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,19 +127,13 @@
     <Compile Include="View\GerProduto\FmrProduto.Designer.cs">
       <DependentUpon>FmrProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\GerProduto\tstExcluir.cs">
+    <Compile Include="View\GerVenda\FmrAbertura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\GerProduto\tstExcluir.Designer.cs">
-      <DependentUpon>tstExcluir.cs</DependentUpon>
+    <Compile Include="View\GerVenda\FmrAbertura.Designer.cs">
+      <DependentUpon>FmrAbertura.cs</DependentUpon>
     </Compile>
     <Compile Include="View\GerVenda\FmrPesqProd.cs">
       <SubType>Form</SubType>
@@ -153,14 +153,14 @@
     <EmbeddedResource Include="FmrPrincipal.resx">
       <DependentUpon>FmrPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\GerCliente\BuscaCliente.resx">
       <DependentUpon>BuscaCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GerCliente\FmrCliente.resx">
       <DependentUpon>FmrCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GerCliente\PesqCliente.resx">
+      <DependentUpon>PesqCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GerFornecedor\FmrFornecedor.resx">
       <DependentUpon>FmrFornecedor.cs</DependentUpon>
@@ -189,8 +189,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\GerProduto\tstExcluir.resx">
-      <DependentUpon>tstExcluir.cs</DependentUpon>
+    <EmbeddedResource Include="View\GerVenda\FmrAbertura.resx">
+      <DependentUpon>FmrAbertura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GerVenda\FmrPesqProd.resx">
       <DependentUpon>FmrPesqProd.cs</DependentUpon>

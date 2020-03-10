@@ -24,12 +24,18 @@ namespace Mercado_Vera
         DaoFoto daoFoto = new DaoFoto();
         ObservableCollection<ItemVenda> listaItens = new ObservableCollection<ItemVenda>();
 
+        static string statusCaixa = "Fechado";
+        public void GetStatusCaixa(string status)
+        {
+            statusCaixa = status;
+        }
+
         string statusVenda ="Fechada";
         string parcelas;
         string bandeira;
         string pagamento;
         string dataHora = DateTime.Now.ToString();
-        string qtd = "1";
+        public static string qtd = "1";
         static decimal totalprod;
         byte[] foto = new Byte[0];
         public static string cliId { get; set; }
@@ -177,14 +183,21 @@ namespace Mercado_Vera
 
         private void BtnVenda_Click(object sender, EventArgs e)
         {
-            txtBarra.Enabled = true;
-            btnQld.Enabled = true;
-            btnDel.Enabled = true;
-            btnFin.Enabled = true;
-            txtBarra.BackColor = System.Drawing.Color.LightSteelBlue;
-            txtBarra.Focus();
-            BtnVenda.Enabled = false;
-            statusVenda = "Aberta";
+            if(statusCaixa == "Fechado")
+            {
+                MessageBox.Show("Faça a abertura do caixa!", "Abertura de caixa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            if (statusCaixa == "Aberto")
+            {
+                txtBarra.Enabled = true;
+                btnQld.Enabled = true;
+                btnDel.Enabled = true;
+                btnFin.Enabled = true;
+                txtBarra.BackColor = System.Drawing.Color.LightSteelBlue;
+                txtBarra.Focus();
+                BtnVenda.Enabled = false;
+                statusVenda = "Aberta";
+            }
         }
 
         //Botão de finalizar venda da primeira tela, leva para tela de pagamento
@@ -513,16 +526,17 @@ namespace Mercado_Vera
 
         private void button4_Click(object sender, EventArgs e)
         {
+
             FmrPesqProd pesqPrd = new FmrPesqProd();
             pesqPrd.ShowDialog();
 
             if (statusVenda == "Aberta")
             {
                 idProd = pesqPrd.id;
-
                 if (idProd != null)
                 {
                     PrencheProduto();
+                    txtQtd.Text = "";
                 }
             }
         }

@@ -1,6 +1,6 @@
-
 --16/01/2020
 ------------------------------------------------------------------------------------
+/*
 USE master
 
 IF EXISTS (SELECT name FROM master.sys.databases WHERE name = 'MERCADO_01')
@@ -8,6 +8,7 @@ DROP DATABASE MERCADO_01;
 GO
 
 CREATE DATABASE MERCADO_01
+*/
 
 USE MERCADO_01
 

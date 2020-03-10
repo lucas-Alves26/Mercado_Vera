@@ -15,7 +15,6 @@ namespace Mercado_Vera.Dao
     {
         Conexao conexao = new Conexao();
 
-        
         public void CadastroCliente(Cliente cliente)
         {
             //VERIFICA SE EXISTE NOME CADASTRADO NO BANCO.
@@ -36,14 +35,14 @@ namespace Mercado_Vera.Dao
                 SqlCommand cmd2 = con.CreateCommand();
                 SqlCommand cmd3 = con.CreateCommand();
 
-                cmd1.CommandText = "INSERT INTO TBL_CLIENTE(CLI_NOME) VALUES(@NOME)";
+                cmd1.CommandText = "INSERT INTO TBL_CLIENTE(CLI_NOME, CLI_DIVIDA) VALUES(@NOME, 0,00)";
                 cmd2.CommandText = "INSERT INTO TBL_TELEFONE(TEL_DDD, TEL_FIXO, TEL_CELULAR, TEL_OPERADORA)VALUES(@DDD, @FIXO, @CEL, @OPE)";
                 cmd3.CommandText = "INSERT INTO TBL_ENDERECO(END_BAIRRO, END_RUA, END_NUMERO, END_CEP, END_COMP) VALUES(@BAIRRO,@RUA,@NUM,@CEP,@COMP)";
 
 
                 cmd1.Parameters.Add(new SqlParameter("@NOME", cliente.Nome));
 
-               
+
                 if (cliente.Telefone.Ddd == "0")
                     cmd2.Parameters.Add(new SqlParameter("@DDD", DBNull.Value));
                 else
@@ -114,10 +113,10 @@ namespace Mercado_Vera.Dao
                 {
                     con.Close();
                 }
-       
+
 
             }
-            
+
         }
         public void RelaciId()
         {
@@ -145,7 +144,6 @@ namespace Mercado_Vera.Dao
             string query = "SELECT CLI_ID, CLI_NOME FROM TBL_CLIENTE WHERE CLI_ID > 1 ORDER BY CLI_NOME ASC";
             return conexao.CarregarDados(query);
         }
-
         public DataTable SelectCliNome(string nome)
         {
             string query = "SELECT CLI_ID, CLI_NOME FROM TBL_CLIENTE " +
@@ -158,5 +156,35 @@ namespace Mercado_Vera.Dao
                 "WHERE  CLI_ID > 1 AND CLI_ID LIKE '" + id + "%' ORDER BY CLI_NOME ASC";
             return conexao.CarregarDados(query);
         }
+
+        public DataTable PesqCliente(string id, string nome)
+        {
+            string query = "";
+
+            if (id != "")
+            {
+                query = "SELECT C.CLI_ID, C.CLI_NOME, E.END_RUA, E.END_NUMERO, T.TEL_CELULAR, T.TEL_FIXO, C.CLI_DIVIDA FROM TBL_CLIENTE AS C "
+                + " INNER JOIN TBL_CLI_END  AS CE ON CE.CLI_ID = C.CLI_ID"
+                + " INNER JOIN TBL_ENDERECO AS E ON E.END_ID = CE.END_ID"
+                + " INNER JOIN TBL_TELEFONE AS T ON T.TEL_ID = C.TEL_ID WHERE  C.CLI_ID > 1 AND C.CLI_ID LIKE '" + id + "%' ORDER BY C.CLI_NOME ASC";
+            }
+            else if(nome != "")
+            {
+                query = "SELECT C.CLI_ID, C.CLI_NOME, E.END_RUA, E.END_NUMERO, T.TEL_CELULAR, T.TEL_FIXO, C.CLI_DIVIDA FROM TBL_CLIENTE AS C "
+                + " INNER JOIN TBL_CLI_END  AS CE ON CE.CLI_ID = C.CLI_ID"
+                + " INNER JOIN TBL_ENDERECO AS E ON E.END_ID = CE.END_ID"
+                + " INNER JOIN TBL_TELEFONE AS T ON T.TEL_ID = C.TEL_ID WHERE C.CLI_ID > 1 AND C.CLI_NOME LIKE '" + nome + "%' ORDER BY C.CLI_NOME ASC";
+            }
+            else
+            {
+                query = "SELECT C.CLI_ID, C.CLI_NOME, E.END_RUA, E.END_NUMERO, T.TEL_CELULAR, T.TEL_FIXO, C.CLI_DIVIDA FROM TBL_CLIENTE AS C "
+               + " INNER JOIN TBL_CLI_END  AS CE ON CE.CLI_ID = C.CLI_ID"
+               + " INNER JOIN TBL_ENDERECO AS E ON E.END_ID = CE.END_ID"
+               + " INNER JOIN TBL_TELEFONE AS T ON T.TEL_ID = C.TEL_ID WHERE C.CLI_ID > 1 ORDER BY C.CLI_NOME ASC";
+            }
+            return conexao.CarregarDados(query);
+        }
+
+
     }
 }
