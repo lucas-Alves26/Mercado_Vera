@@ -36,8 +36,6 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.CLI_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CLI_NOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RUA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +43,9 @@
             this.celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fixo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.divida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -150,27 +150,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(684, 314);
             this.dataGridView1.TabIndex = 38;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnExcluir);
-            this.panel3.Controls.Add(this.btnNovo);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 424);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(710, 74);
-            this.panel3.TabIndex = 2;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Location = new System.Drawing.Point(12, 22);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 23);
-            this.btnNovo.TabIndex = 40;
-            this.btnNovo.Text = "NOVO";
-            this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // CLI_ID
             // 
@@ -228,6 +208,17 @@
             this.divida.ReadOnly = true;
             this.divida.Width = 70;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnExcluir);
+            this.panel3.Controls.Add(this.btnNovo);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 424);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(710, 74);
+            this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
             // btnExcluir
             // 
             this.btnExcluir.Location = new System.Drawing.Point(93, 22);
@@ -236,6 +227,17 @@
             this.btnExcluir.TabIndex = 41;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(12, 22);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.TabIndex = 40;
+            this.btnNovo.Text = "NOVO";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // PesqCliente
             // 
@@ -246,6 +248,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "PesqCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PesqCliente";
             this.Load += new System.EventHandler(this.PesqCliente_Load);
             this.panel1.ResumeLayout(false);

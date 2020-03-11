@@ -35,7 +35,7 @@ namespace Mercado_Vera.Dao
                 SqlCommand cmd2 = con.CreateCommand();
                 SqlCommand cmd3 = con.CreateCommand();
 
-                cmd1.CommandText = "INSERT INTO TBL_CLIENTE(CLI_NOME, CLI_DIVIDA) VALUES(@NOME, 0,00)";
+                cmd1.CommandText = "INSERT INTO TBL_CLIENTE(CLI_NOME, CLI_DIVIDA) VALUES(@NOME, 0.00)";
                 cmd2.CommandText = "INSERT INTO TBL_TELEFONE(TEL_DDD, TEL_FIXO, TEL_CELULAR, TEL_OPERADORA)VALUES(@DDD, @FIXO, @CEL, @OPE)";
                 cmd3.CommandText = "INSERT INTO TBL_ENDERECO(END_BAIRRO, END_RUA, END_NUMERO, END_CEP, END_COMP) VALUES(@BAIRRO,@RUA,@NUM,@CEP,@COMP)";
 
@@ -118,6 +118,66 @@ namespace Mercado_Vera.Dao
             }
 
         }
+
+        public void DeleteCli(string id)
+        {
+            SqlDataReader dr = TrazTodosId(id);
+
+            string endId = dr["END_ID"].ToString();
+            string telId = dr["TEL_ID"].ToString();
+
+
+            SqlConnection con = new SqlConnection(conexao.StrConexao());
+
+            SqlCommand cmd1 = con.CreateCommand();
+            SqlCommand cmd2 = con.CreateCommand();
+            SqlCommand cmd3 = con.CreateCommand();
+            SqlCommand cmd4 = con.CreateCommand();
+
+            cmd1.CommandText = "DELETE TBL_CLI_END WHERE END_ID = " + endId;
+            cmd2.CommandText = "DELETE TBL_ENDERECO WHERE END_ID = " + endId;
+            cmd3.CommandText = "DELETE TBL_CLIENTE WHERE CLI_ID = " + id;
+            cmd4.CommandText = "DELETE TBL_TELEFONE WHERE TEL_ID = " + telId;
+
+            con.Open();
+
+            SqlTransaction tran = con.BeginTransaction();
+
+            try
+            {
+                cmd1.Transaction = tran;
+                cmd1.ExecuteNonQuery();
+                cmd2.Transaction = tran;
+                cmd2.ExecuteNonQuery();
+                cmd3.Transaction = tran;
+                cmd3.ExecuteNonQuery();
+                cmd4.Transaction = tran;
+                cmd4.ExecuteNonQuery();
+
+                tran.Commit();
+            }
+            catch (Exception)
+            {
+                tran.Rollback();
+
+                throw new DomainExceptions("Erro, ao excluir o cliente");
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public SqlDataReader TrazTodosId(string id)
+        {
+            string query = "SELECT C.CLI_ID, E.END_ID, CE.CLI_ID, T.TEL_ID FROM TBL_CLIENTE AS C "
+            +" INNER JOIN TBL_CLI_END  AS CE ON CE.CLI_ID = C.CLI_ID"
+            +" INNER JOIN TBL_ENDERECO AS E ON E.END_ID = CE.END_ID"
+            +" INNER JOIN TBL_TELEFONE AS T ON T.TEL_ID = C.TEL_ID WHERE C.CLI_ID = " + id;
+
+            SqlDataReader dr = conexao.CarregarVariosDados(query);
+
+            return dr;
+        }
         public void RelaciId()
         {
             //Traz o ultimo ID do Telefone para fazer o relacionamento
@@ -156,7 +216,6 @@ namespace Mercado_Vera.Dao
                 "WHERE  CLI_ID > 1 AND CLI_ID LIKE '" + id + "%' ORDER BY CLI_NOME ASC";
             return conexao.CarregarDados(query);
         }
-
         public DataTable PesqCliente(string id, string nome)
         {
             string query = "";

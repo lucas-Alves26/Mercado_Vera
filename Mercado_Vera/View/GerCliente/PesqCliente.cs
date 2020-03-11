@@ -1,4 +1,5 @@
 ﻿using Mercado_Vera.Dao;
+using Mercado_Vera.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace Mercado_Vera.View.GerCliente
     {
         DaoCliente daoCliente = new DaoCliente();
         string busca = "";
+        string id;
 
         public PesqCliente()
         {
@@ -34,15 +36,6 @@ namespace Mercado_Vera.View.GerCliente
         private void PesqCliente_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = daoCliente.PesqCliente("", "");
-
-
-            //DateTime data1 = DateTime.Parse(textBox1.Text);
-            //DateTime fim = DateTime.Now;
-
-            //TimeSpan ts = fim.Subtract(inicio);
-            //DateTime periodo = new DateTime(ts.Ticks);
-
-
         }
 
         private void txtNomePes_KeyDown(object sender, KeyEventArgs e)
@@ -85,6 +78,42 @@ namespace Mercado_Vera.View.GerCliente
         {
             FmrCliente fmrCliente = new FmrCliente();
             fmrCliente.ShowDialog();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (id == null)
+            {
+                MessageBox.Show("Selecione o cliente primeiro!");
+            }
+            else
+            {
+                try
+                {
+                    DialogResult confirm = MessageBox.Show("Deseja Continuar?", "Excluir Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+
+                    if (confirm.ToString().ToUpper() == "YES")
+                    {
+                        daoCliente.DeleteCli(id);
+                        dataGridView1.DataSource = daoCliente.PesqCliente("", "");
+                        MessageBox.Show("Cliente Excluido com sucesso!");
+
+                        id = null;
+                    }
+                }
+                catch (DomainExceptions ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            //ao clicar duas vezes passa o nome eo id para os txtbox
+            this.txtId.Text = Convert.ToString(this.dataGridView1.CurrentRow.Cells["CLI_ID"].Value);
+            this.txtNomePes.Text = Convert.ToString(this.dataGridView1.CurrentRow.Cells["CLI_NOME"].Value);
+            id = Convert.ToString(this.dataGridView1.CurrentRow.Cells["CLI_ID"].Value);
         }
     }
 }
