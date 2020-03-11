@@ -47,6 +47,15 @@ namespace Mercado_Vera.View.GerCliente
 
         private void txtCodigoPes_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //esse if é para aceitar, setas e apagar
+            if (e.KeyChar == 8)
+                return;
+            //se for diferente de numeros aparece a menssagem
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo aceita somente numero!");
+            }
             dataGridView1.DataSource = daoCliente.SelectCliiD(txtId.Text);
         }
 
@@ -62,6 +71,25 @@ namespace Mercado_Vera.View.GerCliente
 
         private void txtNomePes_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //esse if é para aceitar, setas e apagar
+            if (e.KeyChar == 8)
+                return;
+
+            //esse if não aceitar, os seguintes caracteres especiais
+            string caracteresPermitidos = "!@#$¨&*()_-+ºª[]{}?/|\"'¬§<>.,:;°";
+
+            if ((caracteresPermitidos.Contains(e.KeyChar.ToString().ToUpper())))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo não aceita caracteres especiais!");
+            }
+
+            //se for diferente de letras e espaço aparece a menssagem
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo aceita letras e espaços!");
+            }
             dataGridView1.DataSource = daoCliente.SelectCliNome(txtNomePes.Text);
         }
 

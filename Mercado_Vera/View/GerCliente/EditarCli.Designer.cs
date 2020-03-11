@@ -1,6 +1,6 @@
 ﻿namespace Mercado_Vera.View.GerCliente
 {
-    partial class FmrCliente
+    partial class EditarCli
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Label1 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -56,56 +52,31 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtBairro = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(592, 59);
+            this.panel1.Size = new System.Drawing.Size(575, 60);
             this.panel1.TabIndex = 0;
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel2.Controls.Add(this.btnSalvar);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 381);
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(592, 83);
+            this.panel2.Size = new System.Drawing.Size(575, 390);
             this.panel2.TabIndex = 1;
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Location = new System.Drawing.Point(485, 31);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 0;
-            this.btnSalvar.Text = "SALVAR";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.groupBox1);
-            this.panel3.Controls.Add(this.groupBox2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 59);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(592, 322);
-            this.panel3.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -119,10 +90,10 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(22, 24);
+            this.groupBox1.Location = new System.Drawing.Point(12, 24);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(538, 124);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
             // Label1
@@ -143,7 +114,6 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(473, 24);
             this.txtNome.TabIndex = 1;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // txtFixo
@@ -155,7 +125,6 @@
             this.txtFixo.Size = new System.Drawing.Size(110, 24);
             this.txtFixo.TabIndex = 12;
             this.txtFixo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtFixo.TextChanged += new System.EventHandler(this.FmrCliente_Load);
             this.txtFixo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFixo_KeyPress);
             // 
             // label3
@@ -249,10 +218,10 @@
             this.groupBox2.Controls.Add(this.txtBairro);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.groupBox2.Location = new System.Drawing.Point(22, 154);
+            this.groupBox2.Location = new System.Drawing.Point(12, 154);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(538, 132);
-            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             // 
             // txtComp
@@ -356,24 +325,42 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Bairro:";
             // 
-            // FmrCliente
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnSalvar);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 374);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(575, 76);
+            this.panel3.TabIndex = 2;
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Location = new System.Drawing.Point(475, 25);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 1;
+            this.btnSalvar.Text = "SALVAR";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // EditarCli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 464);
+            this.ClientSize = new System.Drawing.Size(575, 450);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "FmrCliente";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FmrCliente";
-            this.Load += new System.EventHandler(this.FmrCliente_Load);
+            this.Name = "EditarCli";
+            this.Text = "EditarCli";
+            this.Load += new System.EventHandler(this.EditarCli_Load);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -381,19 +368,19 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label Label1;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtFixo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCel;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbxOpe;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtCel;
         private System.Windows.Forms.TextBox txtDdd;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtComp;
         private System.Windows.Forms.Label label11;
@@ -406,6 +393,5 @@
         private System.Windows.Forms.TextBox txtBairro;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

@@ -30,10 +30,10 @@ namespace Mercado_Vera.Entity
             Endereco = endereco;
         }
 
-        public Cliente(int id, string nome, Telefone telefone, Endereco endereco) : this (nome, telefone,endereco)
+        public Cliente(string id, string nome, Telefone telefone, Endereco endereco) : this (nome, telefone,endereco)
         {
 
-            Id = id;
+            Id = int.Parse(id);
             
         }
     }

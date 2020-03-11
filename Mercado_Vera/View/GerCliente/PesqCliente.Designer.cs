@@ -46,6 +46,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.Editar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -210,6 +211,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.Editar);
             this.panel3.Controls.Add(this.btnExcluir);
             this.panel3.Controls.Add(this.btnNovo);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -238,6 +240,16 @@
             this.btnNovo.Text = "NOVO";
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // Editar
+            // 
+            this.Editar.Location = new System.Drawing.Point(184, 22);
+            this.Editar.Name = "Editar";
+            this.Editar.Size = new System.Drawing.Size(75, 23);
+            this.Editar.TabIndex = 42;
+            this.Editar.Text = "Editar";
+            this.Editar.UseVisualStyleBackColor = true;
+            this.Editar.Click += new System.EventHandler(this.Editar_Click);
             // 
             // PesqCliente
             // 
@@ -281,5 +293,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fixo;
         private System.Windows.Forms.DataGridViewTextBoxColumn divida;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button Editar;
     }
 }

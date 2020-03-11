@@ -46,6 +46,27 @@ namespace Mercado_Vera.View.GerCliente
 
         private void txtNomePes_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
+            //esse if é para aceitar, setas e apagar
+            if (e.KeyChar == 8)
+                return;
+
+            //esse if não aceitar, os seguintes caracteres especiais
+            string caracteresPermitidos = "!@#$¨&*()_-+ºª[]{}?/|\"'¬§<>.,:;°";
+
+            if ((caracteresPermitidos.Contains(e.KeyChar.ToString().ToUpper())))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo não aceita caracteres especiais!");
+            }
+
+            //se for diferente de letras e espaço aparece a menssagem
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo aceita letras e espaços!");
+            }
+
             busca = txtNomePes.Text;
             dataGridView1.DataSource = daoCliente.PesqCliente("", busca);
         }
@@ -64,6 +85,17 @@ namespace Mercado_Vera.View.GerCliente
 
         private void txtId_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //esse if é para aceitar, setas e apagar
+            if (e.KeyChar == 8)
+                return;
+            //se for diferente de numeros aparece a menssagem
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Este campo aceita somente numero!");
+            }
+
+
             busca = txtId.Text;
             dataGridView1.DataSource = daoCliente.PesqCliente(busca, "");
         }
@@ -114,6 +146,24 @@ namespace Mercado_Vera.View.GerCliente
             this.txtId.Text = Convert.ToString(this.dataGridView1.CurrentRow.Cells["CLI_ID"].Value);
             this.txtNomePes.Text = Convert.ToString(this.dataGridView1.CurrentRow.Cells["CLI_NOME"].Value);
             id = Convert.ToString(this.dataGridView1.CurrentRow.Cells["CLI_ID"].Value);
+        }
+
+        private void Editar_Click(object sender, EventArgs e)
+        {
+            if (id == null)
+            {
+                MessageBox.Show("Selecione o cliente primeiro!");
+            }
+            else
+            {
+                this.Visible = false;
+                EditarCli editarCli = new EditarCli();
+                editarCli.GetId(id);
+                editarCli.ShowDialog();
+                this.Visible = true;
+            }
+
+
         }
     }
 }

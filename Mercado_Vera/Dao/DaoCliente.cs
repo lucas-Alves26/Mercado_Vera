@@ -118,6 +118,92 @@ namespace Mercado_Vera.Dao
             }
 
         }
+        public void EditarCli(Cliente cliente)
+        {
+
+            SqlConnection con = new SqlConnection(conexao.StrConexao());
+          
+               
+            SqlCommand cmd1 = con.CreateCommand();
+            SqlCommand cmd2 = con.CreateCommand();
+            SqlCommand cmd3 = con.CreateCommand();
+
+            cmd1.CommandText = "UPDATE TBL_CLIENTE SET CLI_NOME = @NOME WHERE CLI_ID = " + cliente.Id.ToString();
+            cmd2.CommandText = "UPDATE TBL_ENDERECO SET END_BAIRRO = @BAIRRO, END_RUA = @RUA, END_NUMERO = @NUM, END_CEP = @CEP, END_COMP = @COMP WHERE  END_ID = " + cliente.Endereco.Id.ToString();
+            cmd3.CommandText = "UPDATE TBL_TELEFONE SET TEL_DDD = @DDD, TEL_CELULAR = @CEL, TEL_FIXO = @FIXO, TEL_OPERADORA = @OPE WHERE TEL_ID = " + cliente.Telefone.Id.ToString();
+
+
+            cmd1.Parameters.Add(new SqlParameter("@NOME", cliente.Nome));
+
+            if (cliente.Endereco.Bairro == "")
+                cmd2.Parameters.Add(new SqlParameter("@BAIRRO", DBNull.Value));
+            else
+                cmd2.Parameters.Add(new SqlParameter("@BAIRRO", cliente.Endereco.Bairro));
+
+            if (cliente.Endereco.Rua == "")
+                cmd2.Parameters.Add(new SqlParameter("@RUA", DBNull.Value));
+            else
+                cmd2.Parameters.Add(new SqlParameter("@RUA", cliente.Endereco.Rua));
+
+            if (cliente.Endereco.Num == -1)
+                cmd2.Parameters.Add(new SqlParameter("@NUM", DBNull.Value));
+            else
+                cmd2.Parameters.Add(new SqlParameter("@NUM", cliente.Endereco.Num));
+
+            if (cliente.Endereco.Cep == "0")
+                cmd2.Parameters.Add(new SqlParameter("@CEP", DBNull.Value));
+            else
+                cmd2.Parameters.Add(new SqlParameter("@CEP", cliente.Endereco.Cep));
+
+            if (cliente.Endereco.Comp == "")
+                cmd2.Parameters.Add(new SqlParameter("@COMP", DBNull.Value));
+            else
+                cmd2.Parameters.Add(new SqlParameter("@COMP", cliente.Endereco.Comp));
+
+            if (cliente.Telefone.Ddd == "0")
+                cmd2.Parameters.Add(new SqlParameter("@DDD", DBNull.Value));
+            else
+                cmd3.Parameters.Add(new SqlParameter("@DDD", cliente.Telefone.Ddd));
+
+            if (cliente.Telefone.Fixo == "0")
+                cmd3.Parameters.Add(new SqlParameter("@FIXO", DBNull.Value));
+            else
+                cmd3.Parameters.Add(new SqlParameter("@FIXO", cliente.Telefone.Fixo));
+
+            if (cliente.Telefone.Cel == "0")
+                cmd3.Parameters.Add(new SqlParameter("@CEL", DBNull.Value));
+            else
+                cmd3.Parameters.Add(new SqlParameter("@CEL", cliente.Telefone.Cel));
+
+            if (cliente.Telefone.Ope == "")
+                cmd3.Parameters.Add(new SqlParameter("@OPE", DBNull.Value));
+            else
+                cmd3.Parameters.Add(new SqlParameter("@OPE", cliente.Telefone.Ope));
+
+
+            con.Open();
+            SqlTransaction tran = con.BeginTransaction();
+
+            try
+            {
+                cmd1.Transaction = tran;
+                cmd1.ExecuteNonQuery();
+                cmd2.Transaction = tran;
+                cmd2.ExecuteNonQuery();
+                cmd3.Transaction = tran;
+                cmd3.ExecuteNonQuery();
+                tran.Commit();
+
+            }
+            catch (Exception)
+            {
+                tran.Rollback();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
         public void DeleteCli(string id)
         {
@@ -243,6 +329,22 @@ namespace Mercado_Vera.Dao
             }
             return conexao.CarregarDados(query);
         }
+        public SqlDataReader SelectEditarCli(string id)
+        {
+            string query = "  SELECT C.CLI_ID, C.CLI_NOME, E.END_ID, E.END_BAIRRO, E.END_RUA, E.END_NUMERO, E.END_COMP, E.END_CEP,"
+            + " T.TEL_ID , T.TEL_DDD, T.TEL_CELULAR, T.TEL_FIXO, T.TEL_OPERADORA FROM TBL_CLIENTE AS C"
+            + " INNER JOIN TBL_CLI_END  AS CE ON CE.CLI_ID = C.CLI_ID"
+            + " INNER JOIN TBL_ENDERECO AS E ON E.END_ID = CE.END_ID"
+            + " INNER JOIN TBL_TELEFONE AS T ON T.TEL_ID = C.TEL_ID WHERE C.CLI_ID = " + id;
+            return conexao.CarregarVariosDados(query);
+
+        }
+
+      
+
+
+
+
 
 
     }

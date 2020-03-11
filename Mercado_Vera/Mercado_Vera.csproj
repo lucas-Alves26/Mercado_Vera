@@ -79,6 +79,12 @@
     <Compile Include="View\GerCliente\BuscaCliente.Designer.cs">
       <DependentUpon>BuscaCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GerCliente\EditarCli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\GerCliente\EditarCli.Designer.cs">
+      <DependentUpon>EditarCli.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\GerCliente\FmrCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\GerCliente\BuscaCliente.resx">
       <DependentUpon>BuscaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\GerCliente\EditarCli.resx">
+      <DependentUpon>EditarCli.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\GerCliente\FmrCliente.resx">
       <DependentUpon>FmrCliente.cs</DependentUpon>
