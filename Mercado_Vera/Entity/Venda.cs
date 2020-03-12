@@ -27,18 +27,18 @@ namespace Mercado_Vera.Entity
         {
             if(tipoPagamento == "Crédito")
             {
-                if (bandeira == "")
+                if (bandeira == "" || bandeira == null)
                 {
                     throw new DomainExceptions("A bandeira do cartão deve ser preenchida!");
                 }
-                else if(parcelas == "")
+                else if(parcelas == "" || parcelas == null)
                 {
                     throw new DomainExceptions("o número de parcelas do cartão deve ser preenchida!");
                 }
             }
             if(tipoPagamento == "Débito")
             {
-                if(bandeira == "")
+                if(bandeira == "" || bandeira == null)
                 {
                     throw new DomainExceptions("A bandeira do cartão deve ser preenchida!");
                 }

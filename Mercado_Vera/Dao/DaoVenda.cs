@@ -119,6 +119,7 @@ namespace Mercado_Vera.Dao
             return conexao.CarregarVariosDados(query);
         }
 
+
       
     }
 }

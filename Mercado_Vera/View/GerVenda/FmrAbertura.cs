@@ -1,4 +1,5 @@
 ﻿using Mercado_Vera.Dao;
+using Mercado_Vera.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,8 +18,8 @@ namespace Mercado_Vera.View.GerVenda
         DaoVenda daoVenda = new DaoVenda();
 
         public static string status = "Fechado";
-
         string data = DateTime.Now.ToString("yyyy-MM-dd");
+        string hora = DateTime.Now.ToString("HH:mm:ss");
         public FmrAbertura()
         {
             InitializeComponent();
@@ -101,6 +102,14 @@ namespace Mercado_Vera.View.GerVenda
             lblStatus.ForeColor = System.Drawing.Color.Red;
             FmrCaixa caixa = new FmrCaixa();
             caixa.GetStatusCaixa(status);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Fechamento fechamento = new Fechamento(txtDeb.Text,txtCred.Text,txtDin.Text,txtCredia.Text,txtTotal.Text,data,hora);
+            DaoFechamento daoFechamento = new DaoFechamento();
+
+            daoFechamento.Fechamento(fechamento);
         }
     }
 }

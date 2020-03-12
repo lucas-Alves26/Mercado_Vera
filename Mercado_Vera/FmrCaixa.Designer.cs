@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelFinalizar = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.btnDinheira = new System.Windows.Forms.Button();
             this.btnCredito = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             this.btnDebito = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
             this.btnCancelarVenda = new System.Windows.Forms.Button();
@@ -148,7 +146,6 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel3.SuspendLayout();
             this.panelFinalizar.SuspendLayout();
             this.panel26.SuspendLayout();
@@ -237,7 +234,6 @@
             this.panel26.BackColor = System.Drawing.Color.AliceBlue;
             this.panel26.Controls.Add(this.btnDinheira);
             this.panel26.Controls.Add(this.btnCredito);
-            this.panel26.Controls.Add(this.button9);
             this.panel26.Controls.Add(this.btnDebito);
             this.panel26.Location = new System.Drawing.Point(268, 340);
             this.panel26.Name = "panel26";
@@ -252,7 +248,7 @@
             this.btnDinheira.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
             this.btnDinheira.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDinheira.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDinheira.Location = new System.Drawing.Point(9, 30);
+            this.btnDinheira.Location = new System.Drawing.Point(10, 6);
             this.btnDinheira.Name = "btnDinheira";
             this.btnDinheira.Size = new System.Drawing.Size(177, 23);
             this.btnDinheira.TabIndex = 7;
@@ -269,7 +265,7 @@
             this.btnCredito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
             this.btnCredito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCredito.Location = new System.Drawing.Point(9, 56);
+            this.btnCredito.Location = new System.Drawing.Point(10, 32);
             this.btnCredito.Name = "btnCredito";
             this.btnCredito.Size = new System.Drawing.Size(177, 23);
             this.btnCredito.TabIndex = 6;
@@ -277,22 +273,6 @@
             this.btnCredito.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCredito.UseVisualStyleBackColor = false;
             this.btnCredito.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.AliceBlue;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateGray;
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(9, 6);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(177, 23);
-            this.button9.TabIndex = 4;
-            this.button9.Text = "00 - Desconto";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.UseVisualStyleBackColor = false;
             // 
             // btnDebito
             // 
@@ -302,7 +282,7 @@
             this.btnDebito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
             this.btnDebito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDebito.Location = new System.Drawing.Point(9, 80);
+            this.btnDebito.Location = new System.Drawing.Point(10, 56);
             this.btnDebito.Name = "btnDebito";
             this.btnDebito.Size = new System.Drawing.Size(177, 23);
             this.btnDebito.TabIndex = 5;
@@ -1578,11 +1558,6 @@
             this.panel1.Size = new System.Drawing.Size(1154, 12);
             this.panel1.TabIndex = 0;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // FmrCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1736,7 +1711,6 @@
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Button btnDinheira;
         private System.Windows.Forms.Button btnCredito;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button btnDebito;
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.Button btnFinal;
@@ -1781,6 +1755,5 @@
         private System.Windows.Forms.Label lblValorParcela;
         private System.Windows.Forms.Button btnCancelarVenda;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
