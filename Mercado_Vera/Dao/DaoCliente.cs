@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mercado_Vera.Dao
 {
@@ -132,22 +130,41 @@ namespace Mercado_Vera.Dao
             }
 
         }
+
         public void EditarCli(Cliente cliente)
         {
-
             SqlConnection con = new SqlConnection(conexao.StrConexao());
-
 
             SqlCommand cmd1 = con.CreateCommand();
             SqlCommand cmd2 = con.CreateCommand();
             SqlCommand cmd3 = con.CreateCommand();
 
-            cmd1.CommandText = "UPDATE TBL_CLIENTE SET CLI_NOME = @NOME WHERE CLI_ID = " + cliente.Id.ToString();
+            cmd1.CommandText = "UPDATE TBL_CLIENTE SET CLI_NOME = @NOME, CLI_CPF = @CPF, CLI_RG = @RG, CLI_EMAIL = @EMAIL, CLI_STATUS = @STATUS WHERE CLI_ID = @ID";// + cliente.Id.ToString();
             cmd2.CommandText = "UPDATE TBL_ENDERECO SET END_BAIRRO = @BAIRRO, END_RUA = @RUA, END_NUMERO = @NUM, END_CEP = @CEP, END_COMP = @COMP WHERE  END_ID = " + cliente.Endereco.Id.ToString();
             cmd3.CommandText = "UPDATE TBL_TELEFONE SET TEL_DDD = @DDD, TEL_CELULAR = @CEL, TEL_FIXO = @FIXO, TEL_OPERADORA = @OPE WHERE TEL_ID = " + cliente.Telefone.Id.ToString();
 
+            #region Dados cliente
+
+            cmd1.Parameters.Add(new SqlParameter("@ID", cliente.Id.ToString()));
 
             cmd1.Parameters.Add(new SqlParameter("@NOME", cliente.Nome));
+
+            cmd1.Parameters.Add(new SqlParameter("@RG", cliente.Rg));
+
+            cmd1.Parameters.Add(new SqlParameter("@STATUS", cliente.Status));
+
+            if (cliente.Cpf == "")
+                cmd1.Parameters.Add(new SqlParameter("@CPF", DBNull.Value));
+            else
+                cmd1.Parameters.Add(new SqlParameter("@CPF", cliente.Cpf));
+
+            if (cliente.Email == "")
+                cmd1.Parameters.Add(new SqlParameter("@EMAIL", DBNull.Value));
+            else
+                cmd1.Parameters.Add(new SqlParameter("@EMAIL", cliente.Email));
+            #endregion
+
+            #region Dados Endereco
 
             if (cliente.Endereco.Bairro == "")
                 cmd2.Parameters.Add(new SqlParameter("@BAIRRO", DBNull.Value));
@@ -173,6 +190,9 @@ namespace Mercado_Vera.Dao
                 cmd2.Parameters.Add(new SqlParameter("@COMP", DBNull.Value));
             else
                 cmd2.Parameters.Add(new SqlParameter("@COMP", cliente.Endereco.Comp));
+            #endregion
+
+            #region Dados Telefone
 
             if (cliente.Telefone.Ddd == "0")
                 cmd2.Parameters.Add(new SqlParameter("@DDD", DBNull.Value));
@@ -194,6 +214,7 @@ namespace Mercado_Vera.Dao
             else
                 cmd3.Parameters.Add(new SqlParameter("@OPE", cliente.Telefone.Ope));
 
+            #endregion
 
             con.Open();
             SqlTransaction tran = con.BeginTransaction();
@@ -207,7 +228,6 @@ namespace Mercado_Vera.Dao
                 cmd3.Transaction = tran;
                 cmd3.ExecuteNonQuery();
                 tran.Commit();
-
             }
             catch (Exception)
             {
@@ -317,6 +337,7 @@ namespace Mercado_Vera.Dao
             return conexao.CarregarDados(query);
         }
 
+        //Pesquisa por ID e NOME Ger.Clientes
         public DataTable PesqCliente(string id, string nome, string status)
         {
             string query = "";
@@ -392,13 +413,12 @@ namespace Mercado_Vera.Dao
 
         public SqlDataReader SelectEditarCli(string id)
         {
-            string query = "  SELECT C.CLI_ID, C.CLI_NOME, E.END_ID, E.END_BAIRRO, E.END_RUA, E.END_NUMERO, E.END_COMP, E.END_CEP,"
+            string query = "SELECT C.CLI_ID, C.CLI_RG, C.CLI_EMAIL, C.CLI_CPF, C.CLI_NOME,C.CLI_STATUS, E.END_ID, E.END_BAIRRO, E.END_RUA, E.END_NUMERO, E.END_COMP, E.END_CEP,"
             + " T.TEL_ID , T.TEL_DDD, T.TEL_CELULAR, T.TEL_FIXO, T.TEL_OPERADORA FROM TBL_CLIENTE AS C"
             + " INNER JOIN TBL_CLI_END  AS CE ON CE.CLI_ID = C.CLI_ID"
             + " INNER JOIN TBL_ENDERECO AS E ON E.END_ID = CE.END_ID"
             + " INNER JOIN TBL_TELEFONE AS T ON T.TEL_ID = C.TEL_ID WHERE C.CLI_ID = " + id;
             return conexao.CarregarVariosDados(query);
-
         }
 
     }

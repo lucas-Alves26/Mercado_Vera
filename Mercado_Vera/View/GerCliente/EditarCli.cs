@@ -37,6 +37,10 @@ namespace Mercado_Vera.View.GerCliente
             SqlDataReader dt;
             dt = daoCliente.SelectEditarCli(id);
             txtNome.Text = dt["CLI_NOME"].ToString();
+            txtRg.Text = dt["CLI_RG"].ToString();
+            txtCpf.Text = dt["CLI_CPF"].ToString();
+            txtEmail.Text = dt["CLI_EMAIL"].ToString();
+            cbxStatus.Text = dt["CLI_STATUS"].ToString();
             txtBairro.Text = dt["END_BAIRRO"].ToString();
             txtRua.Text = dt["END_RUA"].ToString();
             txtNum.Text = dt["END_NUMERO"].ToString();

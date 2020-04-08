@@ -42,12 +42,11 @@ namespace Mercado_Vera.Entity
             Endereco = endereco;
         }
 
-        public Cliente(string id, string nome, string rg, string cpf, string email, string status, Telefone telefone, Endereco endereco) : this (nome, rg, cpf, email, telefone, endereco)
+        public Cliente(string id, string nome, string rg, string cpf, string email, string status, Telefone telefone, Endereco endereco) 
+            : this (nome, rg, cpf, email, telefone, endereco)
         {
-
             Id = int.Parse(id);
-            Status = status;
-            
+            Status = status;            
         }
     }
 }
