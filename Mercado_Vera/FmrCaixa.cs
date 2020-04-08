@@ -290,14 +290,6 @@ namespace Mercado_Vera
         //botão para finalizar a venda
         private void btnFinal_Click(object sender, EventArgs e)
         {
-            if(pagamento == "Crédito" && bandeira == null || parcelas =="0" || parcelas == "")
-            {
-                MessageBox.Show("Preencha os campos de crédito corretamente!", "Opção crédito invalida.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            if(pagamento == "Debito" && cbxBandeira.Text == null)
-            {
-                MessageBox.Show("Preencha os campos de débito corretamente!", "Opção débito invalida.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
 
             if (pagamento != null && pagamento != "")
 

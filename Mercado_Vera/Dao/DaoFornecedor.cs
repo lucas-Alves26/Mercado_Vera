@@ -13,7 +13,7 @@ namespace Mercado_Vera.Dao
 {
     class DaoFornecedor
     {
-        Conexao conexao = new Conexao();
+        Conect conexao = new Conect();
 
         public void CadastroForn(Fornecedor fornecedor)
         {

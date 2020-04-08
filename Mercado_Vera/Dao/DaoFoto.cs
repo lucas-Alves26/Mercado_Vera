@@ -12,7 +12,7 @@ namespace Mercado_Vera.Dao
 {
     class DaoFoto
     {
-        Conexao conexao = new Conexao();
+        Conect conexao = new Conect();
 
         public byte[] RetornaImg(string id)
         {

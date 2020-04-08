@@ -16,7 +16,7 @@ namespace Mercado_Vera.Dao
     {
         public Produto produto { get; set;}
 
-        public Conexao conexao = new Conexao();
+        public Conect conexao = new Conect();
 
         //metodo para cadastrar o produt o
         public void CadastroProd()

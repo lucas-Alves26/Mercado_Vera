@@ -11,7 +11,7 @@ namespace Mercado_Vera.Dao
 {
     class DaoFechamento
     {
-        Conexao conexao = new Conexao();
+        Conect conexao = new Conect();
 
         public void Fechamento(Fechamento fechamento)
         {

@@ -13,7 +13,7 @@ namespace Mercado_Vera.Dao
 {
     class DaoVenda
     {
-        Conexao conexao = new Conexao();
+        Conect conexao = new Conect();
 
         public void RegistraVenda(Venda venda)
         {

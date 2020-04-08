@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxStatus = new System.Windows.Forms.ComboBox();
             this.txtNomePes = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,16 +38,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.CLI_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CLI_RG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CLI_NOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RUA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fixo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.divida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CLI_STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Editar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.Editar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -56,32 +59,49 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(710, 91);
+            this.panel1.Size = new System.Drawing.Size(847, 91);
             this.panel1.TabIndex = 0;
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.SteelBlue;
+            this.groupBox1.Controls.Add(this.cbxStatus);
             this.groupBox1.Controls.Add(this.txtNomePes);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(479, 69);
+            this.groupBox1.Size = new System.Drawing.Size(684, 69);
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
+            // 
+            // cbxStatus
+            // 
+            this.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxStatus.FormattingEnabled = true;
+            this.cbxStatus.Items.AddRange(new object[] {
+            "Ativo",
+            "Inativo",
+            "Todos"});
+            this.cbxStatus.Location = new System.Drawing.Point(571, 34);
+            this.cbxStatus.Name = "cbxStatus";
+            this.cbxStatus.Size = new System.Drawing.Size(107, 21);
+            this.cbxStatus.TabIndex = 38;
+            this.cbxStatus.SelectedIndexChanged += new System.EventHandler(this.cbxStatus_SelectedIndexChanged);
             // 
             // txtNomePes
             // 
             this.txtNomePes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomePes.Location = new System.Drawing.Point(95, 34);
+            this.txtNomePes.Location = new System.Drawing.Point(130, 34);
             this.txtNomePes.MaxLength = 50;
             this.txtNomePes.Name = "txtNomePes";
-            this.txtNomePes.Size = new System.Drawing.Size(378, 24);
+            this.txtNomePes.Size = new System.Drawing.Size(424, 24);
             this.txtNomePes.TabIndex = 24;
             this.txtNomePes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNomePes_KeyDown);
             this.txtNomePes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomePes_KeyPress);
@@ -103,11 +123,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(92, 11);
+            this.label2.Location = new System.Drawing.Point(127, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 18);
+            this.label2.Size = new System.Drawing.Size(136, 18);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Nome do cliente";
+            this.label2.Text = "Nome do cliente:";
             // 
             // txtId
             // 
@@ -115,7 +135,7 @@
             this.txtId.Location = new System.Drawing.Point(13, 34);
             this.txtId.MaxLength = 12;
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(76, 24);
+            this.txtId.Size = new System.Drawing.Size(99, 24);
             this.txtId.TabIndex = 23;
             this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtId_KeyDown);
@@ -124,33 +144,39 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 91);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(710, 407);
+            this.panel2.Size = new System.Drawing.Size(847, 407);
             this.panel2.TabIndex = 1;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CLI_ID,
+            this.CLI_RG,
             this.CLI_NOME,
             this.RUA,
             this.numero,
             this.celular,
             this.fixo,
-            this.divida});
+            this.divida,
+            this.CLI_STATUS});
             this.dataGridView1.Location = new System.Drawing.Point(12, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 20;
-            this.dataGridView1.Size = new System.Drawing.Size(684, 314);
+            this.dataGridView1.Size = new System.Drawing.Size(823, 314);
             this.dataGridView1.TabIndex = 38;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // CLI_ID
@@ -160,6 +186,14 @@
             this.CLI_ID.Name = "CLI_ID";
             this.CLI_ID.ReadOnly = true;
             this.CLI_ID.Width = 40;
+            // 
+            // CLI_RG
+            // 
+            this.CLI_RG.DataPropertyName = "CLI_RG";
+            this.CLI_RG.HeaderText = "RG";
+            this.CLI_RG.Name = "CLI_RG";
+            this.CLI_RG.ReadOnly = true;
+            this.CLI_RG.Width = 70;
             // 
             // CLI_NOME
             // 
@@ -209,21 +243,40 @@
             this.divida.ReadOnly = true;
             this.divida.Width = 70;
             // 
+            // CLI_STATUS
+            // 
+            this.CLI_STATUS.DataPropertyName = "CLI_STATUS";
+            this.CLI_STATUS.HeaderText = "Status";
+            this.CLI_STATUS.Name = "CLI_STATUS";
+            this.CLI_STATUS.ReadOnly = true;
+            this.CLI_STATUS.Width = 70;
+            // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.SteelBlue;
             this.panel3.Controls.Add(this.Editar);
             this.panel3.Controls.Add(this.btnExcluir);
             this.panel3.Controls.Add(this.btnNovo);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 424);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(710, 74);
+            this.panel3.Size = new System.Drawing.Size(847, 74);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // Editar
+            // 
+            this.Editar.Location = new System.Drawing.Point(184, 22);
+            this.Editar.Name = "Editar";
+            this.Editar.Size = new System.Drawing.Size(75, 23);
+            this.Editar.TabIndex = 42;
+            this.Editar.Text = "Editar";
+            this.Editar.UseVisualStyleBackColor = true;
+            this.Editar.Click += new System.EventHandler(this.Editar_Click);
+            // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(93, 22);
+            this.btnExcluir.Location = new System.Drawing.Point(98, 22);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 41;
@@ -241,27 +294,17 @@
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // Editar
-            // 
-            this.Editar.Location = new System.Drawing.Point(184, 22);
-            this.Editar.Name = "Editar";
-            this.Editar.Size = new System.Drawing.Size(75, 23);
-            this.Editar.TabIndex = 42;
-            this.Editar.Text = "Editar";
-            this.Editar.UseVisualStyleBackColor = true;
-            this.Editar.Click += new System.EventHandler(this.Editar_Click);
-            // 
             // PesqCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 498);
+            this.ClientSize = new System.Drawing.Size(847, 498);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "PesqCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PesqCliente";
+            this.Text = "Ger. Clientes";
             this.Load += new System.EventHandler(this.PesqCliente_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -285,14 +328,17 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button Editar;
+        private System.Windows.Forms.ComboBox cbxStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn CLI_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CLI_RG;
         private System.Windows.Forms.DataGridViewTextBoxColumn CLI_NOME;
         private System.Windows.Forms.DataGridViewTextBoxColumn RUA;
         private System.Windows.Forms.DataGridViewTextBoxColumn numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn celular;
         private System.Windows.Forms.DataGridViewTextBoxColumn fixo;
         private System.Windows.Forms.DataGridViewTextBoxColumn divida;
-        private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button Editar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CLI_STATUS;
     }
 }

@@ -50,16 +50,16 @@ namespace Mercado_Vera.View.GerCliente
             telId = dt["TEL_ID"].ToString();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void BtnSalvar_Click_1(object sender, EventArgs e)
         {
             try
             {
-                Telefone tel = new Telefone(telId,txtDdd.Text, cbxOpe.Text, txtFixo.Text, txtCel.Text);
-                Endereco end = new Endereco(endId,txtBairro.Text, txtRua.Text, txtNum.Text, txtCep.Text, txtComp.Text);
-                Cliente cli = new Cliente(id,txtNome.Text, tel, end);
+                Telefone tel = new Telefone(telId, txtDdd.Text, cbxOpe.Text, txtFixo.Text, txtCel.Text);
+                Endereco end = new Endereco(endId, txtBairro.Text, txtRua.Text, txtNum.Text, txtCep.Text, txtComp.Text);
+                Cliente cli = new Cliente(id,txtNome.Text,txtRg.Text,txtCpf.Text,txtEmail.Text, cbxStatus.Text, tel, end);
 
                 daoCliente.EditarCli(cli);
-                
+
                 MessageBox.Show("Cadastro atualizado!");
 
             }
@@ -218,6 +218,16 @@ namespace Mercado_Vera.View.GerCliente
                 e.Handled = true;
                 MessageBox.Show("Este campo aceita letras e espaços!");
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

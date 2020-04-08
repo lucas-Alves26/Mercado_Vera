@@ -13,7 +13,7 @@ namespace Mercado_Vera.Dao
         public bool tem = false;
         public string Mensagen = "";//tudo ok.
         SqlCommand cmd = new SqlCommand();
-        Conexao con = new Conexao();
+        Conect con = new Conect();
         SqlDataReader dr;
 
         public bool verificarLogin(string login, string senha)

@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace dllDao
 {
-    public class Conexao
+    public class Conect
     {
         SqlConnection con = new SqlConnection();
 
-        public Conexao()
+        public Conect()
         {
-            con.ConnectionString = @"Data Source=NotebookLucas\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
+            con.ConnectionString = @"Data Source=DESKTOP-LUCAS\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
         }
 
         public SqlConnection Connection()
@@ -45,7 +45,7 @@ namespace dllDao
         //retorna a string de conexao para ser utilizada.
         public string StrConexao()
         {
-            return @"Data Source=NotebookLucas\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
+            return @"Data Source=DESKTOP-LUCAS\SQLEXPRESS;Initial Catalog=MERCADO_01;Integrated Security=True";
         }
             
         //Executa query simples.
@@ -135,10 +135,9 @@ namespace dllDao
         public string SelecioneId(string query)
         {
             string id;
-            Conexao conexao = new Conexao();
             string Sqlquery = query;
 
-            SqlConnection con = new SqlConnection(conexao.StrConexao());
+            SqlConnection con = new SqlConnection(StrConexao());
             SqlCommand sqlCommand = new SqlCommand(Sqlquery, con);
 
             con.Open();

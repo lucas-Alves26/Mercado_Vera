@@ -15,12 +15,13 @@ namespace Mercado_Vera.View.GerCliente
     public partial class PesqCliente : Form
     {
         DaoCliente daoCliente = new DaoCliente();
-        string busca = "";
+        string status = "Ativo";
         string id;
 
         public PesqCliente()
         {
             InitializeComponent();
+            txtNomePes.Focus();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -35,18 +36,21 @@ namespace Mercado_Vera.View.GerCliente
 
         private void PesqCliente_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = daoCliente.PesqCliente("", "");
+            dataGridView1.DataSource = daoCliente.PesqCliente("","",status);
         }
 
         private void txtNomePes_KeyDown(object sender, KeyEventArgs e)
         {
-            busca = txtNomePes.Text;
-            dataGridView1.DataSource = daoCliente.PesqCliente("", busca);
+            if (cbxStatus.Text != "")
+            {
+                status = cbxStatus.Text;
+            }
+
+            dataGridView1.DataSource = daoCliente.PesqCliente("",txtNomePes.Text,status);
         }
 
         private void txtNomePes_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
+        {         
             //esse if é para aceitar, setas e apagar
             if (e.KeyChar == 8)
                 return;
@@ -66,21 +70,31 @@ namespace Mercado_Vera.View.GerCliente
                 e.Handled = true;
                 MessageBox.Show("Este campo aceita letras e espaços!");
             }
+            if (cbxStatus.Text != "")
+            {
+                status = cbxStatus.Text;
+            }
 
-            busca = txtNomePes.Text;
-            dataGridView1.DataSource = daoCliente.PesqCliente("", busca);
+            dataGridView1.DataSource = daoCliente.PesqCliente("", txtNomePes.Text, status);
         }
 
         private void txtNomePes_KeyUp(object sender, KeyEventArgs e)
         {
-            busca = txtNomePes.Text;
-            dataGridView1.DataSource = daoCliente.PesqCliente("", busca);
+            if (cbxStatus.Text != "")
+            {
+                status = cbxStatus.Text;
+            }
+            dataGridView1.DataSource = daoCliente.PesqCliente("", txtNomePes.Text, status);
         }
 
         private void txtId_KeyDown(object sender, KeyEventArgs e)
         {
-            busca = txtId.Text;
-            dataGridView1.DataSource = daoCliente.PesqCliente(busca,"");
+            if (cbxStatus.Text != "")
+            {
+                status = cbxStatus.Text;
+            }
+
+            dataGridView1.DataSource = daoCliente.PesqCliente(txtId.Text,"", status);
         }
 
         private void txtId_KeyPress(object sender, KeyPressEventArgs e)
@@ -95,21 +109,31 @@ namespace Mercado_Vera.View.GerCliente
                 MessageBox.Show("Este campo aceita somente numero!");
             }
 
+            if (cbxStatus.Text != "")
+            {
+                status = cbxStatus.Text;
+            }
 
-            busca = txtId.Text;
-            dataGridView1.DataSource = daoCliente.PesqCliente(busca, "");
+            dataGridView1.DataSource = daoCliente.PesqCliente(txtId.Text, "", status);
         }
 
         private void txtId_KeyUp(object sender, KeyEventArgs e)
         {
-            busca = txtId.Text;
-            dataGridView1.DataSource = daoCliente.PesqCliente(busca, "");
+            if (cbxStatus.Text != "")
+            {
+                status = cbxStatus.Text;
+            }
+
+            dataGridView1.DataSource = daoCliente.PesqCliente(txtId.Text, "", status);
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            FmrCliente fmrCliente = new FmrCliente();
+            this.Visible = false;
+            FmrCliente fmrCliente = new FmrCliente();  
             fmrCliente.ShowDialog();
+            dataGridView1.DataSource = daoCliente.PesqCliente("", "", status = "Ativo");
+            this.Visible = true;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -127,7 +151,7 @@ namespace Mercado_Vera.View.GerCliente
                     if (confirm.ToString().ToUpper() == "YES")
                     {
                         daoCliente.DeleteCli(id);
-                        dataGridView1.DataSource = daoCliente.PesqCliente("", "");
+                        dataGridView1.DataSource = daoCliente.PesqCliente("", "",status);
                         MessageBox.Show("Cliente Excluido com sucesso!");
 
                         id = null;
@@ -152,7 +176,7 @@ namespace Mercado_Vera.View.GerCliente
         {
             if (id == null)
             {
-                MessageBox.Show("Selecione o cliente primeiro!");
+                MessageBox.Show("Selecione o cliente primeiro!","Selecione o cliente");
             }
             else
             {
@@ -160,10 +184,26 @@ namespace Mercado_Vera.View.GerCliente
                 EditarCli editarCli = new EditarCli();
                 editarCli.GetId(id);
                 editarCli.ShowDialog();
+                dataGridView1.DataSource = daoCliente.PesqCliente("", "", status = "Ativo");
                 this.Visible = true;
             }
+        }
 
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            //ao clicar duas vezes passa o nome eo id para os txtbox
+            this.txtId.Text = Convert.ToString(this.dataGridView1.CurrentRow.Cells["CLI_ID"].Value);
+            this.txtNomePes.Text = Convert.ToString(this.dataGridView1.CurrentRow.Cells["CLI_NOME"].Value);
+            id = Convert.ToString(this.dataGridView1.CurrentRow.Cells["CLI_ID"].Value);
+        }
 
+        private void cbxStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxStatus.Text != "")
+            {
+                status = cbxStatus.Text;
+                dataGridView1.DataSource = daoCliente.PesqCliente("", "", status);
+            }         
         }
     }
 }
